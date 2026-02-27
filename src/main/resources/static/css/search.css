@@ -1,0 +1,670 @@
+@keyframes Spectrum-Circle-Container-rotate {
+    0% { transform: rotate(-90deg); }
+    100% { transform: rotate(270deg); }
+}
+
+@keyframes Spectrum-Circle-Fill-rotate1 {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a, div {
+    text-decoration: none;
+}
+
+.Main-Layout {
+    background-color: white;
+}
+
+/* 검색 결과 상단 부분 */
+.SearchPage-Wrapper {
+    background: rgb(255, 255, 255);
+    padding: 0px 0px 40px;
+    border-bottom: 1px solid rgb(245, 245, 245);
+
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    color: #3d3d3d;
+}
+
+.SearchPage-Container {
+    display: flex;
+    width: 100%;
+}
+
+.SearchPage-InnerWrapper {
+    display: flex;
+    width: 100%;
+    margin: 0px auto;
+    max-width: 1158px;
+    flex-direction: column;
+    gap: 8px;
+    padding: 40px 0px 0px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.SearchPage-SearchResult {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.SearchPage-SearchRelation {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0px;
+}
+
+.SearchRelation-Label {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+}
+
+.SearchRelation-ChipList {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex: 1 1 0%;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+}
+
+.SearchRelation-Chip {
+    outline: 0;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 120%;
+    background-color: rgb(248, 248, 248);
+    color: rgb(84, 84, 84);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+.SearchRelation-Chip:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+/* 검색 결과 필터 부분 */
+.SearchPage-FilterWrapper {
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.SearchPage-FilterContainer {
+    height: 100%;
+    display: flex;
+    position: relative;
+    margin: 0px auto;
+    width: 1160px;
+    align-items: center;
+    padding: 0px 6px 0px 0px !important;
+}
+
+.Filter-Layout {
+    margin-top: 24px;
+    width: 100%;
+    position: relative;
+    z-index: 99;
+}
+
+.Filter-OptionWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.Filter-OptionContainer {
+    display: flex;
+    padding-left: 0px;
+    gap: 10px;
+    scrollbar-width: none;
+}
+
+.Clearance {
+    display: flex;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+    height: 36px;
+    padding: 9.5px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid rgb(228, 228, 228);
+    color: rgb(28, 28, 28);  
+    cursor: pointer;
+}
+
+.isClicked {
+    border: 2px solid rgb(86 205 40);
+}
+
+.OptionButton-Content {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    white-space: nowrap;
+}
+
+.Option-DropDown {
+    position: relative;
+}
+
+.Option-Trigger {
+    cursor: pointer;
+}
+
+.Trigger-Button {
+    display: flex;
+    height: 36px;
+    padding: 9.5px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid rgb(228, 228, 228);
+    color: rgb(28, 28, 28);
+    outline: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+    cursor: pointer;
+}
+
+button[name=market] {
+    display: none;
+}
+
+button[name=c-category] {
+    display: none;
+}
+
+.Trigger-Text {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    white-space: nowrap;
+}
+
+.Trigger-Arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Trigger-Arrow-svg {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+}
+
+.DropDown-Container {
+    position: absolute;
+    display: none;
+    background: white;
+    top: 41px;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    width: 175px;
+    height: 200px;
+    overflow-y: hidden;
+    overflow: scroll;
+    scrollbar-width: none;
+    border: 1px solid rgb(240, 240, 240);
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 8px, rgba(0, 0, 0, 0.1) 0px 1px 0px;
+}
+
+.DropDown-Button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: rgb(255, 255, 255);
+    color: rgb(61, 61, 61);
+    font-weight: 400;
+    padding: 0px 0px 0px 19px;
+    width: 100%;
+    height: 44px;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    cursor: pointer;
+}
+
+.DropDown-Button:hover {
+    background: rgb(241, 241, 241);
+}
+
+.isChecked {
+    transform: rotate(180deg);
+}
+
+.clicked {
+    display: block;
+}
+
+/* 검색 결과 상품 목록 부분 */
+.SearchResult-Wrapper {
+    position: relative;
+    width: 1160px;
+    height: auto;
+    min-height: 150px;
+    margin: 0px auto;
+    margin-bottom: 0px;
+}
+
+.InfinityScroll-ResultWrapper {
+    color: rgb(51, 51, 51);
+}
+
+.InfinityScroll-ResultCount {
+    width: 100%;
+    font-size: 16px;
+    line-height: 27px;
+    margin: 0px auto;
+    padding: 16px 20px 12px 0px;
+    letter-spacing: -0.08px;
+}
+
+.InfinityScroll-ResultCount span {
+    color: rgb(255, 87, 87);
+}
+
+.InfinityScroll-ResultItemList {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: flex-start;
+    margin: 0px -10px;
+    padding: 0px;
+
+}
+
+/* 검색 결과 상품 카드 부분 */
+.InfinityScroll-ItemCardWrapper {
+    width: 25%;
+    padding: 20px 10px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.ItemCard-Wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    min-width: 136px;
+    transition: width 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform-origin: center center;
+}
+
+.ItemCard-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.ItemCard-ImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 auto;
+    aspect-ratio: 1 / 1;
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+    border-radius: 8px;
+    transform-origin: center center;
+}
+
+.ItemCard-Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.2s ease-in-out;
+    max-width: 100%;
+}
+
+.like-Button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0px;
+    background: none;
+    border: none;
+    width: 60px;
+    height: 60px;
+    bottom: 2px;
+    right: 2px;
+    cursor: pointer;
+}
+
+.ItemCard-Content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    margin-top: 12px;
+    margin-left: 0px;
+    padding: 0px 4px;
+}
+
+.ItemCard-ItemInfo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
+    flex-grow: 1;
+}
+
+.ItemCard-MainContent {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    align-items: center;
+    text-align: center;
+}
+
+.ItemCard-MarketInfo {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(84, 84, 84);
+}
+
+.ItemCard-SellerInfo {
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 120%;
+    color: rgb(100, 100, 100);
+}
+
+.ItemCard-InfoWrapper {
+    min-height: 80px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.ItemCard-Title {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+    margin-bottom: 6px;
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ItemCard-Description {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 150%;
+    color: rgb(109, 109, 109);
+    display: flex;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ItemCard-PriceInfo {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 87, 87);
+}
+
+.ItemCard-UnderBar {
+    width: 100%;
+    height: 3px;
+    margin-top: 8px;
+    border-radius: 3px;
+    background-color: rgb(255, 87, 87);
+}
+
+.ItemCard-ButtonWrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.ItemCard-Button {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    background-color: white;
+    padding: 12px 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.DeliTracking, .ReviewWrite, .ReviewCheck {
+    border: 1px solid rgb(109, 109, 109);
+    color: rgb(109, 109, 109);
+}
+
+.DeliTracking:hover, .ReviewWrite:hover, .ReviewCheck:hover {    background-color: rgb(109, 109, 109);
+    color: white;
+}
+
+.Cancel {
+    border: 1px solid rgb(255, 87, 87);
+    color: rgb(255, 87, 87);
+}
+
+.Cancel:hover {
+    background-color: rgb(255, 87, 87);
+    color: white;
+}
+
+/* 뱃지 관련 */
+.ItemCard-BadgeWrapper {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    height: 18px;
+    margin-bottom: 8px;
+    margin-top: 4px;
+}
+
+.Info-badge {
+    color: rgb(84, 84, 84);
+    background-color: rgb(240, 240, 240);
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 120%;
+    height: 18px;
+    white-space: nowrap;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 4px;
+    border-radius: 2px;
+}
+
+.delivery {
+    color: rgb(255, 255, 255);
+    background-color: rgb(121, 136, 255);
+}
+
+/* 빈 상품 카드 부분 */
+.gray {
+    background: linear-gradient(90deg, rgb(240, 240, 240) 25%, rgb(224, 224, 224) 50%, rgb(240, 240, 240) 75%) 0% 0% / 200% 100%;
+    border-radius: 4px;
+}
+
+.SkeletonCard-Wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 136px;
+}
+
+.SkeletonCard-Image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+}
+
+.SkeletionCard-Content {
+    width: 100%;
+    margin-top: 8px;
+    margin-left: 0px;
+    padding: 0px 4px;
+}
+
+.SkeletionCard-MarketInfo {
+    width: 30%;
+    height: 16px;
+    margin-bottom: 4px;
+}
+
+.SkeletionCard-Title {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 4px;
+}
+
+.SkeletionCard-Percent {
+    width: 40%;
+    height: 16px;
+}
+
+/* 최하단 로딩 프로세스 부분 */
+.LoadingProcess-Wrapper {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    margin: 32px 0px;
+}
+
+.LoadingProcess-InnerWrapper {
+    position: relative;
+}
+
+.LoadingProcess-Container {
+    position: relative;
+}
+
+.Spectrum-Circle-Track {
+    box-sizing: border-box;
+    border-radius: 100%;
+    border-style: solid;
+    width: 32px;
+    height: 32px;
+    border-width: 4px;
+    border-color: rgb(228, 228, 228);
+}
+
+.Spectrum-Circle-Fills {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    animation: 1s cubic-bezier(0.25, 0.78, 0.48, 0.89) 0s infinite normal none running Spectrum-Circle-Container-rotate;
+    transform-origin: center center;
+}
+
+.Spectrum-Circle-FillMask1, .Spectrum-Circle-FillMask2 {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% center;
+    transform: rotate(180deg);
+    overflow: hidden;
+}
+
+.Spectrum-Circle-FillSubMask1, .Spectrum-Circle-FillSubMask2 {
+    width: 100%;
+    height: 100%;
+    transform-origin: 100% center;
+    overflow: hidden;
+}
+
+.Spectrum-Circle-FillSubMask1 {
+    will-change: transform;
+    animation: 1s linear 0s infinite normal none running Spectrum-Circle-Fill-rotate1;
+}
+
+.Spectrum-Circle-FillSubMask1 {
+    will-change: transform;
+    animation: 1s linear 0s infinite normal none running Spectrum-Circle-Fill-rotate2;
+}
+
+.Spectrum-Circle-Fill {
+    box-sizing: border-box;
+    border-style: solid;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    border-width: 4px;
+    border-color: rgb(109, 109, 109);
+}
+
+/* 모달 부분 */
+.Modal-Wrapper {
+    position: absolute;
+    width: auto;
+    z-index: 700;
+    left: 0px;
+    top: 0px;
+}
+
+.Modal-Container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8); /* 배경색 예시 */
+    min-width: 285px;
+    max-width: 35%;
+    border-radius: 4px;
+    padding: 11px 32px 13px;
+    text-align: center;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s;
+    z-index: 1000;
+}
+
+.Modal-Container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.off {
+    display: none;
+}

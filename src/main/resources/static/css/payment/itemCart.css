@@ -1,0 +1,388 @@
+.ItemCart-Layout {
+    height: 100%;
+    background-color: white;
+}
+
+.ItemCart-HeaderWrapper {
+    width: 100%;
+    height: 58px;
+    background-color: white;
+    box-shadow: rgba(10, 10, 10, 0.1) 0px 1px 2px 0px;
+}
+
+.ItemCart-HeaderContainer {
+    display: flex;
+    width: 100%;
+    max-width: 1160px;
+    height: 100%;
+    margin: 0px auto;
+    padding: 0px;
+    gap: 10px;
+}
+
+.ItemCart-Logo {
+    width: 115px;
+    height: 30px;
+}
+
+.ItemCart-Logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ItemCart-HeaderText {
+    color: rgb(28, 28, 28);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 150%;
+    margin: 0.67em 0;
+    margin-left: 20px;
+}
+
+.ItemCart-ItemContainer {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1160px;
+    min-height: 640px;
+    margin: 0px auto;
+    margin-bottom: 7px;
+    padding: 24px 0px;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.ItemCart-ItemListWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+/* 상품 담기는 부분 */
+.ItemCart-ItemList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 750px;
+    height: auto;
+    margin: 0px 32px 0px 0px;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    padding-top: 0px !important;
+}
+
+.ItemList-ItemContainer {
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 15px;
+    padding: 32px 26px 26px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-self: center;
+    gap: 10px;
+}
+
+.selected {
+    border: 1px solid rgb(248, 100, 83);
+}
+
+.ItemCart-ItemImage {
+    width: 120px;
+    height: 120px;
+    margin-right: 24px;
+    border-radius: 8px;
+}
+
+.ItemCart-ItemImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ItemCart-ItemInfo {
+    flex: 1 1 0%;
+}
+
+.ItemCart-ItemSeller {
+    color: rgb(158, 158, 158);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.ItemCart-ItemTitle {
+    color: rgb(28, 28, 28);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 6px 2px 0px 0px;
+    line-height: 120%;
+}
+
+.ItemCart-ItemTitle span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ItemCart-ItemOption {
+    color: rgb(158, 158, 158);
+    font-size: 14px;
+    padding-top: 4px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.ItemCart-ItemPrice { 
+    color: rgb(248, 100, 83);
+    text-align: right;
+    font-size: 18px;
+    padding-top: 4px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.ItemCart-ItemFee {
+    color: rgb(158, 158, 158);
+    text-align: right;
+    font-size: 12px;
+    padding-top: 4px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.ItemCart-ItemButton {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 0.4 0 0;
+    padding: 0px 10px;
+}
+
+.Button-Wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.Button-Container {
+    width: 100%;
+    display: flex;
+}
+
+.Remove {
+    justify-content: flex-end;
+}
+
+.Count {
+    justify-content: center;
+    margin: 25px auto;
+}
+
+.Select {
+    justify-content: center;
+    margin: 0px auto;   
+}
+
+.Button-RemoveBtn {
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.Button-MinusBtn {
+    padding-top: 4px;
+    background-color: white;
+    border: 1px solid rgb(158, 158, 158);
+    cursor: pointer;
+    outline: none;
+}
+
+.Button-MinusBtn:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.Button-Current {
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    border-top: 1px solid rgb(158, 158, 158);
+    border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+.Button-PlusBtn {
+    padding-top: 4px;
+    background-color: white;
+    border: 1px solid rgb(158, 158, 158);
+    cursor: pointer;
+    outline: none;
+}
+
+.Button-PlusBtn:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.Button-SelectBtn {
+    width: 90%;
+    padding: 6px 4px;
+    background: none;
+    border: 1px solid rgb(248, 100, 83);
+    border-radius: 5px;
+    color: rgb(248, 100, 83);
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.clicked {
+    color: white;
+    background: rgb(248, 100, 83);
+    border: none;
+}
+
+.Button-SelectBtn:hover {
+    color: white;
+    background: rgba(248, 100, 83, 0.5);
+}
+
+/* 상품 결제 버튼 부분 */
+.ItemCart-Purchase {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.Purchase-Wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 38px;
+}
+
+.Purchase-TotalPrice {
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+}
+
+.Price-Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.Total {
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.Calc {
+    flex-direction: column;
+    margin: 0px 20px;
+}
+
+.Price-Text {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(248, 100, 83);
+    line-height: 27px;
+}
+
+.Price-Price {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(61, 61, 61);
+    line-height: 27px;
+}
+
+.Price-ItemCount {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px dotted rgb(119, 119, 119);
+}
+
+.Price-ItemCount .Price-Text {
+    color: rgb(28, 28, 28);
+}
+
+.Price-ItemCount .Price-Text span {
+    color: rgb(248, 100, 83);
+}
+
+.Price-Calc {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.total .Price-Text {
+    color: rgb(28, 28, 28);
+}
+
+.fee .Price-Text {
+    color: rgb(28, 28, 28);
+}
+
+.discount .Price-Text,.discount .Price-Price {
+    color:rgb(125, 179, 255);
+}
+
+.Price-TotalPrice {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dotted rgb(119, 119, 119);
+}
+
+.ItemCart-ResetButton {
+    margin-top: 20px;
+    padding: 10px 4px;
+    border-radius: 5px;
+    color: rgb(158, 158, 158);
+    border: 1px solid rgb(158, 158, 158);
+    background: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ItemCart-ResetButton:hover {
+    color: white;
+    border: none;
+    background: rgb(158, 158, 158);
+}
+
+.ItemCart-SubmitButton {
+    margin-top: 20px;
+    padding: 10px 4px;
+    border-radius: 5px;
+    color: rgb(125, 179, 255);
+    border: 1px solid rgb(125, 179, 255);
+    background: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ItemCart-SubmitButton:hover {
+    border: none;
+    background-color: rgba(125, 179, 255, 0.5);
+    color: white;
+}

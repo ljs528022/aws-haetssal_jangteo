@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.ItemDetailMapper">
+    <select id="selectById">
+        select
+            id,
+            item_name,
+            item_price,
+            item_stock,
+            item_delivery_fee,
+            item_content,
+            item_view_count,
+            itemCategoryName,
+            itemSubCategoryName,
+            storeItemCount,
+            storeId,
+            store_name,
+            store_score,
+            ownerLatestLogin,
+            storeProfilePath,
+            storeProfileName,
+            storeProfileOriginName
+        from vw_item_detail
+        where id = #{id}
+    </select>
+
+    <select id="countSameStoreItem">
+        select count(*)
+        from tbl_item i
+        join tbl_store s on i.item_store_id = s.id
+        where i.id = #{id}
+        and i.item_state = 'active';
+    </select>
+    
+</mapper>

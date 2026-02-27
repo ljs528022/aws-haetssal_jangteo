@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.SellerMapper">
+    <insert id="insert">
+        insert into tbl_seller (id, seller_bank_name, seller_depositor, seller_account_number)
+        values (#{id}, #{sellerBankName}, #{sellerDepositor}, #{sellerAccountNumber})
+    </insert>
+    <insert id="insertOauth">
+        insert into tbl_auth(id, auth_provider)
+        values (#{id}, #{authProvider})
+    </insert>
+<!--    <select id="selectByEmail">-->
+<!--        select-->
+<!--            u.user_email, u.user_password, u.user_phone, u.user_name,-->
+<!--            s.id, s.seller_bank_name, s.seller_depositor, s.seller_account_number, s.seller_state-->
+<!--        from tbl_user u join tbl_seller s-->
+<!--        on u.id = s.id-->
+<!--    </select>-->
+<!--    <select id="selectSellerForLogin">-->
+<!--        select id, user_email, user_password, user_phone, user_type, user_name, user_intro, user_visit_count, user_latest_login, user_state, created_datetime, updated_datetime-->
+<!--        from tbl_user-->
+<!--        where user_email = #{userEmail} and user_password = #{userPassword}-->
+<!--    </select>-->
+</mapper>

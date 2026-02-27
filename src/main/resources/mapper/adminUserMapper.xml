@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.AdminUserMapper">
+    <sql id="search">
+        <trim prefix="(" prefixOverrides="and" suffix=")">
+            <if test="search.keyword != null and search.keyword != ''">
+                and (user_name like concat('%', #{search.keyword}, '%')
+                  or user_email like concat('%', #{search.keyword}, '%'))
+            </if>
+            <if test="search.userType != null and search.userType != ''">
+                and user_type = #{search.userType}
+            </if>
+            <if test="search.userState != null and search.userState != ''">
+                and user_state = #{search.userState}
+            </if>
+        </trim>
+    </sql>
+
+    <select id="selectAll">
+        select id, user_email, user_password, user_phone, user_type, user_name,
+               user_intro, user_visit_count, user_latest_login, user_state,
+               created_datetime, updated_datetime
+        from tbl_user
+        <where>
+            <include refid="search"/>
+        </where>
+        order by id desc
+        limit #{criteria.count} offset #{criteria.offset}
+    </select>
+
+    <select id="selectTotal">
+        select count(*)
+        from tbl_user
+        <where>
+            <include refid="search"/>
+        </where>
+    </select>
+
+    <update id="update">
+        update tbl_user
+        set user_name = #{userName},
+            user_email = #{userEmail},
+            user_phone = #{userPhone},
+            user_type = #{userType},
+            user_state = #{userState},
+            updated_datetime = current_timestamp
+        where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/payment/itemCart.css">
+</head>
+<body>
+    <main class="ItemCart-Layout">
+        <div class="ItemCart-HeaderWrapper">
+            <div class="ItemCart-HeaderContainer">
+                <a href="/">
+                    <div class="ItemCart-Logo">
+                        <img src="/images/haetsal-jangteo-logo.svg" alt="Logo">
+                    </div>
+                </a>
+                <h1 class="ItemCart-HeaderText">장바구니</h1>
+            </div>
+
+            <div th:object="${cartItems}" class="ItemCart-BodyWrapper">
+                <div class="ItemCart-BodyContainer">
+                    <div class="ItemCart-ItemContainer">
+                        <!-- 상품 담기는 부분 -->
+                        <div class="ItemCart-ItemListWrapper">
+                            <!-- 담긴 상품 박스 부분 -->
+                            <!--  -->
+                            <div th:each="cartItem : ${cartItems}" class="ItemCart-ItemList">
+                                <div class="ItemList-ItemContainer">
+                                    <!-- 상품 이미지 부분 -->
+                                    <div class="ItemCart-ItemImage">
+                                        <img th:src="@{/api/files/display(filePath=${cartItem.fileSavedPath}, fileName=${cartItem.fileName})}" alt="">
+                                    </div>
+
+                                    <!-- 상품 정보 부분 -->
+                                    <div class="ItemCart-ItemInfo">
+                                        <!-- 상품 카테고리 + 가게 이름 -->
+                                        <div class="ItemCart-ItemSeller">
+                                            <span name="item-category" th:text="${cartItem.subCategoryName != null ? cartItem.subCategoryName : cartItem.categoryName}"></span>
+                                            |
+                                            <span name="item-market" th:text="${cartItem.storeName}"></span>
+                                        </div>
+
+                                        <!-- 상품 이름 -->
+                                        <div class="ItemCart-ItemTitle">
+                                            <span name="item-title" th:data-id="${cartItem.itemId}" th:text="${cartItem.itemName}"></span>
+                                        </div>  
+
+                                        <!-- 상품 옵션 -->
+                                        <div class="ItemCart-ItemOption">
+                                            <span name="item-option" th:text="${cartItem.itemOption}"></span>
+                                        </div>  
+
+                                        <!-- 상품 가격 -->
+                                        <div class="ItemCart-ItemPrice">
+                                            <span name="item-price" th:text="${cartItem.itemPrice}"></span> 원
+                                        </div>
+                                        <!-- 배송비 가격 -->
+                                        <div class="ItemCart-ItemFee">
+                                            배송비 <span name="item-fee" th:text="${cartItem.itemDeliveryFee}"></span> 원
+                                        </div>
+
+                                    </div>
+
+                                    <div class="ItemCart-ItemButton">
+                                        <div class="Button-Wrapper">
+                                            <div class="Button-Container Remove">
+                                                <button th:data-id="${cartItem.id}" class="Button-RemoveBtn" type="button">
+                                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.064 7.8927L2.13314 0L0.0311185 2.09192L7.96193 9.98462L0 17.9083L2.10202 20.0002L10.064 12.0765L17.8983 19.8732L20.0003 17.7813L12.166 9.98462L19.9692 2.21889L17.8672 0.126967L10.064 7.8927Z" fill="#3D3D3D"></path></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="Button-Wrapper">
+                                            <div class="Button-Container Count">
+                                                <button class="Button-MinusBtn" type="button">
+                                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320z"/></svg>
+                                                </button>
+                                                <span class="Button-Current" th:text="${cartItem.itemCount}"></span>
+                                                <button class="Button-PlusBtn" type="button">
+                                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"/></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="Button-Wrapper">
+                                            <div class="Button-Container Select">
+                                                <button class="Button-SelectBtn" type="button">선택</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  -->
+
+                        </div>
+
+                        <!-- 구매하기 부분 -->
+                        <div class="ItemCart-Purchase">
+                            <!-- 결제 금액 부분 -->
+                            <div class="Purchase-Wrapper">
+                                <div class="Purchase-TotalPrice">
+                                    <!-- 최종 결제 금액 -->
+                                    <div class="Price-Wrapper Total">
+                                        <div class="Price-Text">최종 결제 금액</div>
+                                        <div class="Price-Price">
+                                            <!-- 여기에 모든 총 결제 금액 표시해야 함 -->
+                                            <span name="total-price">0</span>
+                                            원
+                                        </div>
+                                    </div>
+
+                                    <!-- 금액 계산 부분 -->
+                                    <div class="Price-Wrapper Calc">
+                                        <div class="Price-ItemCount">
+                                            <div class="Price-Text">
+                                                최종 상품
+                                                <!-- 여기에 선택된 상품 개수 표시 -->
+                                                <span name="total-itemCount">0</span>
+                                                개
+                                            </div>
+                                        </div>
+                                        <div class="Price-Calc total">
+                                            <div class="Price-Text">상품 합산 금액</div>
+                                            <div class="Price-Price">
+                                                <!-- 여기에 선택된 상품의 합산 결제 금액 표시해야 함 -->
+                                                <span name="total-sumPrice">0</span>
+                                                원
+                                            </div>
+                                        </div>
+
+                                        <div class="Price-Calc fee">
+                                            <div class="Price-Text">배송비</div>
+                                            <div class="Price-Price">
+                                                <!-- 여기에 선택된 상품의 배송비 총합산 금액 표시해야 함 -->
+                                                +
+                                                <span name="total-totalFee">0</span>
+                                                원
+                                            </div>
+                                        </div>
+                                        <div class="Price-Calc discount">
+                                            <div class="Price-Text">할인</div>
+                                            <div class="Price-Price">
+                                                <!-- 여기에 선택된 상품의 할인 총합산 금액 표시해야 함 -->
+                                                -
+                                                <span name="total-discount">0</span>
+                                                원
+                                            </div>
+                                        </div>
+
+                                        <div class="Price-TotalPrice">
+                                            <div class="Price-Text">예상 결제 금액</div>
+                                            <div class="Price-Price">
+                                                <!-- 여기에 선택된 상품들의 합산 결제 금액 표시해야 함 -->
+                                                <span name="total-purPrice">0</span>
+                                                원
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 장바구니 비우기 버튼 -->
+                            <button th:id="${cartId}" class="ItemCart-ResetButton" type="button">장바구니 비우기</button>
+
+                            <!-- 결제 버튼 -->
+                            <button class="ItemCart-SubmitButton" type="button">구매하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script src="/js/payment/event/itemCart.js"></script>
+<script src="/js/payment/service/itemCartService.js"></script>
+<script src="https://js.bootpay.co.kr/bootpay-5.2.8.min.js" type="application/javascript"></script>
+<script src="/js/util/paymentService.js"></script>
+</html>

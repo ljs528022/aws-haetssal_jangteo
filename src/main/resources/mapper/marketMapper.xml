@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.MarketMapper">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into tbl_market (market_region, market_name, market_location)
+        values (#{marketRegion}, #{marketName}, #{marketLocation})
+    </insert>
+
+    <select id="selectAll">
+        select id, market_region, market_name, market_location, market_state, created_datetime, updated_datetime
+        from tbl_market
+    </select>
+
+    <select id="selectByRegion">
+        select id, market_region, market_name, market_location, market_state, created_datetime, updated_datetime
+        from tbl_market
+        where market_region = #{marketRegion}
+    </select>
+
+    <select id="selectById">
+        select id, market_region, market_name, market_location, market_state, created_datetime, updated_datetime
+        from tbl_market
+        where id = #{id}
+    </select>
+
+</mapper>

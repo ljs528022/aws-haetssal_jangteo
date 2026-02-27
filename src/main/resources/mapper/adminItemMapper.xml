@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.AdminItemMapper">
+    <sql id="search">
+        <trim prefix="(" prefixOverrides="and" suffix=")">
+            <if test="search.keyword != null and search.keyword != ''">
+                <choose>
+                    <when test="search.type == 'itemName'">
+                        and i.item_name like concat('%', #{search.keyword}, '%')
+                    </when>
+                    <when test="search.type == 'itemType'">
+                        and i.item_type like concat('%', #{search.keyword}, '%')
+                    </when>
+                    <otherwise>
+                        and (i.item_name like concat('%', #{search.keyword}, '%')
+                          or i.item_type like concat('%', #{search.keyword}, '%'))
+                    </otherwise>
+                </choose>
+            </if>
+            <if test="search.categoryId != null and search.categoryId != ''">
+                and c.category_name = #{search.categoryId}
+            </if>
+            <if test="search.itemState != null and search.itemState != ''">
+                and i.item_state = #{search.itemState}
+            </if>
+        </trim>
+    </sql>
+
+    <select id="selectAll">
+        select i.id, i.item_store_id, i.item_category_id, i.item_name, i.item_type,
+               i.item_stock, i.item_price, i.item_delivery_fee, i.item_content,
+               i.item_state, i.item_view_count, i.created_datetime, i.updated_datetime,
+               c.category_name
+        from tbl_item i
+        left join tbl_category c on i.item_category_id = c.id
+        <where>
+            <include refid="search"/>
+        </where>
+        order by i.id desc
+        limit #{criteria.count} offset #{criteria.offset}
+    </select>
+
+    <select id="selectTotal">
+        select count(*)
+        from tbl_item i
+        left join tbl_category c on i.item_category_id = c.id
+        <where>
+            <include refid="search"/>
+        </where>
+    </select>
+
+    <select id="selectDistinctCategories">
+        select distinct category_name
+        from tbl_category
+        where category_name is not null and category_name != ''
+        order by category_name
+    </select>
+
+    <update id="update">
+        update tbl_item
+        set item_name = #{itemName},
+            item_price = #{itemPrice},
+            item_type = #{itemType},
+            item_state = #{itemState},
+            updated_datetime = current_timestamp
+        where id = #{id}
+    </update>
+</mapper>

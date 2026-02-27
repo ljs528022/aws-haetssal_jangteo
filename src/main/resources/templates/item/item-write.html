@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품등록이요</title>
+    <link rel="stylesheet" href="/css/item/item-write.css">
+</head>
+<body>
+    <div class="full-view">
+        <main class="main-layout">
+            <div class="page-layout">
+                <div class="page-container">
+                    <div class="main-container">
+
+                        <!-- 헤더 -->
+                        <div class="head-container">
+                            <div class="header-container">
+                                <div class="header-wrap">
+                                    <a href="" class="header-back-arrow">
+                                        <div class="arrow-wrap svg-wrap">
+                                            <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M43.7014 21.7189L10.1221 21.7189L25.2128 7.06878C26.1112 6.15946 26.2122 4.64393 25.3127 3.73461C24.4133 2.82529 22.9142 2.72425 22.0148 3.63357L2.72663 22.4262C1.82719 23.3355 1.72725 24.75 2.62669 25.7604H2.72663L22.0148 44.4519C22.9142 45.2602 24.4133 45.1592 25.2128 44.2499C26.0123 43.3405 26.0123 41.926 25.1119 41.0167L10.0221 26.4676L43.7014 26.4676C45.0006 26.4676 46 25.4572 46 24.1438C46 22.8303 45.0006 21.7189 43.7014 21.7189Z"></path></svg>
+                                        </div>
+                                    </a>
+                                    <div class="header-center-logo">
+                                        <!-- 로고있고 누르면 메인으로 이동 -->
+                                        <a href="">
+                                            <div class="logo-wrapper">
+                                                <img src="/images/haetsal-jangteo-logo.svg" alt="햇살로고" class="haetssal-logo">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="header-btn-wrap">
+                                        <button type="button" class="application-btn">상품 등록</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top-contents-container">
+                                <div class="top-contents-wrap">
+                                    <div>상품 등록</div>
+                                    <div class="top-right-text-wrap">
+                                        <div class="top-right-text">햇살장터에 상품을 등록하고 전국의 소비자들과 연결되기</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 본문화면 -->
+                        <div class="main-contents-container">
+                            <div class="main-wrap">
+
+                                <!-- form -->
+                                <form name="itemDTO" action="/item/write" method="post" enctype="multipart/form-data">
+
+                                    <!-- 상품에 대한 가게 id 받는 곳 -->
+                                    <input type="hidden" />
+
+                                    <!-- 상품명 부분 -->
+                                    <div id="item-name" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품명
+                                                    <div class="required-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="explanation-left">판매 하려는 상품의 이름을 입력해주세요.</div>
+                                        </div>
+                                        <div class="each-right-form">
+                                            <div class="form-container">
+                                                <div>
+                                                    <div class="form-wrap">
+                                                        <span class="input-wrap">
+                                                            <input id="itemName" class="item-input" maxlength="20" name="itemName" type="text" inputmode="text" placeholder="상품명을 입력해주세요." autocapitalize="off" autocomplete="off" required>
+                                                        </span>
+                                                    </div>
+                                                    <div class="input-length-guide">
+
+                                                        <!-- 입력값없을때  -->
+                                                        <p class="input-guide-message">필수 항목입니다.</p>
+                                                        <span class="input-count-length">0/20</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 상품 카테고리 부분 -->
+                                    <div id="item-category" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품 분류(카테고리)
+                                                    <div class="required-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="explanation-left">상품의 성격과 가장 일치하는 카테고리를 선택해주세요. 적합하지 않을 경우 운영자에 의해 조정될 수 있습니다.</div>
+                                        </div>
+                                        <div class="each-right-form">
+                                            <div class="category-option-container">
+                                                <p class="category-label">카테고리</p>
+                                                <!-- 진짜 카테고리 값 -->
+                                                <input type="hidden" id="itemCategoryId" name="itemCategoryId" value="">
+                                                <input type="hidden" id="itemSubCategoryId" name="itemSubCategoryId" value="">
+                                                <div class="category-select-box">
+                                                    <span class="category-input-wrapper">
+                                                        <input id="itemCategory" readonly type="text" inputmode="text" autocapitalize="off" autocomplete="off" class="category-input" value="카테고리를 선택해주세요">
+                                                        <div class="arrow-icon svg-wrap">
+                                                            <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 14.4065C2 13.1363 3.09843 12.0615 4.39657 12.0615C4.99571 12.0615 5.59485 12.257 6.09414 12.7455L23.9685 29.4526L41.843 12.6478C42.8415 11.7684 44.3394 11.7684 45.338 12.7455C46.2367 13.7226 46.2367 15.1882 45.2381 16.0676L23.9685 36L2.79886 16.0676C2.29957 15.6767 2 14.9928 2 14.4065Z"></path></svg>
+                                                        </div>
+                                                    </span>
+                                                    <div class="category-select-dropdown category-a off">
+                                                        <ul>
+                                                            <!-- 여기에 카테고리 받아오기 -->
+                                                            <li class="each-category-item item-a" value="100">축산물</li>
+                                                            <li class="each-category-item item-a" value="200">농산물</li>
+                                                            <li class="each-category-item item-a" value="300">수산물</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="category-option-container">
+                                                <p class="category-label">세부 카테고리</p>
+                                                <div class="category-select-box disabled">
+                                                    <span class="category-input-wrapper">
+                                                        <input id="itemSubCategory" readonly type="text" inputmode="text" autocapitalize="off" autocomplete="off" class="category-input" value="세부 카테고리를 선택해주세요" placeholder>
+                                                        <div class="arrow-icon svg-wrap">
+                                                            <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 14.4065C2 13.1363 3.09843 12.0615 4.39657 12.0615C4.99571 12.0615 5.59485 12.257 6.09414 12.7455L23.9685 29.4526L41.843 12.6478C42.8415 11.7684 44.3394 11.7684 45.338 12.7455C46.2367 13.7226 46.2367 15.1882 45.2381 16.0676L23.9685 36L2.79886 16.0676C2.29957 15.6767 2 14.9928 2 14.4065Z"></path></svg>
+                                                        </div>
+                                                    </span>
+                                                    <div class="category-select-dropdown category-b off">
+                                                        <ul>
+                                                            <!-- 여기에 서브 카테고리 가져오기 -->
+                                                            <li class="each-category-item item-b" value="101">돼지고기</li>
+                                                            <li class="each-category-item item-b" value="102">소고기</li>
+                                                            <li class="each-category-item item-b" value="103">오리고기</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 상품 소개 부분 -->
+                                    <div id="item-content" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품 소개</div>
+                                            </div>
+                                            <div class="explanation-left">판매 하려는 상품을 구매자 분들이 한눈에 알 수 있도록 간략하게 소개해주세요.</div>
+                                        </div>
+                                        <div class="each-right-form">
+                                            <div class="form-container">
+                                                <div>
+                                                    <div class="form-wrap">
+                                                        <div class="textarea-wrapper">
+                                                            <textarea id="itemContent" name="itemContent" minlength="10" maxlength="50" class="item-textarea" placeholder="간단한 상품의 소개를 작성해주세요"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-length-guide">
+                                                        <!-- 입력 값 없을 때 -->
+                                                        <p class="input-guide-message off">필수 항목입니다.</p>
+                                                        <span class="input-count-length">0/50</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 상품 가격 부분 -->
+                                    <div id="item-price" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품 가격
+                                                    <div class="required-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="explanation-left">
+                                                판매 하려는 상품의 가격을 입력해주세요.<br>
+                                                추가적인 상품 옵션이 있을 경우, 최저가를 입력해주세요.
+                                            </div>
+                                        </div>
+                                        <div class="each-right-form">
+                                            <div class="form-container">
+                                                <div>
+                                                    <div class="form-wrap">
+                                                        <span class="input-wrap">
+                                                            <input id="itemPrice" name="itemPrice" class="item-input" type="text" placeholder="판매가를 입력해주세요." autocapitalize="off" autocomplete="off">
+                                                        </span>
+                                                    </div>
+                                                    <div class="input-length-guide">
+                                                        <!-- 입력값없을때  -->
+                                                        <p class="input-guide-message">필수 항목입니다.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 상품 수량 부분 -->
+                                    <div id="item-stock" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품 수량
+                                                    <div class="required-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="explanation-left">판매 하려는 상품의 수량을 입력해주세요.</div>
+                                        </div>
+                                        <div class="each-right-form">
+                                            <div class="form-container">
+                                                <div>
+                                                    <div class="form-wrap">
+                                                        <span class="input-wrap">
+                                                            <input id="itemStock" name="itemStock" class="item-input" type="text" inputmode="text" placeholder="상품 수량을 입력해주세요." autocapitalize="off" autocomplete="off">
+                                                        </span>
+                                                    </div>
+                                                    <div class="input-length-guide">
+                                                        <!-- 입력값없을때  -->
+                                                        <p class="input-guide-message">필수 항목입니다.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 상품 이미지 부분 -->
+                                    <div id="item-image" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품 이미지</div>
+                                            </div>
+                                            <div class="explanation-left">상품의 사진이나 이미지를 올려주세요.</div>
+                                        </div>
+                                        <div class="each-right-form">
+                                            <div class="product-img-wrapper">
+                                                <div class="uploader-container">
+                                                    <div class="uploader-wrapper">
+                                                        <input id="itemThumbnail" name="itemThumbnail" type="file" multiple>
+                                                        <label for="itemThumbnail" class="upload-btn">
+                                                                <div class="upload-icon svg-wrap">
+                                                                    <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.9087 8.12155L36.4566 18.3158C37.2603 18.7156 38.2648 18.6156 38.968 18.3158C39.6712 17.5163 39.6712 16.4169 38.968 15.7173L25.3059 2.5247C24.6027 1.8251 23.4977 1.8251 22.7945 2.5247L9.03196 15.8172C8.32877 16.5168 8.32877 17.6162 9.03196 18.3158C9.73516 19.0154 10.9406 19.0154 11.6438 18.3158L22.2922 8.12155V28.4111C22.2922 29.4106 23.0959 30.2091 24.1005 30.2091C25.105 30.2091 25.9087 29.4106 25.9087 28.4111V8.12155ZM5.61644 29.4104C5.61644 28.4109 4.81279 27.6104 3.80822 27.6104C2.80365 27.6104 2 28.5099 2 29.5093V44.202C2 45.2015 2.80365 46 3.80822 46H44.1918C45.1963 46 46 45.2015 46 44.202V29.5093C46 28.5099 45.1963 27.7113 44.1918 27.7113C43.1872 27.7113 42.3836 28.5099 42.3836 29.5093V42.3021H5.61644V29.4104Z"></path></svg>
+                                                                </div>
+                                                                이미지 파일 업로드
+                                                        </label>
+                                                        <button class="reset-btn off">
+                                                            초기화
+                                                        </button>
+
+                                                    </div>
+                                                    <p>
+                                                        파일 형식은 jpg 또는 png 또는 gif로,<br>
+                                                        사이즈는 가로 200px, 세로 200px 이상으로 올려주세요.</br>
+                                                        최대 5장의 이미지만 업로드 가능합니다.
+                                                    </p>
+                                                </div>
+
+                                                <div class="img-wrapper">
+                                                    <div class="img-container">
+                                                        <!-- 이미지 최대 5장 까지만 -->
+                                                    </div>
+                                                    <p class="off">
+                                                        파일을 더블 클릭하면 원본 크기의 이미지를 확인할 수 있으며,<br>
+                                                        첫번째 이미지가 썸네일로 사용됩니다.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 상품 소개 이미지 부분 -->
+                                    <div id="item-desc" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품 설명 이미지
+                                                    <div class="required-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="explanation-left">
+                                                상품을 설명할 수 있는 이미지를 올려주세요.<br>
+                                                (별도의 설명글 대신 이미지로 소개합니다.)
+                                            </div>
+                                        </div>
+
+                                        <div class="each-right-form">
+
+                                            <!-- 상품 설명 이미지 -->
+                                            <div class="product-img-wrapper">
+                                                <div class="uploader-container">
+                                                    <p class="category-label">상품 설명</p>
+                                                    <div class="uploader-wrapper">
+                                                        <input id="itemDescImages" name="itemDescImages" type="file" multiple>
+                                                        <label for="itemDescImages" class="upload-btn">
+                                                            <div class="upload-icon svg-wrap">
+                                                                <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.9087 8.12155L36.4566 18.3158C37.2603 18.7156 38.2648 18.6156 38.968 18.3158C39.6712 17.5163 39.6712 16.4169 38.968 15.7173L25.3059 2.5247C24.6027 1.8251 23.4977 1.8251 22.7945 2.5247L9.03196 15.8172C8.32877 16.5168 8.32877 17.6162 9.03196 18.3158C9.73516 19.0154 10.9406 19.0154 11.6438 18.3158L22.2922 8.12155V28.4111C22.2922 29.4106 23.0959 30.2091 24.1005 30.2091C25.105 30.2091 25.9087 29.4106 25.9087 28.4111V8.12155ZM5.61644 29.4104C5.61644 28.4109 4.81279 27.6104 3.80822 27.6104C2.80365 27.6104 2 28.5099 2 29.5093V44.202C2 45.2015 2.80365 46 3.80822 46H44.1918C45.1963 46 46 45.2015 46 44.202V29.5093C46 28.5099 45.1963 27.7113 44.1918 27.7113C43.1872 27.7113 42.3836 28.5099 42.3836 29.5093V42.3021H5.61644V29.4104Z"></path></svg>
+                                                            </div>
+                                                            이미지 파일 업로드
+                                                        </label>
+                                                        <button class="reset-btn off">
+                                                            초기화
+                                                        </button>
+                                                    </div>
+                                                    <p>
+                                                        파일 형식은 jpg 또는 png 또는 gif로,<br>
+                                                        최대 3장의 이미지만 업로드 가능합니다.
+                                                    </p>
+
+                                                    <!-- 올라온 이미지를 배치 3장 까지만 -->
+                                                    <div class="uploader-preview">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 상품 판매자 이미지 -->
+                                            <div class="product-img-wrapper">
+                                                <div class="uploader-container">
+                                                    <p class="category-label">판매자 소개</p>
+                                                    <div class="uploader-wrapper">
+                                                        <input id="itemSellerImages" name="itemSellerImages" type="file" multiple>
+                                                        <label for="itemSellerImages" class="upload-btn">
+                                                            <div class="upload-icon svg-wrap">
+                                                                <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.9087 8.12155L36.4566 18.3158C37.2603 18.7156 38.2648 18.6156 38.968 18.3158C39.6712 17.5163 39.6712 16.4169 38.968 15.7173L25.3059 2.5247C24.6027 1.8251 23.4977 1.8251 22.7945 2.5247L9.03196 15.8172C8.32877 16.5168 8.32877 17.6162 9.03196 18.3158C9.73516 19.0154 10.9406 19.0154 11.6438 18.3158L22.2922 8.12155V28.4111C22.2922 29.4106 23.0959 30.2091 24.1005 30.2091C25.105 30.2091 25.9087 29.4106 25.9087 28.4111V8.12155ZM5.61644 29.4104C5.61644 28.4109 4.81279 27.6104 3.80822 27.6104C2.80365 27.6104 2 28.5099 2 29.5093V44.202C2 45.2015 2.80365 46 3.80822 46H44.1918C45.1963 46 46 45.2015 46 44.202V29.5093C46 28.5099 45.1963 27.7113 44.1918 27.7113C43.1872 27.7113 42.3836 28.5099 42.3836 29.5093V42.3021H5.61644V29.4104Z"></path></svg>
+                                                            </div>
+                                                            이미지 파일 업로드
+                                                        </label>
+                                                        <button class="reset-btn off">
+                                                            초기화
+                                                        </button>
+                                                    </div>
+                                                    <p>
+                                                        파일 형식은 jpg 또는 png 또는 gif로,<br>
+                                                        최대 3장의 이미지만 업로드 가능합니다.
+                                                    </p>
+
+                                                    <!-- 올라온 이미지를 배치 3장 까지만 -->
+                                                    <div class="uploader-preview">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 상품 환불/교환 정책 이미지 -->
+                                            <div class="product-img-wrapper">
+                                                <div class="uploader-container">
+                                                    <p class="category-label">환불/교환 정책</p>
+                                                    <div class="uploader-wrapper">
+                                                        <input id="itemRefundImages" name="itemRefundImages" type="file" multiple>
+                                                        <label for="itemRefundImages" class="upload-btn">
+                                                            <div class="upload-icon svg-wrap">
+                                                                <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.9087 8.12155L36.4566 18.3158C37.2603 18.7156 38.2648 18.6156 38.968 18.3158C39.6712 17.5163 39.6712 16.4169 38.968 15.7173L25.3059 2.5247C24.6027 1.8251 23.4977 1.8251 22.7945 2.5247L9.03196 15.8172C8.32877 16.5168 8.32877 17.6162 9.03196 18.3158C9.73516 19.0154 10.9406 19.0154 11.6438 18.3158L22.2922 8.12155V28.4111C22.2922 29.4106 23.0959 30.2091 24.1005 30.2091C25.105 30.2091 25.9087 29.4106 25.9087 28.4111V8.12155ZM5.61644 29.4104C5.61644 28.4109 4.81279 27.6104 3.80822 27.6104C2.80365 27.6104 2 28.5099 2 29.5093V44.202C2 45.2015 2.80365 46 3.80822 46H44.1918C45.1963 46 46 45.2015 46 44.202V29.5093C46 28.5099 45.1963 27.7113 44.1918 27.7113C43.1872 27.7113 42.3836 28.5099 42.3836 29.5093V42.3021H5.61644V29.4104Z"></path></svg>
+                                                            </div>
+                                                            이미지 파일 업로드
+                                                        </label>
+                                                        <button class="reset-btn off">
+                                                            초기화
+                                                        </button>
+                                                    </div>
+                                                    <p>
+                                                        파일 형식은 jpg 또는 png 또는 gif로,<br>
+                                                        최대 3장의 이미지만 업로드 가능합니다.
+                                                    </p>
+
+                                                    <!-- 올라온 이미지를 배치 3장 까지만 -->
+                                                    <div class="uploader-preview">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 상품 옵션 추가 버튼 부분 -->
+                                    <div id="item-option" class="each-content-container">
+                                        <div class="each-left-container">
+                                            <div class="each-left-wrap">
+                                                <div class="each-left-content">상품 옵션</div>
+                                            </div>
+                                            <div class="explanation-left">판매 하려는 상품의 다른 구성 목록이 있다면 등록해주세요.</div>
+                                        </div>
+                                        <div class="each-right-form">
+                                            <div class="item-option-container">
+                                                <div class="category-select-box">
+                                                    <span class="category-button-wrapper">
+                                                        <button class="category-button">옵션 추가</button>
+                                                    </span>
+                                                </div>
+
+                                                <!-- 추가된 옵션 뿌리기 -->
+                                                <!-- 옵션이 없으면 안보이기 -->
+                                                <div class="item-option-list off">
+
+                                                    <!-- 헤더 -->
+                                                    <div class="option-text">추가된 상품 옵션</div>
+
+                                                    <!-- 추가된 옵션 -->
+                                                    <div class="option-list-container">
+                                                        <!-- -->
+                                                        <div class="option-group">
+
+                                                        </div>
+                                                        <!-- -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 상품 옵션 추가 모달 -->
+        <div class="item-option-modal off">
+            <div class="option-modal-backdrop">
+                <div class="option-modal-container">
+
+                    <!-- 상품 옵션 입력 부분 -->
+                    <div class="modal-wrapper">
+                        <div class="modal-header">
+                            상품 옵션 추가
+                            <!-- 해당 버튼 누르면 모달 비활성화 -->
+                            <button class="modal-close-btn">
+                                <div class="CloseButton">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.064 7.8927L2.13314 0L0.0311185 2.09192L7.96193 9.98462L0 17.9083L2.10202 20.0002L10.064 12.0765L17.8983 19.8732L20.0003 17.7813L12.166 9.98462L19.9692 2.21889L17.8672 0.126967L10.064 7.8927Z" fill="#3D3D3D"></path></svg>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="modal-body-wrapper">
+                            <div class="modal-body">
+                                <!-- 옵션 이름 -->
+                                <div id="option-name" class="modal-form">
+                                    <div class="modal-form-label">옵션 이름</div>
+                                    <div class="modal-form-content">
+                                        <span class="modal-input-wrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="optionName" name="optionName" type="text" placeholder="상품 옵션의 제목을 입력해주세요" autocapitalize="off" autocomplete="off" class="modal-input">
+                                        </span>
+                                    </div>
+                                    <span class="modal-input-message off">필수 사항 입니다.</span>
+                                </div>
+
+                                <!-- 옵션 상세 내용 -->
+                                <div id="option_detail" class="modal-form">
+                                    <div class="modal-form-label">옵션 상세 내용</div>
+                                    <div class="modal-form-content">
+                                        <span class="modal-textarea-wrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <textarea id="optionDetail" name="optionDetail" type="text" placeholder="상품 옵션의 구성품을 입력해주세요" class="modal-textarea"></textarea>
+                                        </span>
+                                    </div>
+                                    <span class="modal-textarea-message off">필수 사항 입니다.</span>
+                                </div>
+                                
+                                <!-- 옵션 가격 이름 -->
+                                <div id="option-price" class="modal-form">
+                                    <div class="modal-form-label">옵션 가격</div>
+                                    <div class="modal-form-content">
+                                        <span class="modal-input-wrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="optionPrice" name="optionPrice" type="text" placeholder="상품 옵션의 가격을 입력해주세요" autocapitalize="off" autocomplete="off" class="modal-input">
+                                        </span>
+                                    </div>
+                                    <span class="modal-textarea-message off">필수 사항 입니다.</span>
+                                </div>
+
+                                <!-- 옵션 수량 -->
+                                <div id="option-stock" class="modal-form">
+                                    <div class="modal-form-label">옵션 수량</div>
+                                    <div class="modal-form-content">
+                                        <span class="modal-input-wrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="optionStock" name="optionPrice" type="text" placeholder="상품 옵션의 가격을 입력해주세요" autocapitalize="off" autocomplete="off" class="modal-input">
+                                        </span>
+                                    </div>
+                                    <span class="modal-textarea-message off">필수 사항 입니다.</span>
+                                </div>
+
+                                <!-- 등록완료 버튼 -->
+                                <button type="button" class="modal-submit-btn">
+                                    <span>옵션 추가</span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 이미지 원본 뷰어 -->
+        <div class="item-image-viewer off">
+            <div class="viewer-backdrop">
+                <button class="viewer-close-btn">
+                    <div class="CloseButton">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.064 7.8927L2.13314 0L0.0311185 2.09192L7.96193 9.98462L0 17.9083L2.10202 20.0002L10.064 12.0765L17.8983 19.8732L20.0003 17.7813L12.166 9.98462L19.9692 2.21889L17.8672 0.126967L10.064 7.8927Z" fill="#3D3D3D"></path></svg>
+                    </div>
+                </button>
+                <div class="viewer-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/item/event/item-write.js"></script>
+<script src="/js/item/event/item-option-modal.js"></script>
+</html>

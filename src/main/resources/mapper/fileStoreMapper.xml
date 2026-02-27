@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.FileStoreMapper">
+    <insert id="insert">
+        insert into tbl_file_store (id, store_id)
+        values (#{id}, #{storeId})
+    </insert>
+
+    <select id="selectById">
+        select
+            id,
+            file_type,
+            file_name,
+            file_origin_name,
+            file_saved_path,
+            file_size,
+            created_datetime,
+            store_id
+        from vw_file_store
+        where store_id = #{storeId}
+    </select>
+
+    <delete id="delete">
+        delete from tbl_file_store
+        where id = #{id}
+    </delete>
+
+</mapper>

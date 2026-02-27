@@ -1,0 +1,18 @@
+package com.app.haetssal_jangteo.domain;
+
+import lombok.*;
+
+@Getter @ToString
+@EqualsAndHashCode(of="id")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+public class CartItemVO {
+    private Long id;
+    private Long cartId;
+    private Long itemId;
+    private String itemName;
+    private String itemOption;
+    private String itemPrice;
+    private int itemCount;
+}

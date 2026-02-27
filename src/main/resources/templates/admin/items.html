@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 관리 - 햇살장터</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <div class="Main-Layout">
+
+        <!-- 사이드바 -->
+        <div class="SideBar-Wrapper">
+            <div class="SideBar-Header">
+                <div class="Header-HeaderContainer">
+                    <a href="/admin" class="Header-Logo">
+                        <img src="/images/haetsal-jangteo-logo.svg" alt="">
+                    </a>
+                    <div class="Header-Title">
+                        <div class="Header-TitleContent">
+                            <p>햇살장터 관리자</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="SideBar-Body">
+                <div class="SideBar-MenuContainer">
+                    <div class="SideBar-Menu">
+                        <!-- 홈 버튼 (대시보드) -->
+                        <a href="/admin" class="SideMenu-Wrapper">
+                            <div class="SideMenu-Icon">
+                                <svg aria-label="icon" color="foregrounds.surface.inverted" fill="currentColor" height="19.2" role="img" width="19.2"><use href="#home-simple-2-solid"></use></svg>
+                            </div>
+                            <div class="SideMenu-Content">
+                                <p class="SideMenu-Title">홈</p>
+                                <p class="SideMenu-SubTitle">관리 목록 한눈에 보기</p>
+                            </div>
+                        </a>
+
+                        <!-- 회원 관리 -->
+                        <a href="/admin/users" class="SideMenu-Wrapper">
+                            <div class="SideMenu-Icon">
+                                <svg aria-label="icon" color="foregrounds.neutral.tertiary" fill="currentColor" height="19.2" role="img" width="19.2"><use href="#users-group-3-solid"></use></svg>
+                            </div>
+                            <div class="SideMenu-Content">
+                                <p class="SideMenu-Title">회원 관리</p>
+                                <p class="SideMenu-SubTitle">회원 조회 및 상태 관리</p>
+                            </div>
+                        </a>
+
+                        <!-- 가게 관리 -->
+                        <a href="/admin/markets" class="SideMenu-Wrapper">
+                            <div class="SideMenu-Icon">
+                                <svg aria-label="icon" color="foregrounds.surface.inverted" fill="currentColor" height="19.2" role="img" width="19.2"><use href="#building-outline"></use></svg>
+                            </div>
+                            <div class="SideMenu-Content">
+                                <p class="SideMenu-Title">가게 관리</p>
+                                <p class="SideMenu-SubTitle">가게 조회 및 입점 신청 관리</p>
+                            </div>
+                        </a>
+
+                        <!-- 상품 관리 (현재 페이지) -->
+                        <a href="/admin/items" class="SideMenu-Wrapper">
+                            <div class="SideMenu-Icon current">
+                                <svg aria-label="icon" color="foregrounds.surface.inverted" fill="currentColor" height="19.2" role="img" width="19.2"><use href="#gift-outline"></use></svg>
+                            </div>
+                            <div class="SideMenu-Content">
+                                <p class="SideMenu-Title">상품 관리</p>
+                                <p class="SideMenu-SubTitle">등록된 상품 조회 및 관리</p>
+                            </div>
+                        </a>
+
+                        <!-- 신고 관리 -->
+                        <a href="/admin/reports" class="SideMenu-Wrapper">
+                            <div class="SideMenu-Icon">
+                                <svg aria-label="icon" color="foregrounds.surface.inverted" fill="currentColor" height="19.2" role="img" width="19.2"><use href="#info-circle-outline"></use></svg>
+                            </div>
+                            <div class="SideMenu-Content">
+                                <p class="SideMenu-Title">신고 관리</p>
+                                <p class="SideMenu-SubTitle">접수된 신고 조회</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 컨텐츠 -->
+        <main class="Main-Wrapper">
+            <div class="Main-Container">
+                <div class="DashBoard-Wrapper">
+                    <div class="DashBoard-Container userlist">
+
+                        <!-- 상단 검색바 -->
+                        <div class="DashBoard-HeaderContent">
+                            <div class="HeaderContent-Wrapper">
+                                <div class="HeaderContent-SearchPart">
+                                    <div class="SeacrchPart-InputWrapper">
+                                        <input id="keyword" type="text" class="SeacrchPart-Input"
+                                               th:value="${search != null ? search.keyword : ''}"
+                                               placeholder="상품 이름으로 조회" autocomplete="off">
+                                    </div>
+                                    <!-- 카테고리 필터 -->
+                                    <div class="SeacrchPart-SelectWrapper" id="categorySelectWrapper">
+                                        <p class="SeacrchPart-Title">카테고리</p>
+                                        <p class="SeacrchPart-Value" id="categoryValue"
+                                           th:text="${search != null and search.categoryId != null and search.categoryId != '' ? '선택됨' : '전체'}">전체</p>
+                                        <div class="SeacrchPart-SelectOption off" id="categorySelectOption">
+                                            <div class="SeacrchPart-SelectHeader">
+                                                <div class="SelectHeader-Text">카테고리</div>
+                                            </div>
+                                            <div class="SeacrchPart-SelectBody">
+                                                <div class="SelectBody-Wrapper">
+                                                    <div class="SelectBody-Content">
+                                                        <div class="SelectBody-OptionList">
+                                                            <div th:each="cat : ${categories}"
+                                                                 class="SelectBody-OptionValue"
+                                                                 th:data-value="${cat.categoryName}">
+                                                                <p th:text="${cat.categoryName}">카테고리</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="SelectBody-Buttons">
+                                                        <button type="button" class="SelectBody-AllButton" id="categoryAllBtn">전체</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 상태 필터 -->
+                                    <div class="SeacrchPart-SelectWrapper" id="stateSelectWrapper">
+                                        <p class="SeacrchPart-Title">상태</p>
+                                        <p class="SeacrchPart-Value" id="stateValue"
+                                           th:text="${search != null and search.itemState != null and search.itemState != '' ? (search.itemState == 'pending' ? '판매 대기' : (search.itemState == 'active' ? '판매 중' : '판매 중단')) : '전체'}">전체</p>
+                                        <div class="SeacrchPart-SelectOption off" id="stateSelectOption">
+                                            <div class="SeacrchPart-SelectHeader">
+                                                <div class="SelectHeader-Text">상태</div>
+                                            </div>
+                                            <div class="SeacrchPart-SelectBody">
+                                                <div class="SelectBody-Wrapper">
+                                                    <div class="SelectBody-Content">
+                                                        <div class="SelectBody-OptionList">
+                                                            <div class="SelectBody-OptionValue" data-value="pending">
+                                                                <p>판매 대기</p>
+                                                            </div>
+                                                            <div class="SelectBody-OptionValue" data-value="active">
+                                                                <p>판매 중</p>
+                                                            </div>
+                                                            <div class="SelectBody-OptionValue" data-value="inactive">
+                                                                <p>판매 중단</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="SelectBody-Buttons">
+                                                        <button type="button" class="SelectBody-AllButton" id="stateAllBtn">전체</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="HeaderContent-SearchButton" id="searchBtn">
+                                    <div class="SearchButton-Icon">
+                                        <svg aria-label="icon" color="white" fill="currentColor" height="20" role="img" width="20"><use href="#search-outline"></use></svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 등록된 상품 목록 -->
+                        <div class="DabshBoard-MainContent">
+                            <div class="MainContent-ListCount">
+                                <div class="MainContent-CountText">
+                                    총 <span id="item-total">0</span>개의 상품이 등록되었습니다.
+                                </div>
+                            </div>
+
+                            <!-- 상품 목록 (JS 동적 렌더링) -->
+                            <div id="item-list"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- 상품 수정 모달 -->
+    <div name="item-edit" class="EditModal-Layout off">
+        <div class="EditModal-Wrapper">
+            <div class="EditModal-Container">
+                <div class="EditModal-Content">
+
+                    <!-- 헤더 -->
+                    <div class="EditModal-UpperContent">
+                        <div class="EditModal-TitleWrapper">
+                            <div class="EditModal-Title">상품 정보 수정</div>
+                        </div>
+                        <div class="EditModal-ButtonWrapper">
+                            <button type="button" class="EditModal-CloseButton">
+                                <svg aria-label="icon" color="foregrounds.neutral.primary" fill="currentColor" height="18" role="img" width="18"><use href="#close-outline"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 수정 내용 -->
+                    <div class="EditModal-MiddleContent">
+                        <div class="EditModal-MiddleWrapper">
+
+                            <!-- 상품 번호 + 상태 -->
+                            <div class="EditModal-DoubleInput">
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">상품 번호</div>
+                                    </div>
+                                    <div class="EditModal-InputContent unable">
+                                        <input id="item-id" class="EditModal-Input" type="text" value="" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">상태</div>
+                                    </div>
+                                    <div class="EditModal-SelectContent disabled">
+                                        <div class="EditModal-SelectText">
+                                            <input id="item-state" class="EditModal-Input" type="text" value="" disabled>
+                                        </div>
+                                        <div class="EditModal-SelectButton">
+                                            <svg aria-label="icon" color="foregrounds.neutral.tertiary" fill="currentColor" height="24" role="img" width="24"><use href="#chevron-down-outline"></use></svg>
+                                        </div>
+                                        <div class="EditModal-SelectList off">
+                                            <div class="EditModal-OptionWrapper">
+                                                <div class="EditModal-Option" data-value="pending"><p>판매 대기</p></div>
+                                                <div class="EditModal-Option" data-value="active"><p>판매 중</p></div>
+                                                <div class="EditModal-Option" data-value="inactive"><p>판매 중단</p></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 상품 이름 -->
+                            <div class="EditModal-SingleInput">
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">상품 이름</div>
+                                    </div>
+                                    <div class="EditModal-InputContent disabled">
+                                        <input id="item-name" class="EditModal-Input" type="text" value="" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 상품 가격 -->
+                            <div class="EditModal-SingleInput">
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">상품 가격</div>
+                                    </div>
+                                    <div class="EditModal-InputContent disabled">
+                                        <input id="item-price" class="EditModal-Input" type="text" value="" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 상품 유형 -->
+                            <div class="EditModal-SingleInput">
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">상품 유형</div>
+                                    </div>
+                                    <div class="EditModal-SelectContent disabled">
+                                        <div class="EditModal-SelectText">
+                                            <input id="item-type" class="EditModal-Input" type="text" value="" disabled>
+                                        </div>
+                                        <div class="EditModal-SelectButton">
+                                            <svg aria-label="icon" color="foregrounds.neutral.tertiary" fill="currentColor" height="24" role="img" width="24"><use href="#chevron-down-outline"></use></svg>
+                                        </div>
+                                        <div class="EditModal-SelectList off">
+                                            <div class="EditModal-OptionWrapper">
+                                                <div class="EditModal-Option" data-value="normal"><p>일반</p></div>
+                                                <div class="EditModal-Option" data-value="deadline"><p>임박 마감</p></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 카테고리 -->
+                            <div class="EditModal-SingleInput">
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">카테고리</div>
+                                    </div>
+                                    <div class="EditModal-InputContent unable">
+                                        <input id="item-category" class="EditModal-Input" type="text" value="" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 등록일 + 수정일 -->
+                            <div class="EditModal-DoubleInput">
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">등록일</div>
+                                    </div>
+                                    <div class="EditModal-InputContent disabled">
+                                        <input id="item-createdAt" class="EditModal-Input" type="text" value="" disabled>
+                                    </div>
+                                </div>
+                                <div class="EditModal-InputWrapper">
+                                    <div class="EditModal-InputLabel">
+                                        <div class="EditModal-InputLabelText">정보 수정일</div>
+                                    </div>
+                                    <div class="EditModal-InputContent disabled">
+                                        <input id="item-updatedAt" class="EditModal-Input" type="text" value="" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 버튼 부분 -->
+                    <div class="EditModal-BottomContent">
+                        <button class="EditModal-Button Edit" type="button">수정 하기</button>
+                        <button class="EditModal-Button Save" type="button" id="item-save-btn">저장 하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <svg aria-hidden="true" style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="home-simple-2-solid" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M10.92 3.81a1.8 1.8 0 0 1 2.16 0l7 5.25c.453.34.72.873.72 1.44V19a1.8 1.8 0 0 1-1.8 1.8h-4a1.8 1.8 0 0 1-1.8-1.8v-3a.2.2 0 0 0-.2-.2h-2a.2.2 0 0 0-.2.2v3A1.8 1.8 0 0 1 9 20.8H5A1.8 1.8 0 0 1 3.2 19v-8.5c0-.567.267-1.1.72-1.44z" fill-rule="evenodd"></path></symbol>
+        <symbol id="users-group-3-solid" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M7 8a5 5 0 1 1 10 0A5 5 0 0 1 7 8M5 18a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zm13.998-9.829a6.97 6.97 0 0 1-1.613 4.301l.016.028a6 6 0 0 1 2.02 1.444Q19.704 14 20 14a3 3 0 1 0-1.002-5.829M21 19q-.002.519-.126 1H23a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-.803c.51.883.803 1.907.803 3zM3 18c0-1.093.292-2.117.803-3H3a3 3 0 0 0-3 3v1a1 1 0 0 0 1 1h2.126A4 4 0 0 1 3 19zm1.578-4.056a6 6 0 0 1 2.02-1.444l.017-.028a6.97 6.97 0 0 1-1.613-4.3 3 3 0 1 0-.424 5.773" fill-rule="evenodd"></path></symbol>
+        <symbol id="building-outline" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M3.2 5A2.8 2.8 0 0 1 6 2.2h12A2.8 2.8 0 0 1 20.8 5v15.2H22a.8.8 0 0 1 0 1.6H2a.8.8 0 0 1 0-1.6h1.2zm1.6 15.2h14.4V5A1.2 1.2 0 0 0 18 3.8H6A1.2 1.2 0 0 0 4.8 5zM8.2 8a.8.8 0 0 1 .8-.8h1a.8.8 0 1 1 0 1.6H9a.8.8 0 0 1-.8-.8m5 0a.8.8 0 0 1 .8-.8h1a.8.8 0 0 1 0 1.6h-1a.8.8 0 0 1-.8-.8m-5 4a.8.8 0 0 1 .8-.8h1a.8.8 0 1 1 0 1.6H9a.8.8 0 0 1-.8-.8m5 0a.8.8 0 0 1 .8-.8h1a.8.8 0 0 1 0 1.6h-1a.8.8 0 0 1-.8-.8m-5 4a.8.8 0 0 1 .8-.8h1a.8.8 0 1 1 0 1.6H9a.8.8 0 0 1-.8-.8m5 0a.8.8 0 0 1 .8-.8h1a.8.8 0 0 1 0 1.6h-1a.8.8 0 0 1-.8-.8" fill-rule="evenodd"></path></symbol>
+        <symbol id="gift-outline" viewBox="0 0 24 24"><path d="M18.2 12.8h-5.4v6.4H18a.2.2 0 0 0 .2-.2zM5.8 19c0 .11.09.2.2.2h5.2v-6.4H5.8zM19.2 9a.2.2 0 0 0-.2-.2h-6.2v2.4H19a.2.2 0 0 0 .2-.2zM4.8 11c0 .11.09.2.2.2h6.2V8.8H5a.2.2 0 0 0-.2.2zm6.4-5c0-.518-.15-.752-.322-.888-.213-.166-.624-.312-1.378-.312s-1.165.146-1.378.312c-.173.136-.322.37-.322.888s.15.752.322.888c.213.166.624.312 1.378.312h1.7zm1.6 1.2h1.7c.754 0 1.165-.146 1.378-.312.173-.136.322-.37.322-.888s-.15-.752-.322-.888c-.213-.166-.624-.312-1.378-.312s-1.165.146-1.378.312c-.173.136-.322.37-.322.888zm5-1.2c0 .43-.068.837-.218 1.2H19A1.8 1.8 0 0 1 20.8 9v2c0 .706-.408 1.316-1 1.61V19a1.8 1.8 0 0 1-1.8 1.8H6A1.8 1.8 0 0 1 4.2 19v-6.39c-.592-.294-1-.904-1-1.61V9A1.8 1.8 0 0 1 5 7.2h1.418A3.1 3.1 0 0 1 6.2 6c0-.862.273-1.628.936-2.147.623-.488 1.46-.653 2.364-.653s1.741.165 2.364.653q.071.056.136.116.064-.061.136-.116c.623-.488 1.46-.653 2.364-.653s1.741.165 2.364.653c.663.519.936 1.285.936 2.147"></path></symbol>
+        <symbol id="info-circle-outline" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 3.8a8.2 8.2 0 1 0 0 16.4 8.2 8.2 0 0 0 0-16.4M2.2 12c0-5.412 4.388-9.8 9.8-9.8s9.8 4.388 9.8 9.8-4.388 9.8-9.8 9.8-9.8-4.388-9.8-9.8M12 8.19a.8.8 0 0 1 .8.8V9a.8.8 0 0 1-1.6 0v-.01a.8.8 0 0 1 .8-.8m0 3.01a.8.8 0 0 1 .8.8v3a.8.8 0 0 1-1.6 0v-3a.8.8 0 0 1 .8-.8" fill-rule="evenodd"></path></symbol>
+        <symbol id="search-outline" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M11 4.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4M3.2 11a7.8 7.8 0 1 1 13.852 4.92l3.514 3.514a.8.8 0 1 1-1.132 1.132l-3.513-3.514A7.77 7.77 0 0 1 11 18.8 7.8 7.8 0 0 1 3.2 11" fill-rule="evenodd"></path></symbol>
+        <symbol id="close-outline" viewBox="0 0 24 24"><path d="M17.435 5.435a.8.8 0 1 1 1.13 1.13L13.131 12l5.434 5.435a.8.8 0 1 1-1.13 1.13L12 13.131l-5.435 5.434a.8.8 0 1 1-1.13-1.13L12 10.869z"></path></symbol>
+        <symbol id="chevron-down-outline" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M6.434 9.434a.8.8 0 0 1 1.132 0L12 13.87l4.434-4.435a.8.8 0 1 1 1.132 1.132l-5 5a.8.8 0 0 1-1.132 0l-5-5a.8.8 0 0 1 0-1.132" fill-rule="evenodd"></path></symbol>
+    </svg>
+
+</body>
+<script src="/js/admin/layout.js"></script>
+<script>
+    // 값 → 한국어 레이블 변환
+    const stateToLabel = { pending: '판매 대기', active: '판매 중', inactive: '판매 중단' };
+    const typeToLabel  = { normal: '일반', deadline: '임박 마감' };
+
+    // ===== 카테고리 드롭다운 =====
+    const categoryWrapper = document.getElementById('categorySelectWrapper');
+    const categoryOption = document.getElementById('categorySelectOption');
+    const categoryValueEl = document.getElementById('categoryValue');
+    // 서버에서 넘어온 현재 선택값으로 초기화
+    let selectedCategoryId = /*[[${search != null ? search.categoryId : ''}]]*/ '';
+
+    categoryWrapper?.addEventListener('click', (e) => {
+        categoryOption.classList.toggle('off');
+        e.stopPropagation();
+    });
+
+    document.querySelectorAll('#categorySelectOption .SelectBody-OptionValue').forEach(opt => {
+        // 페이지 로드 시 현재 선택된 카테고리 이름 표시
+        if (selectedCategoryId && opt.dataset.value == selectedCategoryId) {
+            categoryValueEl.textContent = opt.textContent.trim();
+        }
+        opt.addEventListener('click', (e) => {
+            selectedCategoryId = opt.dataset.value;
+            categoryValueEl.textContent = opt.textContent.trim();
+            categoryOption.classList.add('off');
+            e.stopPropagation();
+        });
+    });
+
+    document.getElementById('categoryAllBtn')?.addEventListener('click', (e) => {
+        selectedCategoryId = '';
+        categoryValueEl.textContent = '전체';
+        categoryOption.classList.add('off');
+        e.stopPropagation();
+    });
+
+    // ===== 상태 드롭다운 =====
+    const stateWrapper = document.getElementById('stateSelectWrapper');
+    const stateOption = document.getElementById('stateSelectOption');
+    const stateValue = document.getElementById('stateValue');
+    let selectedState = /*[[${search != null ? search.itemState : ''}]]*/ '';
+
+    if (stateWrapper) {
+        stateWrapper.addEventListener('click', (e) => {
+            stateOption.classList.toggle('off');
+            e.stopPropagation();
+        });
+    }
+
+    document.querySelectorAll('#stateSelectOption .SelectBody-OptionValue').forEach(opt => {
+        opt.addEventListener('click', (e) => {
+            const val = opt.dataset.value;
+            selectedState = val;
+            stateValue.textContent = opt.querySelector('p')?.textContent || val;
+            stateOption.classList.add('off');
+            e.stopPropagation();
+        });
+    });
+
+    document.getElementById('stateAllBtn')?.addEventListener('click', (e) => {
+        selectedState = '';
+        stateValue.textContent = '전체';
+        stateOption.classList.add('off');
+        e.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+        stateOption?.classList.add('off');
+        categoryOption?.classList.add('off');
+    });
+
+
+    // 현재 시간을 'YYYY-MM-DD HH:MM:SS' 형식으로 반환
+    function nowDatetime() {
+        const d = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+
+    // ===== 수정 버튼 클릭 → 모달 오픈 + 즉시 수정 모드 =====
+    function openItemModalWithEditMode(row) {
+        document.getElementById('item-id').value = row.dataset.id || '';
+        document.getElementById('item-name').value = row.dataset.name || '';
+        document.getElementById('item-price').value = row.dataset.price || '';
+        const stateInput = document.getElementById('item-state');
+        const stateVal = row.dataset.state || '';
+        stateInput.dataset.actualValue = stateVal;
+        stateInput.value = stateToLabel[stateVal] || stateVal;
+        const typeInput = document.getElementById('item-type');
+        const typeVal = row.dataset.type || '';
+        typeInput.dataset.actualValue = typeVal;
+        typeInput.value = typeToLabel[typeVal] || typeVal;
+        document.getElementById('item-category').value = row.dataset.category || '';
+        document.getElementById('item-createdAt').value = row.dataset.created || '';
+        document.getElementById('item-updatedAt').value = nowDatetime();
+
+        const modal = document.querySelector('[name="item-edit"]');
+        modal?.classList.remove('off');
+
+        // 즉시 수정 모드 진입
+        if (!itemEditMode) {
+            itemEditMode = true;
+            if (itemEditBtn) itemEditBtn.textContent = '수정 취소';
+            ['item-name', 'item-price', 'item-state', 'item-type'].forEach(id => {
+                const input = document.getElementById(id);
+                if (!input) return;
+                input.disabled = false;
+                const wrapper = input.closest('.EditModal-InputContent, .EditModal-SelectContent');
+                if (wrapper) wrapper.classList.remove('disabled');
+            });
+        }
+    }
+
+    // 수정 버튼 이벤트는 itemLayout.showList() 내부에서 동적으로 등록됨
+
+    // ===== 모달 관련 변수 =====
+    const itemModal = document.querySelector('[name="item-edit"]');
+    let itemEditMode = false;
+    const itemEditBtn = itemModal?.querySelector('.EditModal-Button.Edit');
+
+    function closeItemModal() {
+        itemModal.classList.add('off');
+        // 수정 모드 초기화
+        if (itemEditMode) {
+            itemEditMode = false;
+            if (itemEditBtn) itemEditBtn.textContent = '수정 하기';
+            ['item-name', 'item-price', 'item-state', 'item-type'].forEach(id => {
+                const input = document.getElementById(id);
+                if (!input) return;
+                input.disabled = true;
+                const wrapper = input.closest('.EditModal-InputContent, .EditModal-SelectContent');
+                if (wrapper) wrapper.classList.add('disabled');
+            });
+        }
+    }
+
+    itemModal?.querySelector('.EditModal-CloseButton')?.addEventListener('click', closeItemModal);
+    itemModal?.addEventListener('click', (e) => {
+        if (e.target === itemModal) closeItemModal();
+    });
+
+    // ===== 수정 하기 버튼 (수정 모드 토글) =====
+    itemEditBtn?.addEventListener('click', () => {
+        itemEditMode = !itemEditMode;
+        itemEditBtn.textContent = itemEditMode ? '수정 취소' : '수정 하기';
+
+        // 수정 가능 필드: item-name, item-price, item-state, item-type
+        // 수정 불가 필드: item-id, item-category, item-createdAt, item-updatedAt
+        const editableInputIds = ['item-name', 'item-price', 'item-state', 'item-type'];
+
+        editableInputIds.forEach(id => {
+            const input = document.getElementById(id);
+            if (!input) return;
+            input.disabled = !itemEditMode;
+            // 부모 wrapper에서 disabled 클래스 토글
+            const wrapper = input.closest('.EditModal-InputContent, .EditModal-SelectContent');
+            if (wrapper) {
+                wrapper.classList.toggle('disabled', !itemEditMode);
+            }
+        });
+    });
+
+    // ===== 모달 내 드롭다운 =====
+    itemModal?.querySelectorAll('.EditModal-SelectContent').forEach(selectContent => {
+        selectContent.addEventListener('click', (e) => {
+            // disabled 상태면 드롭다운 열지 않음
+            if (selectContent.classList.contains('disabled')) return;
+            const list = selectContent.querySelector('.EditModal-SelectList');
+            list?.classList.toggle('off');
+            e.stopPropagation();
+        });
+    });
+
+    document.addEventListener('click', () => {
+        itemModal?.querySelectorAll('.EditModal-SelectList').forEach(list => list.classList.add('off'));
+    });
+
+    itemModal?.querySelectorAll('.EditModal-Option').forEach(option => {
+        option.addEventListener('click', (e) => {
+            const list = option.closest('.EditModal-SelectList');
+            const input = list?.closest('.EditModal-SelectContent')?.querySelector('.EditModal-Input');
+            if (input) {
+                // data-value가 있으면 실제 DB 값을 data-actual-value에, 표시는 텍스트로
+                const actualValue = option.dataset.value || option.querySelector('p')?.textContent || '';
+                input.dataset.actualValue = actualValue;
+                input.value = option.querySelector('p')?.textContent || '';
+            }
+            list?.classList.add('off');
+            e.stopPropagation();
+        });
+    });
+
+</script>
+<script src="/js/admin/event.js"></script>
+<script>initEvents();</script>
+</html>

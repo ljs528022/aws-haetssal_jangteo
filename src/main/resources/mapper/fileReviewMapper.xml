@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.FileReviewMapper">
+    <insert id="insert">
+        insert into tbl_file_review(id, review_id)
+        values (#{fileId}, #{reviewId})
+    </insert>
+
+    <select id="selectImagesByReviewId">
+        select fr.id, fr.review_id, f.file_name, f.file_saved_path
+        from tbl_file_review fr join tbl_file f
+        on fr.id = f.id
+        where fr.review_id = #{reviewId}
+    </select>
+</mapper>

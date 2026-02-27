@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.AdminStoreMapper">
+    <sql id="search">
+        <trim prefix="(" prefixOverrides="and" suffix=")">
+            <if test="search.keyword != null and search.keyword != ''">
+                and store_name like concat('%', #{search.keyword}, '%')
+            </if>
+            <if test="search.storeRegion != null and search.storeRegion != ''">
+                and store_address = #{search.storeRegion}
+            </if>
+            <if test="search.storeState != null and search.storeState != ''">
+                and store_state = #{search.storeState}
+            </if>
+        </trim>
+    </sql>
+
+    <select id="selectAll">
+        select id, store_market_id, store_owner_id, store_category_id, store_name,
+               store_intro, store_address, store_score, store_state, store_is_confirmed,
+               created_datetime, updated_datetime
+        from tbl_store
+        <where>
+            <include refid="search"/>
+        </where>
+        order by id desc
+        limit #{criteria.count} offset #{criteria.offset}
+    </select>
+
+    <select id="selectTotal">
+        select count(*)
+        from tbl_store
+        <where>
+            <include refid="search"/>
+        </where>
+    </select>
+
+    <select id="selectDistinctRegions">
+        select distinct store_address
+        from tbl_store
+        where store_address is not null and store_address != ''
+        order by store_address
+    </select>
+
+    <update id="update">
+        update tbl_store
+        set store_name = #{storeName},
+            store_address = #{storeAddress},
+            store_intro = #{storeIntro},
+            store_state = #{storeState},
+            updated_datetime = current_timestamp
+        where id = #{id}
+    </update>
+</mapper>

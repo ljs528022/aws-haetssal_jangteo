@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결제</title>
+    <link rel="stylesheet" href="/static/css/payment/payment.css">
+</head>
+<body>
+    <div id="react-view" class="entire">
+        <div class="ScrollTop__ScrollTopBtn Wrapper">
+            <button class="ScrollTop__ScrollTopBtn Btn">
+                <span>최상위로</span>
+            </button>
+            <div class="ScrollTop__Styled Icon">
+                <svg
+                    width="22px"
+                    height="18px"
+                    viewBox="0 0 22 18"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g fill-rule="evennodd" stroke="none">
+                        <g id="jump-to-top" transform="translate(-1.000000, 0.000000)">
+                            <path
+                                d="M12.006,5.987 L22.75,16.437
+                                   C22.9,16.587 23,16.837 23,17.087
+                                   C23,17.338 22.9,17.587 22.7,17.737
+                                   C22.35,18.087 21.75,18.087 21.35,17.737
+                                   L12.006,8.587 L2.611,17.737
+                                   C2.261,18.087 1.662,18.087 1.262,17.737
+                                   C0.912,17.387 0.912,16.787 1.262,16.437
+                                   L12.006,5.987 Z
+                                   M22.175,0
+                                   C22.631,0 23,0.37 23,0.825
+                                   L23,0.877
+                                   C23,1.332 22.63,1.702 22.175,1.702
+                                   L1.825,1.702
+                                   C1.369,1.702 1,1.332 1,0.877
+                                   L1,0.825
+                                   C1,0.369 1.37,0 1.825,0
+                                   L22.175,0 Z"
+                            />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <section
+            aria-label="Notifications alt+T"
+            tabindex="-1"
+            aria-live="polite"
+            aria-relevant="additions text"
+            aria-atomic="false"
+        ></section>
+        <!-- 전체 레이아웃 -->
+        <main class="MainLayout__Wrapper background">
+            <div class="Pledge__1 Wrapp">
+                <div class="Pledge__2 Body">
+                    <!-- 윗 부분 레이아웃 -->
+                    <div class="IntroWrapper__Wrapper">
+                        <section class=" IntroWrapper">
+                            <a href="/apple">
+                                <img
+                                    class="Product_image apple"
+                                    alt="사과 이미지"
+                                    src="https://img.tumblbug.com/eyJidWNrZXQiOiJ0dW1ibGJ1Zy1pbWctcHJvZCIsImtleSI6ImNvdmVyL2ViMGFjZmIyLTBjODQtNGE5OS05MzE3LTQxYmExZTA5MTkzYS80ZjYwNTlkNi1iY2JiLTRhYjgtYjY0YS1hOWM5NTllMjZmNjUucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo0NjUsImhlaWdodCI6NDY1LCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsImZpdCI6bnVsbH0sInJvdW5kQ3JvcCI6ZmFsc2UsInJvdGF0ZSI6bnVsbH19">
+                            </a>
+                            <!-- 제목 레이아웃 -->
+                            <div class="Project__ContentsWrapper title">
+                        <span class="Project__Intro shopname">
+                           과일
+                            <span>|</span>
+                           미래타운제1종합시장
+                        </span>
+                        <a href="/shop">
+                           <p class="Project__a Titleapple">[FreshFruits] 프리미엄 사과 실속세트 (6과)</p>
+                        </a>
+                        <div class="Project__Detail Container ">
+                            <strong class="MoneyInfo__Account count">
+                            58,500
+                            원
+                            </strong>
+                            
+                            <span class="MoneyInfo__State__Wrapper">•</span>
+                            <span class="MoneyInfo__State">결제 완료</span>
+                        </div>
+                    </div>
+                        </section>
+                    </div>
+                    <!-- 아래 부분 레이아웃 -->
+                    <div class="Container__Component">
+                        <div class="LeftSideContainer container">
+                                <!-- 수령 방식 레이아웃 -->
+                                <div class="SettingForm__Wrapper">
+                                <div class="SettingForm__Container">
+                                    <div class="FormTitle__Wrapper">
+                                        <p class="FormTitle">수령 방식</p>
+                                    </div>
+                                    <!-- radio 레이아웃 -->
+                                    <div class="Box__Wrapper">
+                                        <div class="Radio__Container StyledRadio__Selector flex">
+                                            <!-- 택배 레이아웃 -->
+                                            <div class="ListRadioSelector__Wrapper PaymentRadioSelector__StyledListElementComponent" data-testid="list-1" type="payment">
+                                                <div class="RadioSelector__Container radioComponent">
+                                                    <label class="RadioSelector__Content">
+                                                        <div class="RadioSelector__Wrapper">
+                                                            <input type="radio" name="paymentType" class="RadioSelector__StyledInput" value="delivery" checked>
+                                                        </div>
+                                                        <div class="RadioSelector__Label">택배</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- QR 코드 레이아웃 -->
+                                            <div class="ListRadioSelector__Wrapper PaymentRadioSelector__StyledListElementComponent" data-testid="list-0" type="payment">
+                                                <div class="RadioSelector__Container radioComponent">
+                                                    <label class="RadioSelector__Content">
+                                                        <div class="RadioSelector__Wrapper">
+                                                            <input type="radio" name="paymentType" class="RadioSelector__StyledInput" value="qr" >
+                                                        </div>
+                                                        <div class="RadioSelector__Label">
+                                                            QR 코드
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
+                                                
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 직접 수령 레이아웃 -->
+                            <div class="FormLayout__Wrapper Form_Wrapper">
+                                <div class="SettingForm__Wrapper off" >
+                                    <!-- Form 제목 -->
+                                    <div class="FormTitle__Wrapper">
+                                        <p class="FormTitle">직접 수령</p>
+                                    </div>
+                                    <!-- Form 내용 -->
+                                    <div class="Box__Wrapper FormContent">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>가게 이름</th>
+                                                    <td class="Composition__Container">
+                                                        <span class="Composition__Label">
+                                                            미호 유통
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                    <th>상품 이름</th>
+                                                    <td class="Composition__Container">
+                                                        <span class="Composition__Label">
+                                                            [FreshFruits] 프리미엄 사과 실속세트 [6과]
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>상품 가격</th>
+                                                    <td class="Composition__Container">
+                                                        <span class="Composition__Label">
+                                                            53,900원
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                          <!-- 업체 배송 레이아웃 -->
+                            <div class="FormLayout__Wrapper Form_Wrapper">
+                                <div class="DeliveryCompany__Wrapper off2"> 
+                                     <!-- Form 제목 -->
+                                    <div class="FormTitle__Wrapper">
+                                        <p class="FormTitle">업체 배송</p>
+                                    </div>
+                                    <!-- Form 내용 -->
+                                    <div class="Box__Wrapper FormContent">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>가게 목록</th>
+                                                    <td class="Composition__Container">
+                                                        <span class="Composition__Label">
+                                                            미호 유통, 오늘커머스
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                    <th>상품 목록</th>
+                                                    <td class="Composition__Container">
+                                                        <span class="Composition__Label">
+                                                            [FreshFruits] 프리미엄 사과 실속세트 [6과]
+                                                        </span>
+                                                    </td>
+                                                    <td class="Composition__Container">
+                                                        <span class="Composition__Label">
+                                                            [오커브팜] 델몬트 바나나 1송이 1.3kg 내외
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>상품 가격</th>
+                                                    <td class="Composition__Container">
+                                                        <span class="Composition__Label">
+                                                            53,900원
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                    <th>배송비</th>
+                                                    <td>2,000원</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 주문자 정보 레이아웃 -->
+                            <div class="SettingForm__Wrapper">
+                                <div class="SettingForm__Wrapper off2__Content off2">
+                                    <!-- Form 제목 -->
+                                    <div class="FormTitle__Wrapper">
+                                        <p class="FormTitle">주문자 정보</p>
+                                    </div>
+                                    <!-- Form 내용 -->
+                                    <div class="Box__Wrapper FormContent">
+                                        <!-- 테이블 -->
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="name">이름</th>
+                                                    <td class="name__name" style="color: rgb(61, 61, 61);">
+                                                        <input class="ainput" type="text" name="_oname" autocomplete="off" placeholder="홍길동">
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                    <th class="phonenumber">휴대폰 번호</th>
+                                                    <td class="phonenumber__phonenumber" style="color: rgb(61, 61, 61);">
+                                                        <input class="ainput" type="tel" name="_ohp" autocomplete="off" placeholder="010-1234-5678">
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="email">이메일 주소</th>
+                                                    <td class="email__email email-left" style="color : rgb(61, 61, 61);">
+                                                     <input class="ainput email-id" type="text" name="_oemail" placeholder="honggildong">
+                                                        <span class="unit">@</span>
+                                                        <div class="js_email_select" style="display: inline-block;">
+            
+                                                            <select class="category" id="selected-domain">
+                                                                <option value="non">선택하세요</option>
+                                                                <option value="naver.com">naver.com</option>
+                                                                <option value="daum.net">daum.net</option>
+                                                                <option value="gmail.com">gmail.com</option>
+                                                                <option value="hanmail.net">hanmail.net</option>
+                                                                <option value="직접 입력">직접 입력</option>
+                                                         </select>
+                                                            <input id="selected-data"  class="typing-input" type="text" placeholder="직접 입력">
+                                                        </div>
+                                                    </td>                                               
+                                                </tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 배송지 정보 레이아웃 -->
+                            <div class="SettingForm__Wrapper">
+                                <div class="SettingForm__Wrapper off2__Content off2">
+                                    <!-- Form 제목 -->
+                                    <div class="FormTitle__Wrapper">
+                                        <p class="FormTitle">배송지 정보</p>
+                                    </div>
+                                    <!-- Form 내용 -->
+                                     <div class="Box__Wrapper FormContent">
+                                        <!-- 테이블 -->
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="name">받으실분</th>
+                                                    <td class="name__name" style="color: rgb(61, 61, 61);">
+                                                        <input class="abinput" type="text" name="_oname" autocomplete="off" placeholder="이순신">
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                    <th class="phonenumber">휴대폰 번호</th>
+                                                    <td class="phonenumber__phonenumber" style="color: rgb(61, 61, 61);">
+                                                        <input class="abinput" type="tel" name="_ohp" autocomplete="off" placeholder="010-8765-4321">
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="name">주소</th>
+                                                <td class="name__name" style="color: rgb(61, 61, 61);">
+                                                    <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                                        <input class="abinput-1" type="text" id="sample4_postcode" placeholder="우편번호" style="width: 100px;">
+                                                        <div class="btn-wrap">
+                                                            <a href="#none" onclick="execDaumPostcode()" class="button c_btn search h45 black line">우편번호 찾기</a>
+                                                        </div>
+                                                    </div>
+                                                    <input class="abinput" type="text" id="sample4_jibunAddress"  placeholder=" 지번주소" style="display: block; width: 100%; box-sizing: border-box;" >
+                                                    <input class="abinput" type="text" id="sample4_roadAddress" placeholder="도로명 주소" style="display: block; width: 100%; margin-bottom: 5px; box-sizing: border-box;">
+                                                    <input class="abinput" type="text" id="sample4_detailAddress" placeholder="상세주소" style="display: block; width: 100%; box-sizing: border-box;">
+                                                </td>
+                                                </tr>
+                                                 <tr>
+                                                    <th class="email">배송 메세지</th>
+                                                    <td class="email__email email-left" style="color : rgb(61, 61, 61);">
+                                                    <div class="js_email_select" style="display: inline-block;">
+            
+                                                            <select class="category" id="selected-domain-2">
+                                                                <option value="non">배송 메세지를 선택해주세요.</option>
+                                                                <option value="1">배송전에 미리 연락바랍니다.</option>
+                                                                <option value="2">부재시 경비실에 맡겨주세요.</option>
+                                                                <option value="3">부재시 전화주시거나 문자 남겨주세요.</option>
+                                                                <option value="직접 입력">직접 입력</option>
+                                                         </select>
+                                                            <input id="selected-data-2" class="typing-input" type="text" placeholder="직접 입력">
+                                                        </div>
+                                                    </td>                                               
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 결제하기 -->
+                                <div class="FormLayout__Wrapper">
+                                <div class="SettingForm__Container payment"> 
+                                    <button onclick="pay()" class="button pay">결제하기</button>    
+                                </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../static/js/payment/payment.js"></script>
+    <script src="https://js.bootpay.co.kr/bootpay-5.0.2.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</body>
+</html>
+
+
+
+      

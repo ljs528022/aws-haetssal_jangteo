@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/userInfo.css">
+    <link rel="stylesheet" href="/css/mypage.css">
+</head>
+<body>
+    <main class="MainLayout-Wrapper">
+        <div class="Page-Component">
+            <!-- 유저 정보 수정 페이지 헤더 -->
+            <div class="UserSetting-Header">
+                <div class="UserSetting-HeaderContainer SubHeader">
+                    <span>설정</span>
+                </div>
+
+                <!-- 유저 설정 네비게이션 -->
+                <div class="UserSetting-Navigation">
+                    <div class="Navigation-Wrapper">
+                        <div class="Navigation-Container">
+                            <span name="user-info" class="Navigation-Span current">
+                                <div class="Navigation-LinkWrapper">
+                                    <a href="">프로필</a>
+                                </div>
+                            </span>
+
+                            <span name="user-account" class="Navigation-Span">
+                                <div class="Navigation-LinkWrapper">
+                                    <a href="">계정</a>
+                                </div>
+                            </span>
+
+                            <span name="user-delivery" class="Navigation-Span">
+                                <div class="Navigation-LinkWrapper">
+                                    <a href="">배송지</a>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="menu-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 유저 프로필 정보 수정 -->
+            <!--  -->
+            <div id="user-info" class="UserSetting-Components">
+                <div class="UserSetting-Container">
+                    <!-- 유저 프로필 사진 -->
+                    <div id="user-image" class="UserSetting-FormWrapper">
+                        <div class="UserSetting-FormHeader">
+                            <p class="UserSetting-FormTitle">프로필 사진</p>
+                            <button class="UserSetting-FormButton" type="button">변경</button>
+                        </div>
+
+                        <div class="UserSetting-AvatarWrapper">
+                            <!-- 해당 div에 "background url()"로 이미지 삽입 -->
+                            <div class="UserSetting-Avatar">
+                                <img th:src="${profileImage.fileSavedPath == '/images/' ? '/images/' + profileImage.fileName : '/api/files/display?filePath=' + profileImage.fileSavedPath + '&fileName=' + profileImage.fileName}" alt="유저 프로필">
+                            </div>
+                        </div>
+                        
+                        <!-- 유저 프로필 사진 수정 div -->
+                        <div class="UserSetting-ImageUpload">
+                            <!-- 유저 프로필 사진 프리뷰 -->
+                            <div class="UserSetting-UploadPreview">
+                                <div class="UploadPreview-Avatar">
+                                    <div class="UploadPreview-AvatarWrapper">
+                                        <div class="UserSetting-Avatar">
+                                            <img name="priveiw-img" src="" alt="유저 프로필">
+                                            <button class="UploadPreview-ImageRemove">삭제</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 유저 프로필 사진 수정 input -->
+                            <div class="UserSetting-UploadWrapper">
+                                <div class="UploadButton-Wrapper">
+                                    <div class="UploadButton-FormContent">
+                                        <span class="UploadButton-FormSpan">
+                                            <!-- 나중에 테이블에 맞게 수정  -->
+                                            <input type="file" id="userImage" name="userImage" accept=".jpg, .jpeg, .png, .gif">
+                                            <label for="userImage">파일 업로드</label>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="UploadButton-FormDesc">
+                                    250 x 250 픽셀에 최적화되어 있으며, 5MB 이하의 JPG, GIF, PNG 파일을 지원합니다.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit 버튼 -->
+                        <div class="UserSetting-SubmitWrapper">
+                            <button class="UserSetting-SubmitButton">
+                                <span>저장</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 유저 이름 -->
+                    <div id="user-name" class="UserSetting-FormWrapper">
+                        <div class="UserSetting-FormHeader">
+                            <p class="UserSetting-FormTitle">이름</p>
+                            <button class="UserSetting-FormButton" type="button">변경</button>
+                        </div>
+                        <div th:text="${userInfo.userName}">홍길동</div>
+
+                        <!-- 유저 이름 수정 input -->
+                        <div class="UserSetting-InputWrapper">
+                            <div class="UserSetting-InputContainer">
+                                <span class="UserSetting-Input">
+                                    <input id="name" name="name" type="text" placeholder="이름을 입력해주세요" autocapitalize="off" autocomplete="off">
+                                </span>
+                            </div>
+                            <div class="UserSetting-InputDescription">
+                                회원 이름은 다른 회원분들의 불쾌감이나 모욕감을 불러일으킬 수 있는 이름은 지양해주세요.
+                            </div>
+                        </div>
+                        <!-- Submit 버튼 -->
+                        <div class="UserSetting-SubmitWrapper">
+                            <button class="UserSetting-SubmitButton">
+                                <span>저장</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 유저 소개글 -->
+                    <div id="user-intro" class="UserSetting-FormWrapper">
+                        <div class="UserSetting-FormHeader">
+                            <p class="UserSetting-FormTitle">소개</p>
+                            <button class="UserSetting-FormButton" type="button">변경</button>
+                        </div>
+
+                        <!-- 소개글이 없을 시, 표시 -->
+                        <p class="UserSetting-Empty" th:if="${userInfo.userIntro == null or userInfo.userIntro == ''}">등록된 소개가 없습니다.</p>
+                        <!-- 소개글이 있으면 한 줄마다 p로 출력 -->
+                        <p th:if="${userInfo.userIntro != null and userInfo.userIntro != ''}" th:text="${userInfo.userIntro}"></p>
+
+                        <!-- 유저 소개글 수정 textarea -->
+                        <div class="UserSetting-TextareaWrapper">
+                            <textarea name="intro" id="intro" placeholder="자기소개를 입력해주세요."
+                            class="UserSetting-Textarea"></textarea>
+                        </div>
+                        <!-- Submit 버튼 -->
+                        <div class="UserSetting-SubmitWrapper">
+                            <button class="UserSetting-SubmitButton">
+                                <span>저장</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!-- 각 설정 요소의 설명문 -->
+                <div class="UserSetting-DescBox">
+                        <p class="DescBox-Quetion">어떤 정보가 프로필에 공개되나요?</p>
+                        <div class="DescBox-Answer">
+                            프로필 사진과 이름, 소개글이 프로필에 공개 됩니다.
+                            <span class="DescBox-Link">
+                                <!-- 여기에 해당 유저 mypage 주소 넣어야 함 -->
+                                <a href="">내 프로필 바로가기</a>
+                            </span>
+                        </div>
+                </div>
+            </div>
+            <!--  -->
+
+            <!-- 유저 계정 정보 수정 -->
+            <!--  -->
+            <div id="user-account" class="UserSetting-Components">
+                <div class="UserSetting-Container">
+                    <!-- 유저 이메일 -->
+                    <div id="user-email" class="UserSetting-FormWrapper">
+<!--                        <div class="UserSetting-FormHeader">-->
+<!--                            <p class="UserSetting-FormTitle">이메일</p>-->
+<!--                            <button class="UserSetting-FormButton" type="button">변경</button>-->
+<!--                        </div>-->
+                        <div th:text="${userInfo.userEmail}">example@example.com</div>
+                        <!-- 이메일 인증 전송 후, 인증 전까지 보일 div -->
+<!--                        <div class="UserSetting-EmailConfirm">-->
+<!--                            신청하신 이메일(example@example.com)로 인증메일이 발송되었습니다. 이메일 확인 후 인증 링크를 클릭하시면 이메일이 변경이 완료되며, 변경하신 이메일로 로그인할 수 있습니다.-->
+<!--                            <div class="UserSetting-EmailDesc">-->
+<!--                                인증메일을 받지 못하셨나요? -->
+<!--                                <button type="button" class="UserSetting-EmailResend">인증메일 재전송</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <!-- 이메일 인증, 미인증에 따라 표시될 svg 다르게 하기. -->
+                        <div class="UserSetting-EmailChecked">  
+                            <div class="UserSetting-Checked">
+                                <div class="Svg-Icon">
+                                    <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.6 8L18.9 30.8L6.2 19L2 23.5L19.1 39.4L46 12.4L41.6 8Z"></path></svg>
+                                </div>
+                                인증된 이메일입니다.
+                            </div>
+                        </div>
+<!--                        &lt;!&ndash; 유저 이메일 수정 input &ndash;&gt;-->
+<!--                        <div class="UserSetting-InputWrapper">-->
+<!--                            <div class="UserSetting-InputContainer">-->
+<!--                                <span class="UserSetting-Input">-->
+<!--                                    <input id="email" name="email" type="text" placeholder="이메일을 입력해주세요" autocapitalize="off" autocomplete="off">-->
+<!--                                </span>-->
+<!--                                &lt;!&ndash; input에서 벗어났을 때, 값이 비어있으면 밑에 경고문 출력 &ndash;&gt;-->
+<!--                                <div class="UserSetting-InputWrong">-->
+<!--                                    &lt;!&ndash; innerHTML으로 "비워두시면 안됩니다." &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Submit 버튼 &ndash;&gt;-->
+<!--                        &lt;!&ndash; 이메일 인증 api 만들어야 함 &ndash;&gt;-->
+<!--                        <div class="UserSetting-SubmitWrapper">-->
+<!--                            <button class="UserSetting-SubmitButton">-->
+<!--                                <span>인증메일 전송</span>-->
+<!--                            </button>-->
+<!--                        </div>-->
+                    </div>
+
+                    <!-- 유저 비밀번호 -->
+                    <div id="user-password" class="UserSetting-FormWrapper">
+                            <div class="UserSetting-FormHeader">
+                                <p class="UserSetting-FormTitle">비밀번호</p>
+                                <button class="UserSetting-FormButton" type="button">변경</button>
+                            </div>
+
+                            <!-- 유저 현제 비밀번호 확인 input -->
+                            <div class="UserSetting-InputWrapper prevPassword">
+                                <div class="UserSetting-InputLabel">현재 비밀번호</div>
+                                <div class="UserSetting-InputContainer">
+                                    <span class="UserSetting-Input">
+                                        <input id="prevPassword" name="prevPassword" type="text" placeholder="현재 비밀번호"  autocapitalize="off" autocomplete="off">
+                                    </span>
+                                </div>
+                                <div class="UserSetting-InputWrong off"></div>
+                            </div>
+                            
+                            <div class="UserSetting-InputWrapper password">
+                                <div class="UserSetting-InputLabel">변경할 비밀번호</div>
+                                <div class="UserSetting-InputContainer">
+                                    <span class="UserSetting-Input">
+                                        <input id="password" name="password" type="text" placeholder="변경할 비밀번호" autocapitalize="off" autocomplete="off">
+                                    </span>
+                                </div>
+                                <div class="UserSetting-InputWrong off"></div>
+                                <div class="UserSetting-InputContainer">
+                                    <span class="UserSetting-Input">
+                                        <input id="passwordCheck" name="passwordCheck" type="text" placeholder="변경할 비밀번호 확인" autocapitalize="off" autocomplete="off">
+                                    </span>
+                                </div>
+                                <div class="UserSetting-InputWrong off"></div>
+                            </div>
+
+                            <!-- Submit 버튼 -->
+                            <!-- 이메일 인증 api 만들어야 함 -->
+                            <div class="UserSetting-SubmitWrapper">
+                                <button class="UserSetting-SubmitButton">
+                                    <span>저장</span>
+                                </button>
+                            </div>
+                    </div>
+
+                    <!-- 유저 연락처 -->
+                    <div id="user-phone" class="UserSetting-FormWrapper">
+                        <div class="UserSetting-FormHeader">
+                            <p class="UserSetting-FormTitle">연락처</p>
+                        </div>
+                        <div th:text="${userInfo.userPhone}">01012345678</div>
+<!--                        <div class="UserSetting-InputDescription">-->
+<!--                            연락처는 월 1회만 변경이 가능합니다.-->
+<!--                        </div>-->
+
+                        <!-- 유저 연락처 수정 input -->
+<!--                        <div class="UserSetting-InputWrapper">-->
+<!--                            <div class="UserSetting-InputContainer">-->
+<!--                                <span class="UserSetting-Input">-->
+<!--                                    <input id="phone" name="phone" type="text" placeholder="연락처를 입력해주세요" autocapitalize="off" autocomplete="off">-->
+<!--                                </span>-->
+<!--                                <div class="UserSetting-InputWrong"></div>-->
+<!--                                <div class="UserSetting-InputDescription">-->
+<!--                                "-" 없이 입력해주세요.-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <!-- Submit 버튼 -->
+                        <!-- 전화번호 인증 api 연동하기 -->
+<!--                        <div class="UserSetting-SubmitWrapper">-->
+<!--                            <button class="UserSetting-SubmitButton">-->
+<!--                                <span>인증</span>-->
+<!--                            </button>-->
+<!--                        </div>-->
+                    </div>
+                    
+                    <!-- 유저 연동 계정 확인 -->
+                    <div id="user-regType" class="UserSetting-FormWrapper">
+                        <div class="UserSetting-FormHeader">
+                            <p class="UserSetting-FormTitle">회원가입 유형</p>
+                        </div>
+                        
+                        <!-- 회원의 가입 유형에 따라 span에 다르게 표시 -->
+                        <div class="UserSetting-UserType">
+                            회원님은 
+                            <span th:text="${userInfo.authProvider}">네이버</span>
+                            로 함께하고 계십니다.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 각 설정 요소의 설명문 -->
+                <div class="UserSetting-DescBox">
+                    <p class="DescBox-Quetion">이메일과 연락처는 어디에 쓰이나요?</p>
+                    <div class="DescBox-Answer">
+                        이메일과 연락처로 회원님을 식별합니다. 회원가입 단계에서 이메일 인증이 필요하며, 인증받지 않은 회원은 해당 사이트의 서비스를 이용하실 수 없습니다.
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            
+            <!-- 배송지 관리 부분 -->
+            <!--  -->
+            <div id="user-delivery" class="UserSetting-Components">
+                <div class="UserSetting-Container">
+                    <div id="deliveryInfo" class="UserSetting-FormWrapper">
+                        <div class="UserSetting-FormHeader">
+                            <p class="UserSetting-FormTitle">등록된 배송지</p>
+                            <!-- 해당 버튼을 누르면 배송지 추가 모달 나타나게 하기 -->
+                            <button class="UserSetting-FormButton" type="button">+ 추가</button>
+                        </div>
+
+                        <!-- 배송지 추가 및 삭제 -->
+                        <div class="UserSetting-DeliveryList">
+                            <!-- 배송지가 없으면 이 div를 활성화 -->
+                            <div class="UserSetting-EmptyDelivery">
+                                <div class="EmptyDeluvery-svg">
+                                    <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 43.8C13 43.8 4.2 35 4.2 24C4.2 13 13 4.2 24 4.2C35 4.2 43.8 13 43.8 24C43.8 35 35 43.8 24 43.8ZM24 2C11.9 2 2 11.9 2 24C2 36.1 11.9 46 24 46C36.1 46 46 36.1 46 24C46 11.9 36.1 2 24 2ZM24 32.3C22.7 32.3 21.8 33.401 21.8 34.6C21.8 35.8 22.9 36.8 24.1 36.8C25.4 36.8 26.3 35.7 26.3 34.5C26.3 33.3 25.3 32.3 24 32.3ZM24.1 29.0998H24C23.3 28.9998 22.7 28.4008 22.9 27.7008C22.8825 27.1051 22.8619 26.3713 22.8388 25.5474C22.7299 21.6673 22.565 15.7867 22.4 12.8998V12.7998C22.3 11.8998 23.1 11.2998 24.2 11.2998C25.3 11.2998 26 11.8998 26 12.7998V12.9998C25.8994 14.7101 25.8241 17.5591 25.7486 20.414C25.6741 23.2344 25.5994 26.0604 25.5 27.7998V27.9008C25.4 28.5998 24.8 29.0998 24.1 29.0998Z"></path></svg>
+                                </div>
+                                등록된 배송지가 없습니다.
+                                <br/>
+                                배송지를 추가해주세요.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 각 설정 요소의 설명문 -->
+                <div class="UserSetting-DescBox">
+                    <p class="DescBox-Quetion">배송지를 삭제하면 주문한 상품의 배송지도 삭제되나요?</p>
+                    <div class="DescBox-Answer">
+                        배송지를 삭제하기 전에 구매하신 상품들의 배송지 정보는 삭제되거나, 변경되지 않습니다.
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+
+        <!-- 배송지 추가 모달 -->
+        <div class="Delivery-ModalLayer off">
+            <div class="Delivery-ModalWrapper">
+                <div class="Delivery-ModalContainer">
+
+                    <!-- 배송지 정보 입력 부분 -->
+                    <!--  -->
+                    <div class="Delivery-Modal">
+                        <div class="Delivery-ModalHeader">
+                            배송지 추가
+                            <!-- 해당 버튼 누르면 모달 비활성화 -->
+                            <button class="Delivery-CloseButton">
+                                <div class="CloseButton">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.064 7.8927L2.13314 0L0.0311185 2.09192L7.96193 9.98462L0 17.9083L2.10202 20.0002L10.064 12.0765L17.8983 19.8732L20.0003 17.7813L12.166 9.98462L19.9692 2.21889L17.8672 0.126967L10.064 7.8927Z" fill="#3D3D3D"></path></svg>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="Delivery-ModalBody">
+                            <div class="Delivery-ModalBodyWrapper">
+                                <!-- 받는 사람 -->
+                                <div id="receiver-name" class="Delivery-FormWrapper">
+                                    <div class="Delivery-FormLabel">받는 사람</div>
+                                    <div class="Delivery-FormContent">
+                                        <span class="Delivery-InputWrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="receiverName" name="receiverName" type="text" placeholder="받는 분 성함을 입력해주세요." autocapitalize="off" autocomplete="off" class="Delivery-Input">
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- 주소 -->
+                                <!-- 주소 api 적용 -->
+                                <div id="receiver-address" class="Delivery-FormWrapper">
+                                    <div class="Delivery-FormLabel">주소</div>
+                                    <div class="Delivery-FormContent">
+                                        <!-- input이 영역을 누르면 주소 api 화면으로 전환 -->
+                                        <span class="Delivery-InputWrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="address" name="address" type="text" autocapitalize="off" autocomplete="off" class="Delivery-Input">
+                                            <button class="Delivery-InputButton">
+                                                <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.8113 37.22C13.3064 37.22 6.4025 30.3161 6.4025 21.8113C6.4025 13.3064 13.3064 6.4025 21.8113 6.4025C30.3161 6.4025 37.22 13.3064 37.22 21.8113C37.22 30.3161 30.3161 37.22 21.8113 37.22ZM45.3246 42.2229L37.22 34.1172C44.0239 25.6124 42.6231 13.1063 34.1182 6.4025C30.9174 3.70097 26.714 2.20011 22.5117 2H21.8113H21.1109C10.805 2.40023 2.40023 10.7049 2 21.0108V21.7112V22.3115C2.30017 33.2177 11.4053 41.8226 22.3115 41.5225C26.614 41.4224 30.7163 39.9215 34.1182 37.22L42.2229 45.3246C43.1234 46.2251 44.4251 46.2251 45.3246 45.3246C46.2251 44.5242 46.2251 43.1224 45.3246 42.2229Z"></path></svg>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- 배송지 상세 주소 -->
+                                <div id="receiver-addressDetail" class="Delivery-FormWrapper">
+                                    <div class="Delivery-FormLabel">상세 주소</div>
+                                    <div class="Delivery-FormContent">
+                                        <span class="Delivery-InputWrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="addressDetail" name="addressDetail" type="text" placeholder="상세 주소를 입력해주세요." autocapitalize="off" autocomplete="off" class="Delivery-Input">
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- 받는 사람 휴대폰 번호 -->
+                                <div id="receiver-phone" class="Delivery-FormWrapper">
+                                    <div class="Delivery-FormLabel">받는 사람 연락처</div>
+                                    <div class="Delivery-FormContent">
+                                        <span class="Delivery-InputWrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="receiverPhone" name="receiverPhone" type="text" placeholder="받는 분 휴대폰 번호를 입력해주세요." autocapitalize="off" autocomplete="off" class="Delivery-Input">
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- 배송지 관련 체크박스 -->
+                                <div class="Delivery-CheckBox">
+                                    <div class="row">
+                                        <div class="CheckBox-Wrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="delivery-main" class="CheckBox-Input" type="checkbox">
+                                            <label for="delivery-checklist" class="CheckBox-InputLabel">
+                                                <span class="CheckBox-Icon checked">
+                                                    <svg class="Checkbox__StyledIconCheckbox-sc-1g7ijpu-4 ijFNRE" width="9" height="7" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.825 1.53218L3.86072 6.27238L0.75 3.39208L2.15698 1.87254L3.83889 3.42987L7.39485 0.0344238L8.825 1.53218Z" fill="white"></path></svg>
+                                                </span>
+                                                기본 배송지로 등록
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="CheckBox-Wrapper">
+                                            <!-- 나중에 테이블에 맞게 id 수정 -->
+                                            <input id="delivery-sub" class="CheckBox-Input" type="checkbox">
+                                            <label for="delivery-checklist" class="CheckBox-InputLabel">
+                                                <span class="CheckBox-Icon checked">
+                                                    <svg width="9" height="7" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.825 1.53218L3.86072 6.27238L0.75 3.39208L2.15698 1.87254L3.83889 3.42987L7.39485 0.0344238L8.825 1.53218Z" fill="white"></path></svg>
+                                                </span>
+                                                개인정보 수집 및 이용 동의
+                                            </label>
+                                            <button class="CheckBox-Link" type="button">보기</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <!-- 등록완료 버튼 -->
+                                <button type="button" class="Delivery-AddButton">
+                                    <span>등록완료</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <!-- 다음 주소 API -->
+                    <div class="Delivery-Modal api off">
+                        <div class="Delivery-ModalHeader">
+                            주소 추가
+                            <!-- 해당 버튼 누르면 배송 정보 부분 활성화 -->
+                            <button class="Delivery-CloseButton">
+                                <div class="CloseButton">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.064 7.8927L2.13314 0L0.0311185 2.09192L7.96193 9.98462L0 17.9083L2.10202 20.0002L10.064 12.0765L17.8983 19.8732L20.0003 17.7813L12.166 9.98462L19.9692 2.21889L17.8672 0.126967L10.064 7.8927Z" fill="#3D3D3D"></path></svg>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="Delivery-ModalBody">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+</body>
+<script src="/js/user/modify/service.js"></script>
+<script src="/js/user/modify/modify.js"></script>
+<script src="/js/user/modify/setUserProfile.js"></script>
+<script src="/js/user/modify/setUserAccount.js"></script>
+<script src="/js/user/modify/setUserDelivery.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</html>

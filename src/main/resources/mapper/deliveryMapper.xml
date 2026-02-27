@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.DeliveryMapper">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into tbl_delivery(user_id, delivery_name, delivery_address, delivery_detail_address, delivery_receiver, receiver_phone)
+        values (#{userId}, #{deliveryName}, #{deliveryAddress}, #{deliveryDetailAddress}, #{deliveryReceiver}, #{receiverPhone})
+    </insert>
+
+    <delete id="delete">
+        delete from tbl_delivery
+        where id = #{id}
+    </delete>
+
+    <select id="selectAllByUserId">
+        select
+            id, user_id, delivery_name, delivery_address,
+            delivery_detail_address, delivery_receiver,
+            receiver_phone, created_datetime, updated_datetime
+        from tbl_delivery
+        where user_id = #{userId}
+        order by updated_datetime desc
+    </select>
+
+    <update id="updateName">
+        update tbl_delivery
+        set delivery_name = #{deliveryName}
+        where id = #{id}
+    </update>
+</mapper>

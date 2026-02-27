@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상점 정보 수정</title>
+    <link rel="stylesheet" href="/css/store/store-create.css">
+</head>
+<body>
+    <div class="full-view">
+        <main th:object="${store}" class="main-layout">
+            <div class="page-layout">
+                <div class="page-container">
+                    <div class="main-container">
+                        <div class="head-container">
+                            <div class="header-container">
+                                <div class="header-wrap">
+                                    <a href="" class="header-back-arrow">
+                                        <div class="arrow-wrap svg-wrap">
+                                            <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M43.7014 21.7189L10.1221 21.7189L25.2128 7.06878C26.1112 6.15946 26.2122 4.64393 25.3127 3.73461C24.4133 2.82529 22.9142 2.72425 22.0148 3.63357L2.72663 22.4262C1.82719 23.3355 1.72725 24.75 2.62669 25.7604H2.72663L22.0148 44.4519C22.9142 45.2602 24.4133 45.1592 25.2128 44.2499C26.0123 43.3405 26.0123 41.926 25.1119 41.0167L10.0221 26.4676L43.7014 26.4676C45.0006 26.4676 46 25.4572 46 24.1438C46 22.8303 45.0006 21.7189 43.7014 21.7189Z"></path></svg>
+                                        </div>
+                                    </a>
+                                    <div class="header-center-logo">
+                                        <!-- 로고있고 누르면 메인으로 이동 -->
+                                        <a href="">
+                                            <div class="logo-wrapper">
+                                                <img src="/images/haetsal-jangteo-logo.svg" alt="햇살로고" class="haetssal-logo">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="header-btn-wrap">
+                                        <button class="market-application-btn">가게 정보 수정</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top-contents-container">
+                                <div class="top-contents-wrap">
+                                    <div>가게 정보 수정</div>
+                                    <div class="top-right-text-wrap">
+                                        <div class="top-right-text">가게에 대한 정보를 더욱 명확하게</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 본문화면 -->
+                        <div class="main-contents-container">
+                            <form action="/store/update" method="post" enctype="multipart/form-data" class="main-wrap">
+
+                                <!-- 가게 id, 소유주 id input -->
+                                <input type="hidden" name="id" th:value="*{id}">
+                                <input type="hidden" name="storeOwnerId" th:value="*{storeOwnerId}">
+
+                                <div id="marketNameContainer" class="each-content-container">
+                                    <div class="each-left-container">
+                                        <div class="each-left-wrap">
+                                            <div class="each-left-content">가게명
+                                                <div class="required-icon svg-wrap">
+                                                    <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explanation-left">변경하실 상호명을 입력해주세요.</div>
+                                    </div>
+                                    <div class="each-right-form">
+                                        <div class="form-container">
+                                            <div>
+                                                <div class="form-wrap">
+                                                    <span class="input-wrap">
+                                                        <input id="inputInner" class="user-input" maxlength="20" name="storeName" type="text" inputmode="text" th:value="*{storeName}" autocapitalize="off" autocomplete="off">
+                                                    </span>
+                                                </div>
+                                                <div class="input-length-guide">
+                                                    <!-- 입력값없을때  -->
+                                                    <p class="input-guide-message">필수 항목입니다.</p>
+                                                    <span class="input-count-length">0/20</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="imageContainer" class="each-content-container">
+                                    <div class="each-left-container">
+                                        <div class="each-left-wrap">
+                                            <div class="each-left-content">가게 프로필 이미지
+                                                <div class="required-icon svg-wrap">
+                                                    <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explanation-left">변경할 가게 사진을 올려주세요.</div>
+                                    </div>
+                                    <div class="each-right-form">
+                                        <div class="profile-img-wrapper">
+                                            <div class="img-wrapper">
+                                                <div class="img-box">
+                                                    <!-- 사용자가 이미지를 선택하면 이 div나타남 -->
+                                                    <div class="profile-image-uploaded">
+                                                        <img th:src="@{/api/files/display(filePath=*{fileSavedPath}, fileName=*{fileName})}" th:value="*{fileId}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="uploader-container">
+                                                <div class="uploader-wrapper">
+                                                    <input id="imageUpload" name="fileStoreImage" accept=".jpg, .png, .gif, .jpeg" type="file">
+                                                    <label for="imageUpload" class="upload-btn registration-button">
+                                                            <div class="upload-icon svg-wrap">
+                                                                <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.9087 8.12155L36.4566 18.3158C37.2603 18.7156 38.2648 18.6156 38.968 18.3158C39.6712 17.5163 39.6712 16.4169 38.968 15.7173L25.3059 2.5247C24.6027 1.8251 23.4977 1.8251 22.7945 2.5247L9.03196 15.8172C8.32877 16.5168 8.32877 17.6162 9.03196 18.3158C9.73516 19.0154 10.9406 19.0154 11.6438 18.3158L22.2922 8.12155V28.4111C22.2922 29.4106 23.0959 30.2091 24.1005 30.2091C25.105 30.2091 25.9087 29.4106 25.9087 28.4111V8.12155ZM5.61644 29.4104C5.61644 28.4109 4.81279 27.6104 3.80822 27.6104C2.80365 27.6104 2 28.5099 2 29.5093V44.202C2 45.2015 2.80365 46 3.80822 46H44.1918C45.1963 46 46 45.2015 46 44.202V29.5093C46 28.5099 45.1963 27.7113 44.1918 27.7113C43.1872 27.7113 42.3836 28.5099 42.3836 29.5093V42.3021H5.61644V29.4104Z"></path></svg>
+                                                            </div>
+                                                            이미지 파일 업로드
+                                                    </label>
+                                                </div>
+                                                <p>
+                                                    파일 형식은 jpg 또는 png 또는 gif로,<br>
+                                                    사이즈는 가로 200px, 세로 200px 이상으로 올려주세요.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="introContainer" class="each-content-container">
+                                    <div class="each-left-container">
+                                        <div class="each-left-wrap">
+                                            <div class="each-left-content">가게 소개
+                                                <div class="required-icon svg-wrap">
+                                                    <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explanation-left">2~3문장으로 상점의 간단한 소개를 다시 써주세요.</div>
+                                    </div>
+                                    <div class="each-right-form">
+                                        <div class="form-container">
+                                            <div>
+                                                <div class="form-wrap">
+                                                    <div class="textarea-wrapper">
+                                                        <textarea th:text="*{storeIntro}" minlength="10" maxlength="300" name="storeIntro" class="user-input" id="textareaInner" placeholder="간단한 이력과 소개를 써주세요"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="input-length-guide">
+                                                    <p class="input-guide-message">최소 10자 이상 적어주세요.</p>
+                                                    <span class="input-count-length">0/300</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="marketCategoryContainer" class="each-content-container">
+                                    <div class="each-left-container">
+                                        <div class="each-left-wrap">
+                                            <div class="each-left-content">주판매 카테고리
+                                                <div class="required-icon svg-wrap">
+                                                    <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explanation-left">주로 취급하는 상품의 유형을 선택해주세요.</div>
+                                    </div>
+                                    <div class="each-right-form">
+                                        <div class="market-option-container">
+                                            <p class="market-category">상점의 카테고리</p>
+                                            <div class="category-select-box">
+                                                <span class="category-input-wrapper">
+                                                    <input type="hidden" id="storeCategoryId" name="storeCategoryId" th:value="*{storeCategoryId}">
+                                                    <input readonly type="text" inputmode="text" autocapitalize="off" autocomplete="off" class="category-input" value="카테고리를 선택해주세요" placeholder>
+                                                    <div class="arrow-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 14.4065C2 13.1363 3.09843 12.0615 4.39657 12.0615C4.99571 12.0615 5.59485 12.257 6.09414 12.7455L23.9685 29.4526L41.843 12.6478C42.8415 11.7684 44.3394 11.7684 45.338 12.7455C46.2367 13.7226 46.2367 15.1882 45.2381 16.0676L23.9685 36L2.79886 16.0676C2.29957 15.6767 2 14.9928 2 14.4065Z"></path></svg>
+                                                    </div>
+                                                </span>
+                                                <div class="category-select-dropdown category-market">
+                                                    <ul>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="regionContainer" class="each-content-container">
+                                    <div class="each-left-container">
+                                        <div class="each-left-wrap">
+                                            <div class="each-left-content">지역
+                                                <div class="required-icon svg-wrap">
+                                                    <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explanation-left">상점이 속해있는 지역을 선택해주세요.</div>
+                                    </div>
+                                    <div class="each-right-form">
+                                        <div class="region-option-container">
+                                            <p class="region-category">시/도</p>
+                                            <div class="region-select-box">
+                                                <span class="region-input-wrapper">
+                                                    <input type="hidden" name="storeAddress" value="">
+                                                    <input readonly type="text" inputmode="text" name="store-address" autocapitalize="off" autocomplete="off" class="region-input" value="시/도를 선택해주세요">
+                                                    <div class="arrow-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 14.4065C2 13.1363 3.09843 12.0615 4.39657 12.0615C4.99571 12.0615 5.59485 12.257 6.09414 12.7455L23.9685 29.4526L41.843 12.6478C42.8415 11.7684 44.3394 11.7684 45.338 12.7455C46.2367 13.7226 46.2367 15.1882 45.2381 16.0676L23.9685 36L2.79886 16.0676C2.29957 15.6767 2 14.9928 2 14.4065Z"></path></svg>
+                                                    </div>
+                                                </span>
+                                                <div class="region-select-dropdown region-a">
+                                                    <ul>
+                                                        <li class="each-region-item item-a">서울</li>
+                                                        <li class="each-region-item item-a">경기</li>
+                                                        <li class="each-region-item item-a">인천</li>
+                                                        <li class="each-region-item item-a">강원</li>
+                                                        <li class="each-region-item item-a">충북</li>
+                                                        <li class="each-region-item item-a">충남</li>
+                                                        <li class="each-region-item item-a">대전</li>
+                                                        <li class="each-region-item item-a">경북</li>
+                                                        <li class="each-region-item item-a">경남</li>
+                                                        <li class="each-region-item item-a">부산</li>
+                                                        <li class="each-region-item item-a">울산</li>
+                                                        <li class="each-region-item item-a">대구</li>
+                                                        <li class="each-region-item item-a">전북</li>
+                                                        <li class="each-region-item item-a">전남</li>
+                                                        <li class="each-region-item item-a">광주</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="region-option-container">
+                                            <p class="region-category">시/군/구</p>
+                                            <div class="region-select-box disabled">
+                                                <span class="region-input-wrapper">
+                                                    <input type="text" inputmode="text" name="store-detail-address" autocapitalize="off" autocomplete="off" class="region-input" th:value="${store.storeAddress.substring(2)}">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="marketIdContainer" class="each-content-container off">
+                                    <div class="each-left-container">
+                                        <div class="each-left-wrap">
+                                            <div class="each-left-content">장터 선택
+                                                <div class="required-icon svg-wrap">
+                                                    <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explanation-left">가게가 소속되어 있는 장터를 선택해주세요.</div>
+                                    </div>
+                                    <div class="each-right-form">
+                                        <div class="market-option-container">
+                                            <p class="market-category">소속된 장터 선택</p>
+                                            <div class="category-select-box">
+                                                <span class="category-input-wrapper">
+                                                    <input type="hidden" id="storeMarketId" name="storeMarketId" value="">
+                                                    <input readonly type="text" inputmode="text" autocapitalize="off" autocomplete="off" class="category-input" value="">
+                                                    <div class="arrow-icon svg-wrap">
+                                                        <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 14.4065C2 13.1363 3.09843 12.0615 4.39657 12.0615C4.99571 12.0615 5.59485 12.257 6.09414 12.7455L23.9685 29.4526L41.843 12.6478C42.8415 11.7684 44.3394 11.7684 45.338 12.7455C46.2367 13.7226 46.2367 15.1882 45.2381 16.0676L23.9685 36L2.79886 16.0676C2.29957 15.6767 2 14.9928 2 14.4065Z"></path></svg>
+                                                    </div>
+                                                </span>
+                                                <div class="category-select-dropdown market-select">
+                                                    <ul>
+                                                        <!-- Rest API로 선택한 지역에 따라 장터 나오게 하기 -->
+                                                        <!-- 없으면 없다고 li 만들어 표시하기 -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="infoCheckContainer" class="each-content-container">
+                                    <div class="each-left-container">
+                                        <div class="each-left-wrap">
+                                            <div class="each-left-content">본인 인증
+                                                <div class="required-icon svg-wrap">
+                                                    <svg viewBox="0 0 48 48"><path d="M20.332 6.1C20.332 6.04477 20.3768 6 20.432 6H27.1968C27.252 6 27.2968 6.04477 27.2968 6.1V18.2295C27.2968 18.3066 27.3803 18.3547 27.447 18.316L37.8336 12.289C37.8815 12.2612 37.9429 12.2777 37.9705 12.3257L41.3532 18.2144C41.3807 18.2622 41.3643 18.3231 41.3167 18.3507L31.0164 24.3277C30.95 24.3662 30.95 24.4622 31.0164 24.5007L40.8186 30.1886C40.8663 30.2163 40.8826 30.2772 40.8552 30.3249L37.4724 36.2137C37.4448 36.2617 37.3834 36.2782 37.3355 36.2504L27.447 30.5124C27.3803 30.4737 27.2968 30.5218 27.2968 30.5989V41.9C27.2968 41.9552 27.252 42 27.1968 42H20.432C20.3768 42 20.332 41.9552 20.332 41.9V30.7012C20.332 30.6241 20.2485 30.576 20.1818 30.6147L10.4697 36.2504C10.4218 36.2782 10.3604 36.2617 10.3328 36.2137L6.95002 30.3249C6.92259 30.2772 6.93892 30.2163 6.98654 30.1886L16.7888 24.5007C16.8552 24.4622 16.8552 24.3662 16.7888 24.3277L6.48846 18.3508C6.44084 18.3231 6.42451 18.2622 6.45194 18.2144L9.8347 12.3257C9.8623 12.2777 9.92369 12.2612 9.9716 12.289L20.1818 18.2137C20.2485 18.2524 20.332 18.2043 20.332 18.1272V6.1Z"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explanation-left">대표자 본인 명의로 인증해주세요.</div>
+                                    </div>
+                                    <div class="each-right-form">
+                                        <div class="form-container">
+                                            <div class="info-check-wrap">
+                                                <div class="info-check">
+                                                    <div class="info-intro">
+                                                        <div class="info-icon-type">
+                                                            <div class="info-icon svg-wrap">
+                                                                <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M34.2448 14C34.2448 19.5141 29.6508 24.0001 24.0008 24.0001C18.3528 24.0001 13.7568 19.5141 13.7568 14C13.7568 8.48602 18.3528 4 24.0008 4C29.6508 4 34.2448 8.48602 34.2448 14ZM19.722 28.7619H28.28C36.948 28.7619 44 35.598 44 44H41.074H6.924H4C4 35.598 11.052 28.7619 19.722 28.7619Z"></path></svg>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- 완료하면 p태그 textContent바뀜 (인증을 완료하였습니다?) -->
+                                                        <p class="info-intro-message">본인 인증을 완료해주세요</p>
+                                                    </div>
+                                                    <!-- 완료하면 button태그 textContent바뀜 (인증완료) -->
+                                                    <button class="info-check-btn registration-button">인증하기</button>
+                                                </div>
+                                            </div>
+                                            <div class="info-check-container">
+                                                <div>
+                                                    <div class="type-inputs-wrap">
+                                                        <div class="full-input-wrap">
+                                                            <div class="type-text-box">
+                                                                <div class="svg-wrap">
+                                                                    <img src="/images/user/Icon=user.svg">
+                                                                </div>
+                                                            <span class="type-text">이름</span>
+                                                        </div>
+                                                            <div class="type-input-full">
+                                                                <input type="text" class="full-input name-input" maxlength="30" inputmode="text" placeholder="이름을 입력해주세요." autocapitalize="off" autocomplete="off">   
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="full-input-wrap">
+                                                            <div class="type-text-box">
+                                                                <div class="svg-wrap">
+                                                                    <img src="/images/phone/Icon=phone.svg">
+                                                                </div>
+                                                            <span class="type-text">핸드폰 번호</span>
+                                                            </div>
+                                                            <div class="type-input-full">
+                                                                <input type="text" class="full-input phone-input" maxlength="11" inputmode="text" placeholder="핸드폰 번호를 입력해주세요." autocapitalize="off" autocomplete="off">                                                                   
+                                                            </div>             
+                                                        </div>
+                                                        <!-- 폰번호 입력하고 전송하기 누르면 나오는 박스(화면위치상 input-complete-btns보다 위에생김) -->
+                                                        <div class="when-do-check-wrap">
+                                                            <div class="type-text-box">
+                                                                <div class="svg-wrap">
+                                                                    <img src="/images/clock/Icon=clock.svg">
+                                                                </div>
+                                                            <span class="type-text">남은 시간</span>
+                                                            <span class="time-left"></span>
+                                                            </div>
+                                                            <div class="check-number-box">
+                                                                <input class="check-number-input" type="text" minlength="6" maxlength="6" placeholder="인증번호 6자리를 입력해주세요." autocapitalize="off" autocomplete="off">
+                                                            </div>
+                                                            
+                                                            <div class="check-complete-btns">
+                                                                <button class="more-time-btn-in-check">연장하기</button>
+                                                                <!-- <button class="cancel-btn-in-check">닫기</button> -->
+                                                                <button class="do-check-btn-in-check disabled">확인하기</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-complete-btns">
+                                                            <button class="cancel-btn">취소</button>
+                                                            <button class="do-check-btn disabled">전송</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+</body>
+<script src="/js/store/event/store-create.js"></script>
+<script src="/js/store/event/store-create-info-check.js"></script>
+<script src="/js/store/event/store-update.js"></script>
+<script src="/js/store/layout/storeLayout.js"></script>
+<script src="/js/store/service/storeService.js"></script>
+</html>

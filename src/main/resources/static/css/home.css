@@ -1,0 +1,855 @@
+a, div {
+    text-decoration: none;
+}
+
+img, video {
+    height: auto;
+    max-width: 100%;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+    display: block;
+    vertical-align: middle;
+}
+
+/* 메인 부분 */
+.Main-Layout {
+    background-color: white;
+}
+
+.Main-Container {
+    padding: 38px 0px 0px;
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(239, 239, 239);
+}
+
+/* 메인 최상단 컨탠츠 */
+.MainTop-Section {
+    max-width: 1160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-bottom: 44px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.MainTop-Section-Left {
+    width: 766px;
+    margin: 0px 78px 0px 0px;
+}
+
+/* 배너 부분 */
+.MainTop-Banner-Container {
+    min-height: 280px;
+}
+
+.MainTop-Banner-CurrentPage {
+    margin: 0px auto;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+}
+
+.Banner-Slider-Container {
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    list-style: none;
+    border-radius: 8px;
+}
+
+.Banner-Slider-Wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.Banner-Content {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.Banner-Content-Link {
+    width: 766px;
+    height: 280px;
+    display: block;
+    min-height: 200px;
+    text-decoration: none;
+}
+
+.Banner-Content-Link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+
+}
+
+.Banner-Slider-Controller {
+    right: 30px;
+    bottom: 30px;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.Banner-Slider-Pagination {
+    min-width: 40px;
+    padding: 1px 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.Slider-Button-Wrapper {
+    display: flex;
+    margin-left: 12px;
+}
+
+.Slider-Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.Slider-Button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.Left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.Left svg {
+    font-size: 12px;
+    fill: rgb(255, 255, 255);
+}
+
+.Right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0px;
+    margin-left: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.Right svg {
+    transform: rotate(180deg);
+    font-size: 12px;
+    fill: rgb(255, 255, 255);
+}
+
+/* main 상단 추천 상품 부분 */
+.Items-Container.Recommand {
+    padding: 0px;
+    margin: 0px auto;
+    position: relative;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    background: #fff;
+    color: #3d3d3d;
+}
+
+.Items-ListTitle.Recommand {
+    padding-left: 7px;
+    padding: 0px;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: rgb(28, 28, 28);
+    font-weight: bold;
+    margin: 16px 0px;
+}
+
+.Items-CardList.Middle {
+    padding: 0;
+    width: 100%;
+}
+
+/* main 중간 상품 목록 부분 */
+.MainItem-Section {
+    max-width: 1160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-bottom: 44px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.Items-Container.Middle {
+    padding: 0px;
+    margin: 0px auto;
+    position: relative;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    background: #fff;
+    color: #3d3d3d;
+}
+
+.Items-ListTitle.Middle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 16px 0px;
+    padding: 0px;
+    padding-left: 7px;
+    justify-content: space-between;
+}
+
+.Items-ListTitle-Title {
+    color: rgb(28, 28, 28);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+}
+
+.Items-ListTitle-ViewAll {
+    color: rgb(109, 109, 109);
+    font-size: 14px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+}
+
+/* 상품 목록 카드 부분 */
+.CardList-Section {
+    margin: 0px;
+    padding: 0px;
+    column-gap: 40px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    scrollbar-width: none;
+}
+
+/* 추천 상품 목록 부분 */
+.Card-Container {
+    padding-bottom: 40px !important;
+    width: 150px;
+    padding: 0px 7px 0px 0px;
+}
+
+.Card-Wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 136px;
+    position: relative;
+    transition: width 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform-origin: center center;
+}
+
+.Card-Link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+    text-decoration: none;
+}
+
+.Card-Image {
+    width: 100%;
+    height: 100%;
+    flex: 0 0 auto;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+    border-radius: 8px;
+    transform-origin: center center;
+}
+
+.Card-Image:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 12px;
+}
+
+.Card-Image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.2s ease-in-out;
+}
+
+.Card-Image-img:hover {
+    transform: scale(1.05);
+}
+
+.like-Button {
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    bottom: 2px;
+    right: 2px;
+}
+
+/* 찜 버튼 토글 css */
+.like-fill { display: none; }
+.like-empty { display: block; }
+
+.like-Button.is-active .like-empty { display: none; }
+.like-Button.is-active .like-fill { display: block; }
+
+.Card-Info-Container {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    margin-top: 8px;
+    margin-left: 0px;
+    padding: 0px 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Card-Info-NameWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    align-items: center;
+    text-align: center;
+}
+
+.Card-Info-Name {
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 120%;
+    color: rgb(84, 84, 84);
+}
+
+.Card-Info-ItemName {
+    overflow: hidden;
+    flex-shrink: 0;
+    
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+    
+    margin: 2px 0px 6px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Card-Info-Price {
+    padding: 0px;
+
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(235, 75, 56);
+}
+
+.Card-Info-BadgeList {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    height: 18px;
+    margin-bottom: 8px;
+    margin-top: 4px;
+}
+
+/* 뱃지 CSS */
+.Info-badge {
+    color: rgb(84, 84, 84);
+    background-color: rgb(240, 240, 240);
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 120%;
+    height: 18px;
+    white-space: nowrap;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 4px;
+    border-radius: 2px;
+}
+
+.delivery {
+    color: rgb(255, 255, 255);
+    background-color: rgb(121, 136, 255);
+}
+
+/* 우측 인기 카테고리 부분 */
+.MainTop-Section-Right {
+    max-width: 314px;
+    width: calc(100% - 844px);
+    padding: 0px;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.BestCategory-ItemList-Container {
+    padding: 0;
+    margin-bottom: 22px;
+
+    display: flex;
+    align-items: center;
+    word-break: keep-all;
+    position: relative;
+    margin: 0px 0px 16px;
+}
+
+.BestCategory-ItemList-Container span {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: normal;
+    white-space: nowrap;
+}
+
+.BestCategory-ItemList-Wrapper {
+    margin-right: 8px;
+    border-radius: 1px;
+    overflow: hidden;
+    padding: 0px;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    color: rgb(28, 28, 28);
+    font-weight: bold;
+    margin: 0px;
+}
+
+.BestCategory-ItemList-Wrapper > div {
+    width: 100%;
+}
+
+.ItemList-ListTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.BestCategory-ItemList-Wrapper a {
+    color: rgb(13, 13, 13);
+}
+
+.ItemList-searchAll {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 120%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: none;
+    background: none;
+    cursor: pointer;
+    min-width: 58px;
+    color: rgb(84, 84, 84) !important;
+}
+
+.ItemList-ReferenceTime {
+    font-weight: 400;
+    color: rgb(109, 109, 109);
+    margin: 2px 0px 0px;
+    font-size: 12px !important;
+    line-height: 20px !important;
+}
+
+.BestCategory-Link {
+    display: flex;
+    width: 233px;
+    height: 44px;
+    margin: 36px auto 0px;
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 8px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    color: rgb(61, 61, 61);
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+}
+
+.BestCategory-Link:hover {
+    color: rgb(61, 61, 61);
+    background: rgb(240, 240, 240);
+}
+
+/* 우측 인기 카테고리 상품 카드 목록 부분 */
+.BestCategory-ItemCard-Container {
+    width: 100%;
+}
+
+.BestCategory-ItemCard-Wrapper {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    overflow: hidden;
+
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    scrollbar-width: none;
+}
+
+/* 인기 카테고리 상품 CSS */
+.SmallCard-Container {
+    margin-top: 10px 0px 0px !important;
+    padding: 0px !important;
+    display: flex;
+    width: 100%;
+    min-width: auto;
+}
+
+.SmallCard-Wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 136px;
+    position: relative;
+    transition: width 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform-origin: center center;
+}
+
+.SmallCard-Link {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.SmallCard-Image {
+    width: 116px;
+    height: 116px;
+
+    flex: 0 0 auto;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transform: 0.2s ease-in-out;
+    overflow: hidden;
+    border-radius: 8px;
+    transform-origin: center center;
+}
+
+.SmallCard-Image:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 12px;
+}
+
+.SmallCard-Image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: 0.2s ease-in-out;
+}
+
+.SmallCard-Image-img:hover {
+    transform: scale(1.05);
+}
+
+.SmallCard-Rank {
+    color: rgb(235, 75, 56);
+    padding: 4px 0px 0px 11px;
+    margin-right: -4px;
+    z-index: 100;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.SmallCard-Content {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    margin-top: 6px;
+    margin-left: 11px;
+    padding: 0px 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SmallCard-Info-Price {
+    padding: 0px;
+
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(235, 75, 56);
+}
+
+/* 메인 주제별 상품 리스트 부분 */
+.MainContent-Component {
+    position: relative;
+    display: flex;
+    max-width: 1160px;
+    width: 100%;
+    margin: 0px auto 40px;
+    margin-bottom: 60px;
+    padding: 48px 0px 0px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ContentInfo-Wrapper {
+    width: 300px;
+
+}
+
+.ContentInfo-Wrapper a {
+    color: rgb(13, 13, 13);
+}
+
+.ContentInfo-Thumbnail {
+    margin-bottom: 28px;
+}
+
+.Thumbnail-Container {
+    position: relative;
+    width: 100%;
+    max-height: 360px;
+    padding: 0px;
+}
+
+.Thumbnail-Image {
+    display: block;
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.TextInfo-Container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    gap: 12px;
+    padding: 0px;
+}
+
+.TextInfo-Title {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.TextInfo-Description {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.ContentInfo-ViewAllBtn {
+    display: inline-flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin: 0px auto;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 60px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.ContentInfo-Icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.ContentInfo-Icon svg {
+    width: 1em;
+    height: 1em;
+}
+
+.ContentList-Wrapper {
+    position: relative;
+    width: 764px;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.ContentList-Container {
+    position: relative;
+    max-width: 1160px;
+    margin: 0px auto;
+    width: 100%;
+    padding: 0px;
+    z-index: 2;
+}
+
+.ContentList-Slider {
+    position: relative;
+}
+
+.ContentList-Slider-Container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    z-index: 1;
+}
+
+.ContentList-Slider-Wrapper .swapper-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    box-sizing: content-box;
+    margin-left: auto;
+}
+
+.ContentList-Slider-Wrapper .swapper-slide {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.ContentList-ItemList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.ContentList-Pagination.left {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 0px;
+    position: absolute;
+    border: 0px;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px, rgba(0, 0, 0, 0.1) 0px 4px 5px;
+    background: white;
+    color: rgb(61, 61, 61);
+    align-items: center;
+    justify-content: center;
+    outline: 0px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 3;
+    transition: 0.5s;
+    left: auto;
+    right: 100%;
+    margin-right: 16px;
+    top: 50%;
+}
+
+.ContentList-Pagination.right {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 0px;
+    position: absolute;
+    border: 0px;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px, rgba(0, 0, 0, 0.1) 0px 4px 5px;
+    background: white;
+    color: rgb(61, 61, 61);
+    align-items: center;
+    justify-content: center;
+    outline: 0px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 3;
+    transition: 0.5s;
+    left: 100%;
+    right: auto;
+    margin-left: 5px;
+    top: 50%;
+}
+
+.ContentList-Pagination:disabled svg {
+    opacity: 0.2;
+}
+
+.Pagination-NavBtn {
+    display: inline-flex;
+    align-self: center;
+}
+
+.left svg {
+    font-size: 16px;
+    fill: rgb(13, 13, 13);
+    margin-right: 2px;
+    width: 1em;
+    height: 1em;
+}
+
+.right svg {
+    font-size: 16px;
+    fill: rgb(13, 13, 13);
+    margin-left: 2px;
+    width: 1em;
+    height: 1em;
+}
+
+
+/* 푸터 추가 css */
+.Footer {
+    position: relative;
+    display: block;
+    width: 100%;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    background: rgb(255, 255, 255);
+}

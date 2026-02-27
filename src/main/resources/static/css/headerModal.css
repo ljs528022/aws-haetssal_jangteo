@@ -1,0 +1,385 @@
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-size: 100%;
+    font-variation-settings: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+    display: block;
+    vertical-align: middle;
+}
+
+button, input:where([type=button]), input:where([type=reset]), input:where([type=submit]) {
+    background-color: transparent;
+    background-image: none;
+}
+
+input:where([type=submit]) {
+    display: none;
+}
+
+.icon {
+    display: inline-flex;
+    align-self: center;
+}
+
+.icon svg {
+    width: 1em;
+    height: 1em;
+}
+
+.SearchBox-Container {
+    position: absolute;
+
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: white;
+    left: 0px;
+    top: 0px;
+}
+
+.SearchBox-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.SearchHeader-search {
+    padding: 0px;
+
+    height: 58px;
+    display: flex;
+    width: 100%;
+    max-width: 1056px;
+}
+
+.SearchHeader-search-input {
+    flex-grow: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.SearchHeader-search-form {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.search-icon {
+    display: inline-flex;
+    font-size: 20px;
+    align-items: center;
+    
+}
+
+.search-input {
+    font-size: 1.28rem;
+    width: 90%;
+    border: none;
+    font-weight: 400;
+    background: rgb(255, 255, 255);
+    outline: none;
+    appearance: none !important;
+}
+
+.search-button-reset {
+    outline: none;
+    border: 0px;
+    margin-right: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.search-button-reset span {
+    display: none;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.SearchHeader-search-close {
+    margin: 0px;
+    padding: 0px 8px;
+
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: none;
+    border: none;
+    vertical-align: baseline;
+    text-transform: none;
+    font-weight: bold;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 1;
+    background-color: transparent;
+    color: black;
+}
+
+.close-icon {
+    font-size: 24px;
+    display: inline-flex;
+    align-self: center;
+}
+
+.SearchHeader-search-divider {
+    width: 100%;
+    height: 1px;
+    background: rgb(240, 240, 240);
+}
+
+.AutoComplete-Container {
+    padding: 20px 0px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: rgb(255, 255, 255);
+    max-width: 1056px;
+}
+
+.AutoComplete-Result-Wrapper {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    flex-flow: column wrap;
+    background: rgb(255, 255, 255);
+    position: relative;
+}
+
+.AutoComplete-Result-Container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    overflow: hidden;
+}
+
+/* 인기 검색어 부분 */
+.FavoritSearchlList-Container {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.23rem;
+    width: 100%;
+    gap: 16px;
+}
+
+.FavoritSearchlList-TitleSection {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.FavoritSearchlList-Title {
+    color: rgb(84, 84, 84);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.FavoritSearchlList-UpdateDate {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 120%;
+    color: rgb(158, 158, 158);
+}
+
+.FavoritSearchlList-KeywordList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-auto-flow: column;
+    list-style: none;
+    gap: 16px 20px;
+    justify-content: space-between;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.FavoritSearchlList-Keyword {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    min-height: 22px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.FavoritSearchlList-Keyword-ContentSection {
+    width: 80%;
+    overflow: hidden;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.FavoritSearchlList-Keyword-Rank {
+    display: flex;
+    width: 28px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 120%;
+    align-items: center;
+}
+
+.FavoritSearchlList-Keyword-Text {
+    flex: 1 1 0%;
+    align-items: center;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 검색어 연관목록 부분 */
+.AutoComplete-ResultList {
+    font-size: 1.14rem;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.AutoComplete-ResultList dd {
+    font-weight: normal;
+    line-height: 48px;
+    height: 48px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.AutoComplete-Divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(228, 228, 228);
+    margin: 8px 0px;
+}
+
+.SearchMarket-Container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 2px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.SearchMarket-Wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0px;
+}
+
+.SearchMarket-Region {
+    display: flex;
+    width: 70px;
+    height: 28px;
+    border-radius: 51px;
+    text-align: center;
+    align-items: center;
+    padding: 3px 6px;
+    background-color: rgb(228, 228, 228);
+}
+
+.SearchMarket-Region span {
+    width: 100%;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.SearchMarket-Name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.SearchMarket-Highlight {
+    color: rgb(235, 75, 56);
+    font-weight: bold;
+}
+
+.SearchedItem-ResultList {
+    height: 48px;
+    cursor: pointer;
+    color: rgb(61, 61, 61);
+    position: relative;
+    padding: 0px 0px 0px 26px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;  
+}
+
+.SearchedItem-Highlight-Keyword {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+}
+
+.SearchedItem-icon {
+    display: inline-flex;
+    align-self: center;
+}
+
+.SearchedItem-icon svg {
+    position: absolute;
+    font-size: 16px;
+    top: 50%;
+    left: 0px;
+    margin: -8px 0px 0px;
+}
+
+.SearchedItem-Highlight-Keyword em {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+    font-style: normal;
+    color: rgb(235, 75, 56);
+}

@@ -1,0 +1,216 @@
+*,
+:after,
+:before {
+    border: 0 solid #e5e7eb;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.LoginPage-Layout {
+    background-color: white;
+    height: 100%;
+}
+
+.LoginPage-Wrapper {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.LoginPage-Container {
+    padding: 40px 16px;
+    max-width: 1080px;
+
+    flex: 1 1 0%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+
+.LoginPage-RightImage {
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    height: 100%;
+    background-image: url("/images/haetssal-login.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+.LoginPage-ContentWrapper {
+    flex: 1 1 0px;
+}
+
+.LoginPage-HeaderWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+    max-width: 414px;
+}
+
+.LoginPage-Header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.LoginPage-HeaderTitle {
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(13, 13, 13);
+}
+
+.LoginPage-BodyWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 414px;
+}
+
+.login-fail-msg {
+    color: rgb(255, 87, 87);
+    font-size: 12px;
+    display: none;
+}
+
+.login-fail-msg.on {
+    display: block;
+}
+
+.kakao-fail-msg {
+    color: rgb(255, 87, 87);
+    font-size: 12px;
+    display: none;
+}
+
+.kakao-fail-msg.on {
+    display: block;
+}
+
+.LoginPage-BodyContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.LoginPage-InputWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.LoginPage-InputLabel {
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    padding: 0px 5px;
+    background-color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.LoginPage-InputLabel span {
+    color: rgb(255, 87, 87);
+    vertical-align: -1px;
+}
+
+.LoginPage-Input {
+    width: 100%;
+    border: 1px solid rgb(203, 203, 203);
+    font-size: 13px;
+    outline: none;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    padding: 15px 15px 10px 10px;
+    border-radius: 4px;
+}
+
+.LoginPage-PassNotice {
+    font-size: 12px;
+    color: rgb(183, 183, 183);
+    padding-left: 4px;
+}
+
+.LoginPage-FooterWrapper {
+    display: flex;
+    margin-top: 20px;
+}
+
+.LoginPage-LoginButton {
+    width: 414px;
+    padding: 10px 0px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgb(255, 87, 87);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform .15s cubic-bezier(.68, -.55, .265, 1.55);
+}
+
+.LoginPage-LoginButton:hover {
+    background-color: rgba(255, 87, 87, 0.5);
+    color: #fff;
+
+}
+
+.LoginPage-PassVisible {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    right: 15px;
+    fill: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.styled__KakaoButton{
+    width: 414px;
+    padding: 10px 0px;
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
+    margin-top: 8px;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+    background-color: rgb(254, 229, 0);
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    color: rgb(25, 25, 25);
+    line-height: 120%;
+    cursor: pointer;
+}
+
+.kakaoIcon{
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    font-size: 24px;
+    margin-right: auto;
+}
+
+.Icon__SVGICON{
+    font-size: 44px;
+}
+
+.Icon__SVGICON svg, .Icon__SVGICON img{
+    width: 1em;
+    height: 1em;
+}
+
+/* 토글용 css */
+.off {
+    display: none;
+}

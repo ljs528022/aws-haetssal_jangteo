@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>social-join-page</title>
+    <link rel="stylesheet" href="/css/user/social-join.css">
+</head>
+<body>
+<div class="JoinPage-Layout">
+    <div class="JoinPage-Wrapper">
+        <div class="JoinPage-Container">
+            <div class="JoinPage-ContentWrapper">
+                <!--  -->
+                <div class="JoinPage-HeaderWrapper">
+                    <!-- <div class="JoinPage-SocialWrapper">
+                        <div class="JoinPage-SocialImage">
+                            <img src="../static/images/naver-logo.png" alt="socil-logo">
+                        </div>
+                    </div> -->
+                    <div class="JoinPage-Header">
+                        <p class="JoinPage-HeaderPage">
+                            <!-- 어떤 토큰이 왔냐에 따라 span 이름 바꿔야함 -->
+                            <span>카카오</span>로 회원가입
+                        </p>
+                    </div>
+                </div>
+                <div class="JoinPage-BodyWrapper">
+                    <form action="/user/kakao/join" name="kakaoJoinFormTag" method="post" class="JoinPage-BodyContainer">
+                        <div name="email" class="JoinPage-InputWrapper">
+                            <label for="email" class="JoinPage-InputLabel">
+                                이메일
+                            </label>
+                            <input name="userEmail" th:value="${kakao.userEmail}" class="JoinPage-Input" id="email" type="text" value="example@naver.com" autocomplete="off" autocapitalize="off" readonly>
+                            <span class="JoinPage-PassNotice">소셜 로그인으로 회원가입 할 경우, 이메일을 변경할 수 없습니다.</span>
+                        </div>
+
+                        <div name="phone" class="JoinPage-InputWrapper">
+                            <label for="phone" class="JoinPage-InputLabel">
+                                <span>*</span>
+                                연락처
+                            </label>
+                            <input name="userPhone" class="JoinPage-Input" id="phone" type="text" placeholder="연락처를 입력해주세요" autocomplete="off" autocapitalize="off">
+                            <span class="JoinPage-PassNotice">' - ' 를 제외하고 입력해주세요.</span>
+                        </div>
+
+                        <div name="nickname" class="JoinPage-InputWrapper">
+                            <label for="nickname" class="JoinPage-InputLabel">
+                                <span>*</span>
+                                이름
+                            </label>
+                            <input name="userName" class="JoinPage-Input" id="nickname" type="text" placeholder="이름을 입력해주세요" autocomplete="off" autocapitalize="off">
+                            <span class="JoinPage-PassNotice">타인에게 불쾌감, 모욕감을 느끼게할 수 있는 표현은 지양해주세요.</span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="JoinPage-FooterWrapper">
+                    <button class="JoinPage-JoinButton" type="button">가입하기</button>
+                </div>
+            </div>
+        </div>
+        <div class="JoinPage-RightImage"></div>
+    </div>
+</div>
+</div>
+</body>
+<script src="/js/join/social-join.js"></script>
+</html>

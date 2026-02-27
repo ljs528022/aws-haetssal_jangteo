@@ -1,0 +1,825 @@
+.MainLayout-Wrapper {
+    background-color: white;
+}
+
+.Page-Component {
+    width: 100%;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    position: relative;
+}
+
+.UserSetting-Header {
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.UserSetting-HeaderContainer {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0px auto;
+    padding: 48px 0px 28px;
+}
+
+.UserSetting-HeaderContainer span {
+    font-weight: 700;
+    font-size: 32px !important;
+    line-height: 44px !important;
+}
+
+.UserSetting-Navigation {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0px auto;
+}
+
+.Navigation-Wrapper {
+    display: flex;
+    position: relative;
+    overflow:  auto hidden;
+    height: 56px;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+}
+
+.Navigation-Container {
+    display: inline-flex;
+    word-break: keep-all;
+    padding: 0px;
+    font-size: 18px;
+}
+
+.menu-bar {
+    display: block;
+    position: absolute;
+    background: rgb(248, 100, 83);
+    width: 53px;
+    height: 3px;
+    left: -4px;
+    bottom: -1px;
+    transition: left 0.15s ease-out, width 0.09s ease-out;
+}
+
+.Navigation-Span {
+    display: flex;
+    margin: 0px 24px 0px 0px;
+    align-items: center;
+    height: 100%;
+}
+
+.current {
+    margin-right: 32px;
+}
+
+.Navigation-LinkWrapper {
+    display: flex;
+    position: relative;
+}
+
+.Navigation-LinkWrapper a {
+    white-space: nowrap;
+}
+
+.Navigation-Span a {
+    font-weight: 500;
+    color: rgb(13, 13, 13);
+    opacity: 0.4;
+}
+
+.Navigation-Span a:hover {
+    font-weight: bold;
+}
+
+.Navigation-Span.current a {
+    font-weight: 700;
+    color: rgb(13, 13, 13);
+    opacity: 1;
+}
+
+/* 유저 정보 수정 공통 CSS */
+.UserSetting-Components {
+    display: flex;
+    margin: 0px auto;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1160px;
+    padding: 24px 0px;
+}
+
+.UserSetting-Container {
+    width: 672px;
+    margin: 0px 32px 0px 0px;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+}
+
+.UserSetting-FormWrapper {
+    border-bottom: 1px solid rgb(228, 228, 228);
+    margin: 0px 0px 16px;
+    padding: 0px 0px 18px;
+}
+
+.UserSetting-InputContainer {
+    width: 328px;
+}
+
+.UserSetting-InputLabel {
+    color: rgb(61, 61, 61);
+    margin: 0px 0px 10px;
+}
+
+.prevPassword {
+    margin: 0px;
+}
+
+.password {
+    margin: 30px 0px 0px;
+}
+
+.password .UserSetting-InputContainer {
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+
+.UserSetting-InputWrong {
+    margin: 8px 0px 0px;
+    color: rgb(248, 100, 83);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+}
+
+.UserSetting-EmailConfirm {
+    color: rgb(61, 61, 61);
+}
+
+.UserSetting-EmailDesc {
+    margin: 8px 0px 0px;
+    color: rgb(109, 109, 109);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+}
+
+.UserSetting-EmailResend {
+    color: #37A5F7;
+    text-decoration: underline;
+    background-color: white;
+    border: 0px;
+    padding: 0px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.UserSetting-UserType {
+    margin: 8px 0px 0px;
+    color: rgb(109, 109, 109);
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+}
+
+.UserSetting-UserType span {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 2px;
+}
+
+.UserSetting-Input {
+    border: 1px solid rgb(228, 228, 228);
+    color: rgb(13, 13, 13);
+    background: white;
+    padding: 0px 12px;
+    max-height: 44px;
+    min-width: 100px;
+    display: flex;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    align-items: center;
+    border-radius: 1px;
+}
+
+.UserSetting-Input input {
+    width: 100%;
+    background: transparent;
+    border: 0px;
+    padding: 11px 0px;
+    box-sizing: border-box;
+    height: 100%;
+    outline: none;
+    margin: 0px;
+    appearance: none !important;
+}
+
+.UserSetting-InputDescription {
+    margin: 8px 0px 0px;
+    color: rgb(109, 109, 109);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+}
+
+.UserSetting-FormHeader {
+    display: flex;
+    margin: 0px 0px 12px;
+}
+
+.UserSetting-FormTitle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+}
+
+.UserSetting-FormButton {
+    display: flex;
+    align-items: center;
+    padding: 9.5px 12px;
+    height: 36px;
+    border-radius: 20px;
+    border: 1px solid rgb(228, 228, 228);
+    background: rgb(255, 255, 255);
+    color: rgb(28, 28, 28);
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+
+    cursor: pointer;
+}
+
+.UserSetting-AvatarWrapper {
+    width: 64px;
+    height: 64px;
+    font-size: 26px;
+    letter-spacing: -1.56px;
+    position: relative;
+}
+
+.UserSetting-Avatar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 100;
+    background-size: 50% 37%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.UserSetting-ImageUpload {
+    display: flex;
+}
+
+.UserSetting-TextareaWrapper {
+    height: 208px;
+    box-sizing: border-box;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 1px;
+    padding: 12px;
+}
+
+.UserSetting-Textarea {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 0px;
+    outline: none;
+    resize: none;
+}
+
+.UserSetting-InputWrong {
+    margin: 8px 0px 0px;
+    color: rgb(248, 100, 83);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+}
+
+.UserSetting-Checked {
+    color: rgb(94, 189, 145);
+}
+
+.UserSetting-Alert {
+    color: rgb(248, 100, 83);
+}
+
+.Svg-Icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.UserSetting-Checked .Svg-Icon svg {
+    top: 0.125em;
+    position: relative;
+    margin: 0px 6px 0px 0px;
+    fill: rgb(94, 189, 145);
+    width: 1em;
+    height: 1em;
+}
+
+.UserSetting-Alert .Svg-Icon svg {
+    top: 0.125em;
+    position: relative;
+    margin: 0px 6px 0px 0px;
+    fill: rgb(248, 100, 83);
+    width: 1em;
+    height: 1em;
+}
+
+.UserSetting-Empty {
+    color: rgb(158, 158, 158);
+    margin: 0;
+}
+
+.UploadPreview-Avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 33px;
+    letter-spacing: -1.98px;
+    position: relative;
+}
+
+.UploadPreview-AvatarWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgb(208, 208, 208) 0px 0px 1px 0px inset, rgb(208, 208, 208) 0px 0px 1px 0px;
+}
+
+.UploadPreview-ImageRemove {
+    position: absolute;
+    bottom: 0px;
+    border: 0px;
+    outline: none;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: rgba(13, 13, 13, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 20px;
+    cursor: pointer;
+}
+
+.UserSetting-UploadWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px 0px 0px 16px;
+}
+
+.UploadButton-FormContent {
+    width: 328px;
+}
+
+.UploadButton-FormSpan input {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+}
+
+.UploadButton-FormSpan input + label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    border-radius: 4px;
+    margin: 0px;
+    outline: none;
+    font-size: 16px;
+    font-weight: normal;
+    box-sizing: border-box;
+    padding: 0px 12px;
+    border: 1px solid rgb(228, 228, 228);
+    background-color: white;
+    color: rgb(109, 109, 109);
+}
+
+.UploadButton-FormDesc {
+    margin: 8px 0px 0px;
+    color: rgb(109, 109, 109);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+}
+
+.UserSetting-SubmitWrapper {
+    margin: 20px 0px 0px;
+}
+
+.UserSetting-SubmitWrapper button {
+    min-width: 110px;
+}
+
+.UserSetting-SubmitButton {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    white-space: nowrap;
+    border-radius: 1px;
+    margin: 0px;
+    border: 0px;
+    outline: none;
+    font-weight: normal;
+    box-sizing: border-box;
+    padding: 0px 16px;
+    background-color: rgb(61, 61, 61);
+    color: white;
+}
+
+.UserSetting-DeliveryList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(158, 158, 158);
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    border-radius: 4px;
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: rgb(228, 228, 228);
+    border-image: initial;
+    min-height: 240px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    margin-left: 0px;
+    margin-right: 0px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.UserSetting-EmptyDelivery {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.EmptyDeluvery-svg {
+    display: inline-flex;
+    align-self: center;
+}
+
+.EmptyDeluvery-svg svg {
+    fill: rgb(158, 158, 158);
+    font-size: 58px;
+    margin: 0px 0px 12px;
+    width: 1em;
+    height: 1em;
+}
+
+.Delivery-Card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    width: 100%;
+}
+
+.Delivery-Card:first-child {
+    border-top: 1px solid rgb(230, 230, 230);
+}
+
+.Delivery-CardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    color: rgb(60, 60, 60);
+    line-height: 1.5;
+}
+
+.Delivery-DeleteBtn {
+    background: transparent;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.Delivery-DeleteBtn:hover {
+    border-color: rgb(100, 100, 100);
+    color: rgb(40, 40, 40);
+}
+
+/* 설정 오른쪽 설명 박스 부분 */
+.UserSetting-DescBox {
+    width: 100%;
+    margin: 0px;
+    padding: 20px 24px;
+    border-radius: 4px;
+    border: 1px solid rgb(228, 228, 228);
+}
+
+.DescBox-Quetion {
+    margin: 0px 0px 8px;
+    color: rgb(61, 61, 61);
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    font-weight: bold;   
+}
+
+.DescBox-Answer {
+    color: rgb(109, 109, 109);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+}
+
+.DescBox-Link {
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.DescBox-Link a {
+    color: #37A5F7;
+    text-decoration: underline;
+}
+
+/* 배송지 추가 모달 부분 */
+.Delivery-ModalLayer {
+    position: absolute;
+    width: auto;
+    top: 0px;
+    left: 0px;
+    z-index: 700;
+}
+
+.Delivery-ModalWrapper {
+    position: fixed;
+    width: 100%;
+    height: calc(100% + 1px);
+    display: block;
+    background-color: rgba(13, 13, 13, 0.45);
+    transform: translateY(-1px);
+}
+
+.Delivery-ModalContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 328px;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    max-width: 600px;
+    max-height: calc(-40px + 100vh);
+    border-radius: 4px;
+}
+
+.Delivery-Modal {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    min-height: 0px;
+    border-radius: 4px;
+    padding: 24px 32px 40px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 16px 0px;
+}
+
+.Delivery-ModalHeader {
+    display: flex;
+    position: relative;
+    padding: 0px;
+    height: auto;
+    margin: 0px 0px 4px;
+    font-weight: bold;
+    min-height: 36px;
+    align-items: center;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+}
+
+.Delivery-ModalBody {
+    width: 100%;
+    min-height: 0px;
+    scrollbar-width: none;
+    overflow-y: auto;
+}
+
+.Delivery-Modal.api .Delivery-ModalBody {
+    width: 100%;
+    height: 450px;
+}
+
+.Delivery-ModalBodyWrapper {
+    width: 100%;
+}
+
+.Delivery-FormWrapper {
+    margin-top: 10px;
+}
+
+.Delivery-FormLabel {
+    color: rgb(61, 61, 61);
+    margin: 0px 0px 10px;
+}
+
+.Delivery-FormContent {
+    width: auto;
+}
+
+.Delivery-InputWrapper {
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(228, 228, 228);
+    color: rgb(13, 13, 13);
+    background: white;
+    padding: 0px 0px 0px 12px;
+    max-height: 44px;
+    min-width: 100px;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    align-self: center;
+}
+
+.Delivery-InputButton {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-self: center;
+    height: 40px;
+    margin: 0px;
+    padding: 0px 16px;
+    background-color: transparent;
+    color: rgb(61, 61, 61);
+}
+
+.Delivery-InputButton svg {
+    width: 1em;
+    height: 1em;
+}
+
+.Delivery-Input {
+    width: 100%;
+    background: transparent;
+    border: 0px;
+    padding: 11px 0px;
+    box-sizing: border-box;
+    height: 100%;
+    outline: none;
+    margin: 0px;
+    appearance: none !important;
+}
+
+.Delivery-AddButton {
+    display: inline-flex;
+    margin: 40px 0px 0px;
+    width: 100%;
+    height: 52px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0px 24px;
+    background-color: rgb(248, 100, 83);
+    color: white;
+}
+
+.Delivery-AddButton:hover span {
+    opacity: 0.5;
+}
+
+.Delivery-CloseButton {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-self: center;
+    cursor: pointer;
+    background: none;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    top: 50%;
+    right: 0px;
+    z-index: 3;
+    font-size: 16px;
+}
+
+.Delivery-CheckBox {
+    display: flex;
+    flex-flow: column;
+    margin: 20px 0px 0px;
+}
+
+.Delivery-CheckBox .row {
+    margin-bottom: 10px;
+}
+
+.CheckBox-Wrapper {
+    display: inline-flex;
+    align-items: center;
+    color: rgb(61, 61, 61);
+}
+
+.CheckBox-Input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
+    white-space: nowrap;
+    border: 0px;
+}
+
+.CheckBox-InputLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.CheckBox-InputLabel:hover {
+    text-decoration: underline;
+}
+
+.CheckBox-Icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    border-radius: 2px;
+    border: 2px solid rgb(158, 158, 158);
+    background: white;
+    color: white;
+    transition: 0.2s;
+}
+
+.CheckBox-Icon svg {
+    fill: white;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+}
+
+.checked {
+    border: 2px solid rgb(28, 28, 28);
+    background: rgb(28, 28, 28);
+}
+
+.CheckBox-Link {
+    cursor: pointer;
+    background: transparent;
+    border: 0px;
+    padding: 0px 0px 0px 7px;
+    color: rgb(39, 163, 255);
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+.CloseButton {
+    display: flex;
+    align-items: center;
+}
+
+.CloseButton svg {
+    width: 1em;
+    height: 1em;
+}
+
+
+/* 토글용 css */
+.off {
+    display: none;
+}
+
+.onClick {
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(28, 28, 28);
+    background: rgb(28, 28, 28);
+}

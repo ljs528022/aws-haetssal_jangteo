@@ -1,0 +1,1215 @@
+*, :after, :before {
+    border: 0 solid #e5e7eb;
+    box-sizing: border-box;
+}
+
+a, div {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+img, video {
+    height: auto;
+    max-width: 100%;
+}
+
+menu, ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+    display: block;
+    vertical-align: middle;
+}
+
+.MainLayout-Wrapper {
+    background-color: white;
+}
+
+.Mypage-PageComponent {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+/* 유저 프로필 정보 부분 */
+.ProfileInfo-Wrapper {
+    border-bottom: 1px solid rgb(228, 228, 228);    
+}
+
+.ProfileInfo-InnerWrapper {
+    padding: 40px 0px 32px;
+    width: 100%;
+    max-width: 1160px;
+    margin: 0px auto;
+}
+
+.ProfileInfo-Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.UserInfo-Wrapper {
+    display: flex;
+    gap: 40px;   
+}
+
+.UserInfo-UserAvatarImage {
+    display: block;
+    width: 120px;
+    height: 120px;
+    max-width: 100%;
+    border-radius: 50%;
+    border: 1px solid rgb(228, 228, 228);
+    vertical-align: middle;
+}
+
+.UserInfo-Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.UserInfo-Name {
+    display: flex;
+    align-items: center;
+}
+
+.UserInfo-username {
+    color: rgb(28, 28, 28);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.UserInfo-OtherWrapper {
+    display: block;
+}
+
+.InfoItem-Wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 8px;
+    gap: 12px;
+}
+
+.InfoItem-Container {
+    display: flex;
+    width: 100%;
+    min-width: 120px;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.InfoItem-Title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+    color: rgb(84, 84, 84);
+}
+
+.InfoItem-Title-svg {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.InfoItem-Value {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+}
+
+.UserInfo-ModifyBtn {
+    min-width: 200px;
+    margin-left: auto;
+}
+
+.ModifyBtn-Button {
+    width: 100%;
+    height: 40px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    white-space: nowrap;
+    gap: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+    background-color: white;
+    border: 1px solid rgb(235, 75, 56);
+    color: rgb(235, 75, 56);
+    cursor: pointer;
+}
+
+.ModifyBtn-Button:hover {
+    background-color: rgb(255, 239, 225);
+}
+
+
+/* 마이페이지 네비게이션 */
+.ProfileInfo-Navigation {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0px auto;
+}
+
+.Navigation-Wrapper {
+    display: flex;
+    position: relative;
+    overflow:  auto hidden;
+    height: 56px;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+}
+
+.Navigation-Container {
+    display: inline-flex;
+    word-break: keep-all;
+    padding: 0px;
+    font-size: 18px;
+}
+
+.menu-bar {
+    display: block;
+    position: absolute;
+    background: rgb(248, 100, 83);
+    width: 53px;
+    height: 3px;
+    left: -4px;
+    bottom: -1px;
+    transition: left 0.15s ease-out, width 0.09s ease-out;
+}
+
+.Navigation-Span {
+    display: flex;
+    margin: 0px 24px 0px 0px;
+    align-items: center;
+    height: 100%;
+}
+
+.current {
+    margin-right: 32px;
+}
+
+.Navigation-LinkWrapper {
+    display: flex;
+    position: relative;
+}
+
+.Navigation-LinkWrapper a {
+    white-space: nowrap;
+}
+
+.Navigation-Span a {
+    font-weight: 500;
+    color: rgb(13, 13, 13);
+    opacity: 0.4;
+}
+
+.Navigation-Span a:hover {
+    font-weight: bold;
+}
+
+.Navigation-Span.current a {
+    font-weight: 700;
+    color: rgb(13, 13, 13);
+    opacity: 1;
+}
+
+
+/* 마이페이지 메인 컨탠츠 부분 */
+.MainContent-Wrapper {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0px auto;
+}
+
+/* 프로필 부분 */
+.ProfileIntro-Wrapper {
+    padding: 40px 0px;
+    min-height: 147px;
+    color: rgb(61, 61, 61);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
+/* 작성한 후기 부분 */
+.MyReviews-Wrapper {
+    border-top: 1px solid rgb(240, 240, 240);
+    padding: 0px 0px 58px;
+}
+
+.MyReviews-InfoWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0px 20px;
+    padding: 0px;
+}
+
+.MyReviews-TitleContainer {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.MyReviews-ReviewTitle {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.MyReviews-ReviewTotal {
+    font-weight: 700;
+    font-size: 18px;
+    color: rgb(248, 100, 83);
+}
+
+.MyReviews-ReviewContainer {
+    margin-top: 28px;
+}
+
+.MyReviews-ItemInner {
+    padding: 0px;
+}
+
+.ReviewItem-HeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ProfileHeader-ProfileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ProfileHeader-ProfileImg {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.ProfileHeader-Profile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ProfileHeader-ProfileName {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ProfileHeader-ProfileNameA {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 120%;
+    max-width: 182px;
+    color: rgb(28, 28, 28);
+}
+
+.ProfileHeader-ProfileInfo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ProfileHeader-Label {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 120%;
+}
+
+.ProfileHeader-Dot {
+    color: rgb(158, 158, 158);
+}
+
+/* 신고 버튼 */
+.DropDown-Wrapper {
+    position: relative;
+}
+
+.DropDown-TriggerWrapper {
+    cursor: pointer;
+}
+
+.DropDown-TriggerSvg {
+    display: inline-flex;
+    transform: rotate(90deg);
+    fill: rgb(158, 158, 158);
+    align-items: center;
+}
+
+.DropDown-TriggerSvg svg {
+    width: 1em;
+    height: 1em;
+}
+
+.DropDown-Menu {
+    position: absolute;
+    z-index: 300;
+    top: 10;
+    right: 5px;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    width: 205px;
+    border: 1px solid rgb(240, 240, 240);
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 8px, rgba(0, 0, 0, 0.1) 0px 1px 0px;
+}
+
+.DropDown-MenuBtn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: rgb(255, 255, 255);
+    color: rgb(61, 61, 61);
+    font-weight: 400;
+    padding: 0px 0px 0px 19px;
+    width: 100%;
+    height: 44px;
+    font-size: 14px !important;
+    line-height: 24px !important;
+}
+
+/* 후기 작성 내용 부분 */
+.ReviewItem-BodyContainer {
+    cursor: pointer;
+}
+
+.ReviewItem-KeyWordContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    margin-top: 12px;
+    border-radius: 4px;
+    gap: 12px;
+    background-color: rgb(248, 248, 248);
+}
+
+.ReviewItem-KeyWordItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ReviewItem-KeyWord {
+    color: rgb(158, 158, 158);
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px;
+}
+
+.ReviewItem-OptionValue {
+    color: rgb(109, 109, 109);
+    font-weight: 700;
+    font-size: 12px;
+    margin: 0px;
+}
+
+.ReviewItem-Paragraph {
+    margin: 12px 0px;
+    color: rgb(84, 84, 84);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* 후기 관련 이미지 부분 */
+.ReviewItem-ImageContainer {
+    margin-top: 16px;
+}
+
+.ReviewItem-ImageList {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ReviewItem-Image {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    cursor: pointer;
+    object-fit: cover;
+    width: 96px;
+    height: 96px;
+}
+
+/* 후기를 남긴 상품 부분 */
+.ReviewItem-FooterContainer {
+    margin-top: 12px;
+}
+
+.ReviewItem-ItemLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ReviewItem-ItemThumnail {
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+}
+
+.ReviewItem-ItemTitle {
+    max-width: calc(100% - 33px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: rgb(84, 84, 84);
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.ReviewItem-ThumsUpContainer {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.ThumsUp-Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0px;
+}
+
+.ThumsUp-Left {
+    color: rgb(158, 158, 158);
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 120%;
+}
+
+.ThumsUp-Right {
+    display: flex;
+    align-items: flex-end;
+}
+
+.ThumsUp-Buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.ThumsUp-disLikeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+
+.ThumsUp-likeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+}
+
+/* 후기 목록 페이지 이동 버튼 */
+.ReviewItem-LinkWrapper {
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 12px;
+    color: rgb(61, 61, 61);
+    padding: 0px;
+}
+
+.ReviewItem-LinkButton {
+    width: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 후기 목록 페이지 버튼 부분 */
+.ReviewItem-Pagination {
+    margin-top: 60px;
+}
+
+.Pagination-Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Pagination-Container {
+    display: flex;
+    margin: 0px;
+    font-size: 14px !important;
+    user-select: none;
+    padding: 0;
+}
+
+.Pagination-Container > li {
+    float: none;
+    display: flex;
+    margin: 0px 6px;
+    min-width: 22px;
+    height: 25px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 0px;
+    font-weight: bold;
+    align-items: center;
+    list-style: none;
+}
+
+.Pagination-Container > li a {
+    padding-left: 7px;
+    padding-right: 7px;
+    align-items: flex-end;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+}
+
+.Pagination-Container > li.active {
+    background-color: rgb(28, 28, 28);
+}
+
+.Pagination-Container > li.active a {
+    color: white !important;
+}
+
+.Pagination-Prev {
+    margin: 0px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.Pagination-Button {
+    display: inline-flex;
+    align-self: center;
+    cursor: pointer;
+}
+
+.Pagination-Btn {
+    margin: 0px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.Pagination-Btn svg {
+    width: 1em;
+    height: 1em;
+}
+
+.Pagination-Current {
+    margin: 0px 6px;
+}
+
+.Pagination-Current:hover {
+    border: 0px;
+    background: rgb(240, 240, 240);
+}
+
+.Pagination-Current > li {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* 빈 후기 페이지 */
+.EmptyContent-Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+}
+
+.EmptyContent-IconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(228, 228, 228);
+    width: 76px;
+    height: 76px;
+}
+
+.EmptyContent-IconWrap svg {
+    fill: white;
+    font-size: 36px;
+    width: 1em;
+    height: 1em;
+}
+
+.Icon-svg {
+    display: inline-flex;
+    align-self: center;
+}
+
+.EmptyContent-Text {
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(158, 158, 158);
+}
+
+/* 상품 목록 공용 css */
+.ContentItems-Wrapper {
+    padding-bottom: 64px;
+}
+
+.ContentItems-Container {
+    position: relative;
+    height: auto;
+    width: 1160px;
+    min-height: 150px;
+    margin: 0px auto;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.ContentItems-ResultSort {
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    line-height: 27px;
+    margin: 0px auto;
+    padding: 16px 20px 12px 0px;
+    color: rgb(61, 61, 61);
+    letter-spacing: -0.08px;
+    justify-content: space-between;
+}
+
+.ContentItems-ResultSort span {
+    color: rgb(255, 87, 87);
+}
+
+.ContentItems-ItemList {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: flex-start;
+    margin: 0px -10px;
+    padding: 0px;
+}
+
+.ContentItems-ItemCardWrapper {
+    width: 25%;
+    padding: 20px 10px;
+    margin: 0px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/* Modal 부분 */
+.Modal-Wrapper {
+    position: absolute;
+    width: auto;
+    z-index: 700;
+    left: 0px;
+    top: 0px;
+}
+
+.Modal-Backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.16);
+    transition: opacity 0.5s ease-in-out, visibility 0.5s;
+    z-index: 900;
+}
+
+.Modal-Container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8); /* 배경색 예시 */
+    min-width: 285px;
+    max-width: 35%;
+    border-radius: 4px;
+    padding: 11px 32px 13px;
+    text-align: center;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s;
+    z-index: 1000;
+}
+
+.Modal-Container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.Modal-InnerWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.Modal-Header span {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(13, 13, 13);
+}
+
+.Modal-Body {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(109, 109, 109);
+}
+
+.Modal-Button {
+    display: flex;
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 30px;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.Modal-Close {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 10px 0px;
+    background-color: white;
+    color: rgb(158, 158, 158);
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Modal-Close:hover {
+    color: white;
+    background-color: rgb(158, 158, 158);
+}
+
+.Modal-Cancel {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    background-color: white;
+    color: rgb(248, 100, 83);
+    border: 1px solid rgb(248, 100, 83);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Modal-Cancel:hover {
+    color: white;
+    background-color: rgb(248, 100, 83);
+}
+
+.Modal-Submit {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 10px 0px;
+    background-color: white;
+    color: rgb(97, 218, 251);
+    border: 1px solid rgb(97, 218, 251);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Modal-Submit:hover {
+    color: white;
+    background-color: rgb(97, 218, 251);
+}
+
+/* 리뷰 작성 모달 CSS */
+.Custom-ModalLayer {
+    position: absolute;
+    width: auto;
+    top: 0px;
+    left: 0px;
+    z-index: 700;
+}
+
+.Custom-ModalWrapper {
+    position: fixed;
+    width: 100%;
+    height: calc(100% + 1px);
+    display: block;
+    background-color: rgba(13, 13, 13, 0.45);
+    transform: translateY(-1px);
+}
+
+.Custom-ModalContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 328px;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    max-width: 600px;
+    max-height: calc(-40px + 100vh);
+    border-radius: 10px;
+}
+
+.Custom-Modal {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    min-height: 0px;
+    border-radius: 10px;
+    padding: 24px 32px 30px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 16px 0px;
+}
+
+.Custom-ModalHeader {
+    display: flex;
+    position: relative;
+    padding: 0px;
+    height: auto;
+    margin: 0px auto;
+    font-weight: bold;
+    min-height: 36px;
+    align-items: center;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+}
+
+.Custom-ModalBody {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+
+.ModalBody-ReviewSection {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 16px;
+    color: rgb(109, 109, 109);
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ModalBody-ReviewSelect {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.ModalBody-ReviewSelect span {
+    width: initial;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 120%;
+    padding-left: 7px;
+    align-self: center;
+}
+
+.ReviewSelect-Selection {
+    font-size: 15px;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px 5px;
+    background-color: rgb(228, 228, 228);
+    appearance: none;
+    text-align: center;
+}
+
+.ModalBody-ReviewDetail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ModalBody-ReviewDetail textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid rgb(228, 228, 228);
+    resize: none;
+}
+
+.ModalBody-ReviewImage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ModalBody-ReviewImage input {
+    display: none;
+}
+
+.ModalBody-ReviewImage label {
+    cursor: pointer;
+    margin-top: 5px;
+    width: 92px;
+    font-size: 14px;
+    padding: 5px 5px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 120%;
+    color: rgb(158, 158, 158);
+    border: 1.5px solid rgb(158, 158, 158);
+    border-radius: 5px;
+}
+
+.ReviewImage-Desc {
+    font-size: 12px;
+    font-weight: normal;
+    color: rgb(109, 109, 109);
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.ModalBody-ReviewImageList {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ReviewImageList-Container {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+
+.ReviewImageList-Item {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.ReviewImageList-Item img {
+    width: 100%;
+    height: 100%;
+}
+
+.Custom-CloseButton {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.ReviewImageList-RemoveBtn {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.ModalBody-ReviewItemInfo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ReviewItemInfo-Wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 10px;
+    padding: 5px 8px;
+    margin-top: 5px;
+    gap: 10px;
+}
+
+.ReviewItemInfo-Image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.ReviewItemInfo-Image img {
+    width: 100%;
+    height: 100%;
+}
+
+.ReviewItemInfo-Content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.ReviewItemInfo-Title {
+    font-size: 15px;
+    font-weight: normal;
+    color: rgb(109, 109, 109);
+}
+
+.Custom-ModalButton {
+    margin: 20px 0px 0px;
+    display: flex;
+    width: 100%;
+}
+
+/* 결제 취소 모달 CSS */
+.PurchaseCancel-ModalLayer {
+    position: absolute;
+    width: auto;
+    top: 0px;
+    left: 0px;
+    z-index: 700;
+}
+
+.PurchaseCancel-ModalWrapper {
+    position: fixed;
+    width: 100%;
+    height: calc(100% + 1px);
+    display: block;
+    background-color: rgba(13, 13, 13, 0.45);
+    transform: translateY(-1px);
+}
+
+.PurchaseCancel-ModalContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 328px;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    max-width: 600px;
+    max-height: calc(-40px + 100vh);
+    border-radius: 10px;
+}
+
+.PurchaseCancel-Modal {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    min-height: 0px;
+    border-radius: 10px;
+    padding: 24px 32px 40px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 16px 0px;
+}
+
+.PurchaseCancel-ModalHeader {
+    display: flex;
+    position: relative;
+    padding: 0px;
+    height: auto;
+    margin: 0px auto;
+    font-weight: bold;
+    min-height: 36px;
+    align-items: center;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+}
+
+.PurchaseCancel-ModalBody {
+    margin: 0px auto;
+    margin-top: 20px;
+    font-size: 16px;
+    color: rgb(109, 109, 109);
+    text-align: center;
+}
+
+.PurchaseCancel-ModalButton {
+    margin: 40px 0px 0px;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* 정렬 select 부분 */
+.Sort-Wrapper {
+    position: relative;
+}
+
+.Sort-Options {
+    cursor: pointer;
+    padding: 9px 6px;
+    border-radius: 10px;
+    outline: none;
+    font-weight: 700;
+}
+
+
+/* 토글 속성 부분 */
+.off {
+    display: none;
+}
+
+/* 버튼 비활성화 */
+.disabled {
+    cursor: not-allowed;
+}

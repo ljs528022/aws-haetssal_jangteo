@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.haetssal_jangteo.mapper.StoreDetailMapper">
+    <select id="selectById">
+        select
+            id,
+            store_market_id,
+            store_owner_id,
+            store_name,
+            store_intro,
+            store_address,
+            store_score,
+            store_category_id,
+            storeCategoryName,
+            ownerLatestLogin,
+            fileId,
+            fileName,
+            fileOriginName,
+            fileSavedPath
+        from vw_store_detail
+        where id = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/store/store-list.css">
+    <link rel="stylesheet" href="/css/store/store-list-event.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<header th:replace="~{/main/header/header.html::header}"></header>
+<body>
+    <!-- 나중에헤더 복붙 -->
+    <div class="full-view">
+        <!-- 전체화면 -->
+        <main class="main-layout">
+            <!-- 위쪽 카테고리부분 -->
+            <div class="category-container">
+                <div class="category-wrapper">
+                    <div class="region-list-wrap">
+                        <div class="region-list">
+                            <input type="hidden" name="region" value="">
+                            <input type="hidden" name="marketId" value="">
+                            <div class="category-each-box all">
+                                <!-- 전체지역, 누르면 전체시장 목록 페이지 -->
+                                <div class="region-icon">
+                                    <img src="/images/region/Korea_Map.svg.png">
+                                </div>
+                                <div class="region-text">전체</div>
+                            </div>
+                            <!-- 서울 -->
+                            <div class="category-each-box">
+                                <div class="region-icon seoul">
+                                    <img src="/images/region/seoul.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">서울</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+
+                            <!-- 경기도 -->
+                            <div class="category-each-box">
+                                <div class="region-icon gyeonggi">
+                                    <img src="/images/region/gyeonggi.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">경기</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+
+                            <!-- 인천 -->
+                            <div class="category-each-box">
+                                <div class="region-icon incheon">
+                                    <img src="/images/region/incheon.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">인천</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+
+                                </div>
+                            </div>
+
+                            <!-- 강원 -->
+                            <div class="category-each-box">
+                                <div class="region-icon gangwon">
+                                    <img src="/images/region/gangwon.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">강원</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+
+                            <!-- 충북 -->
+                            <div class="category-each-box">
+                                <div class="region-icon chungbuk">
+                                    <img src="/images/region/chungbuk.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">충북</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 충남 -->
+                            <div class="category-each-box">
+                                <div class="region-icon chungnam">
+                                    <img src="/images/region/chungnam.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">충남</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 대전 -->
+                            <div class="category-each-box">
+                                <div class="region-icon daejeon">
+                                    <img src="/images/region/daejeon.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">대전</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 경북 -->
+                            <div class="category-each-box">
+                                <div class="region-icon gyeongbuk">
+                                    <img src="/images/region/gyeongbuk.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">경북</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 경남 -->
+                            <div class="category-each-box">
+                                <div class="region-icon gyeongnam">
+                                    <img src="/images/region/gyeongnam.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">경남</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 부산 -->
+                            <div class="category-each-box">
+                                <div class="region-icon busan">
+                                    <img src="/images/region/busan.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">부산</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 울산 -->
+                            <div class="category-each-box">
+                                <div class="region-icon ulsan">
+                                    <img src="/images/region/ulsan.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">울산</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 대구 -->
+                            <div class="category-each-box">
+                                <div class="region-icon daegu">
+                                    <img src="/images/region/daegu.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">대구</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 전북 -->
+                            <div class="category-each-box">
+                                <div class="region-icon jeonbuk">
+                                    <img src="/images/region/jeonbuk.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">전북</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 전남 -->
+                            <div class="category-each-box">
+                                <div class="region-icon jeonnam">
+                                    <img src="/images/region/jeonnam.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">전남</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                            <!-- 광주 -->
+                            <div class="category-each-box">
+                                <div class="region-icon gwangju">
+                                    <img src="/images/region/gwangju.svg">
+                                </div>
+                                <div class="name-arrow-box">
+                                    <div class="region-text">광주</div>
+                                    <div class="tab-arrow">▼</div>
+                                </div>
+                                <div class="tab-button">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 지역별 버튼 아래부터 -->
+            <div class="page-container">
+
+                <!-- 지역명 - 시장이름 ex)서울시 - 가락시장 -->
+                <div class="divider-wrapper">
+
+                    <!-- 지역이름과 장터개수 -->
+                    <div class="divider">
+                        <div class="current-region-market"></div>
+                    </div>
+                </div>
+
+                <!-- 필터버튼과 정렬버튼 박스 -->
+                <div class="filter-container">
+                    <div class="filter-wrapper">
+                        <div class="filter-box">
+                            <div class="filter-options">
+                                <div class="filter-btns">
+
+                                    <!-- 첫번째필터 -->
+                                    <div class="dropdown-filter">
+                                        <input type="hidden" name="categoryId" value="">
+                                        <input type="hidden" name="state" value="">
+                                        <button type="button" class="filter filter-btn category-filter">
+                                            <div class="filter-text">카테고리 전체</div>
+                                            <div class="dropdown-arrow">
+                                                <svg class="arrow-svg" width="16" height="16" viewBox="0 0 16 16"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M7.99967 11.3335L2.66634 6.33353L3.73306 5.33349L7.99967 9.33342L12.2663 5.3335L13.333 6.33353L7.99967 11.3335Z"
+                                                        fill="#6D6D6D"></path>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <!-- 세부카테고리 버튼 클릭시 드롭다운 목록 -->
+                                        <ul class="dd-filter-box">
+                                        </ul>
+                                    </div>
+                                    <!-- 두번째필터 -->
+                                    <button type="button" class="filter filter-btn condition-filter">
+                                        <div class="svg-inmedia">
+                                            <span>영업중인 가게만 보기</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="orderby-box">
+                                <input type="hidden" name="orderValue" value="">
+                                <div class="orderby">
+                                    <button class="combobox-opener">
+                                        <span>최신순
+                                            <i class="combobox-arrow"></i>
+                                        </span>
+                                    </button>
+                                    <div class="filter-combobox">
+                                        <div class="filter-combo selected-filter" value="">최신순</div>
+                                        <div class="filter-combo nonselected-filter" value="asc">이름순(오름차순)</div>
+                                        <div class="filter-combo nonselected-filter" value="desc">이름순(내림차순)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 정렬/필터 부분 아래부터(상점의 개수, 카드들) -->
+                <div class="content-container">
+                    <div class="content-wrapper">
+
+                        <!-- 상점의 개수 뽑기 -->
+                        <div class="count-contents">
+                        </div>
+
+                        <!-- 전체 카드들 -->
+                        <div class="card-list-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal">
+        <div class="like-modal">
+            <div id="content-wrap">좋아하는 시장에 추가 되었습니다.</div>
+        </div>
+    </div>
+</body>
+<footer th:replace="~{/main/footer.html::footer}"></footer>
+<script src="/js/store/event/store-list.js"></script>
+<script src="/js/store/service/storeService.js"></script>
+<script src="/js/store/layout/storeLayout.js"></script>
+<script src="/js/header/header.js"></script>
+</html>

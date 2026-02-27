@@ -189,7 +189,12 @@
 
 .join-text a {
     cursor: pointer;
+    text-decoration: none;
     color: #37A5F7;
+}
+
+.join-text a:hover {
+    text-decoration: underline;
 }
 
 .styled__KakaoButton{

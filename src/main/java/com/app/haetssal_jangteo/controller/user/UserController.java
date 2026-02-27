@@ -46,7 +46,7 @@ public class UserController {
     @PostMapping("join")
     public RedirectView join(UserDTO userDTO){
         userService.haetssalJoin(userDTO);
-        return new RedirectView("/user/login");
+        return new RedirectView("user/login");
     }
 
     @GetMapping("login")
@@ -93,7 +93,7 @@ public class UserController {
     @PostMapping("kakao/join")
     public RedirectView kakaoJoin(UserDTO userDTO){
         userService.kakaoJoin(userDTO);
-        return new RedirectView("/user/login");
+        return new RedirectView("user/login");
     }
 
     @GetMapping("seller-join")
@@ -105,6 +105,6 @@ public class UserController {
     @PostMapping("seller-join")
     public RedirectView sellerJoin(UserDTO userDTO, SellerDTO sellerDTO){
         userService.haetssalSellerJoin(userDTO, sellerDTO);
-        return new RedirectView("/user/login");
+        return new RedirectView("user/login");
     }
 }

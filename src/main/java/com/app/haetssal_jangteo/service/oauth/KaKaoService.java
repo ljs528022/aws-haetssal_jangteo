@@ -49,7 +49,7 @@ public class KaKaoService {
 //            파라미터 구성하기(ref. kakao rest api login documentation)
             stringBuilder.append("grant_type=authorization_code");
             stringBuilder.append("&client_id=9ffffff5782a2590a40ff8f0f6d03bda");
-            stringBuilder.append("&redirect_uri=http://54.180.234.193/kakao/login");
+            stringBuilder.append("&redirect_uri=http://13.125.85.116/kakao/login");
             stringBuilder.append("&code=").append(code);
 
 //            등록한 URI로 파라미터를 전송하기 위해서는
@@ -148,7 +148,6 @@ public class KaKaoService {
                     return kakaoInfo;
 //                    2) 바로 메인 페이지로 이동
 //                    userDAO.save(kakaoInfo);
-//                    DB INSERT
 
                 } else { // 우리 DB에 있네?
 //                    기존 회원

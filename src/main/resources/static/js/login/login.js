@@ -69,7 +69,7 @@ loginBtn.addEventListener("click", (e) => {
 
 //  카카오 로그인 버튼
 kakaoLoginBtn.addEventListener("click", (e) =>{
-    location.href = "https://kauth.kakao.com/oauth/authorize?client_id=9ffffff5782a2590a40ff8f0f6d03bda&redirect_uri=http://54.180.234.193/kakao/login&response_type=code";
+    location.href = "https://kauth.kakao.com/oauth/authorize?client_id=9ffffff5782a2590a40ff8f0f6d03bda&redirect_uri=http://13.125.85.116/kakao/login&response_type=code";
 });
 
 // 로그인 실패

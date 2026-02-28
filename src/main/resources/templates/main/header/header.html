@@ -24,49 +24,50 @@
                     </div>
                 </div>
                 <div class="UpperContent-RightContent">
-                    <button type="button" class="UpperContent-items-button">장바구니</button>
-                    <!-- 분리용 svg -->
-                    <svg width="1" height="16" viewBox="0 0 1 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="16" fill="#E4E4E4"></rect></svg>
+                    <th:block th:if="${session.user != null}">
+                        <button type="button" class="UpperContent-items-button">장바구니</button>
+                        <!-- 분리용 svg -->
+                        <svg width="1" height="16" viewBox="0 0 1 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="16" fill="#E4E4E4"></rect></svg>
 
-                    <!-- 로그인 시 나타나야할 div display: flex -->
-                    <div aria-label="찜한 상품" class="UpperContent-items-icon">
-                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.4988 6.81131L10.8016 5.27789C9.10432 3.74471 6.284 4.08858 4.73976 5.78906C2.80019 7.83319 2.80009 11.2928 4.8524 13.4559L12.499 20.9404L20.1452 13.4559C22.1975 11.2928 22.1976 7.83355 20.2578 5.78906C18.7136 4.08858 15.8934 3.74477 14.1961 5.27789L12.4988 6.81131ZM19.0031 12.3349C20.4713 10.7663 20.4252 8.29008 19.0971 6.89031L19.0851 6.87764L19.0733 6.86471C18.0257 5.71106 16.21 5.61505 15.2687 6.46513L12.4988 8.9676L9.72908 6.4652C8.78787 5.61512 6.97191 5.71104 5.92423 6.86471L5.91247 6.87766L5.90042 6.89036C4.5726 8.28976 4.52629 10.7663 5.99449 12.3349L12.499 18.7015L19.0031 12.3349Z" fill="#0D0D0D"></path></svg>
-                    </div>
-                    <div aria-label="알림" class="UpperContent-items-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.9998 7.5C20.9998 7.22386 21.2236 7 21.4998 7H26.4998C26.7759 7 26.9998 7.22386 26.9998 7.5V8.32218C33.2901 9.69552 37.9998 15.2978 37.9998 22V29.375L38.9351 37.4424C38.9696 37.7394 38.7374 38 38.4385 38H9.5611C9.26214 38 9.02999 37.7394 9.06443 37.4424L9.99978 29.375V22C9.99978 15.2978 14.7094 9.69552 20.9998 8.32218V7.5ZM13.1998 29.5599L12.5922 34.8H35.4073L34.7998 29.5599V22C34.7998 16.0353 29.9645 11.2 23.9998 11.2C18.0351 11.2 13.1998 16.0353 13.1998 22V29.5599Z" fill="#1C1C1C"></path><path d="M28.9998 40H19.9998C19.9998 41.6569 21.3429 43 22.9998 43H25.9998C27.6566 43 28.9998 41.6569 28.9998 40Z" fill="#1C1C1C"></path></svg>
-                        <div class=""></div>
-                    </div>
-
-                    <!-- 로그인 시, class에 onlogin 달아줘야 함 -->
-                    <div th:class="${session.user != null ? 'UserProfile-Button-Wrapper onlogin' : 'UserProfile-Button-Wrapper'}">
-                        <div class="UserProfile-Button-Container">
-                            <th:block th:if="${session.user != null}">
-                                <img th:src="@{/api/files/display(filePath=${session.user.fileSavedPath}, fileName=${session.user.fileName})}" alt="profile-img">
-                            </th:block>
-                            로그인/회원가입
+                        <!-- 로그인 시 나타나야할 div display: flex -->
+                        <div aria-label="찜한 상품" class="UpperContent-items-icon">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.4988 6.81131L10.8016 5.27789C9.10432 3.74471 6.284 4.08858 4.73976 5.78906C2.80019 7.83319 2.80009 11.2928 4.8524 13.4559L12.499 20.9404L20.1452 13.4559C22.1975 11.2928 22.1976 7.83355 20.2578 5.78906C18.7136 4.08858 15.8934 3.74477 14.1961 5.27789L12.4988 6.81131ZM19.0031 12.3349C20.4713 10.7663 20.4252 8.29008 19.0971 6.89031L19.0851 6.87764L19.0733 6.86471C18.0257 5.71106 16.21 5.61505 15.2687 6.46513L12.4988 8.9676L9.72908 6.4652C8.78787 5.61512 6.97191 5.71104 5.92423 6.86471L5.91247 6.87766L5.90042 6.89036C4.5726 8.28976 4.52629 10.7663 5.99449 12.3349L12.499 18.7015L19.0031 12.3349Z" fill="#0D0D0D"></path></svg>
                         </div>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.99967 11.3335L2.66634 6.33353L3.73306 5.33349L7.99967 9.33342L12.2663 5.3335L13.333 6.33353L7.99967 11.3335Z" fill="#6D6D6D"></path></svg>
+                        <!-- 로그인 시, class에 onlogin 달아줘야 함 -->
+                        <div class="UserProfile-Button-Wrapper onlogin">
+                            <div class="UserProfile-Button-Container">
+                                <img th:src="@{/api/files/display(filePath=${session.user.fileSavedPath}, fileName=${session.user.fileName})}" alt="profile-img">
+                            </div>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.99967 11.3335L2.66634 6.33353L3.73306 5.33349L7.99967 9.33342L12.2663 5.3335L13.333 6.33353L7.99967 11.3335Z" fill="#6D6D6D"></path></svg>
 
-                        <!-- 유저 메뉴 -->
-                        <div class="UserProfile-Menu-Wrapper">
-                            <div class="UserProfile-MenuList">
-                                <div class="MenuList-UserProfile">
-                                    <img src="" alt="" class="MenuList-UserProfile-img">
-                                    <div class="MenuList-UserProfile-name">
-                                        <p class="MenuList-UserProfile-p"></p>
+                            <!-- 유저 메뉴 -->
+                            <div class="UserProfile-Menu-Wrapper">
+                                <div class="UserProfile-MenuList">
+                                    <div class="MenuList-UserProfile">
+                                        <img src="" alt="" class="MenuList-UserProfile-img">
+                                        <div class="MenuList-UserProfile-name">
+                                            <p class="MenuList-UserProfile-p"></p>
+                                        </div>
                                     </div>
+                                    <div class="MenuList-DividerBar"></div>
+                                    <div class="MenuList-Content mypage">프로필</div>
+                                    <div class="MenuList-DividerBar"></div>
+                                    <div class="MenuList-Content alert">알림</div>
+                                    <div class="MenuList-Content likeItems">내 찜 목록</div>
+                                    <div class="MenuList-Content editInfo">내 정보 수정</div>
+                                    <div class="MenuList-DividerBar"></div>
+                                    <div class="MenuList-Content logout">로그아웃</div>
                                 </div>
-                                <div class="MenuList-DividerBar"></div>
-                                <div class="MenuList-Content mypage">프로필</div>
-                                <div class="MenuList-DividerBar"></div>
-                                <div class="MenuList-Content alert">알림</div>
-                                <div class="MenuList-Content likeItems">내 찜 목록</div>
-                                <div class="MenuList-Content editInfo">내 정보 수정</div>
-                                <div class="MenuList-DividerBar"></div>
-                                <div class="MenuList-Content logout">로그아웃</div>
                             </div>
                         </div>
-                    </div>
+                    </th:block>
+                    <th:block th:unless="${session.user != null}">
+                        <div class="UserProfile-Button-Wrapper">
+                            <div class="UserProfile-Button-Container">
+                              로그인 / 회원가입
+                            </div>
+                        </div>
+                    </th:block>
                 </div>
             </div>
             <div class="Header-BottomContent">

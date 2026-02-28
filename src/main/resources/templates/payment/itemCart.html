@@ -190,9 +190,15 @@
         </div>
     </main>
 </body>
-
 <script src="/js/payment/event/itemCart.js"></script>
 <script src="/js/payment/service/itemCartService.js"></script>
 <script src="https://js.bootpay.co.kr/bootpay-5.2.8.min.js" type="application/javascript"></script>
 <script src="/js/util/paymentService.js"></script>
+<script>
+    const user = "[[${session.user}]]";
+    if(!user) {
+        alert("로그인 후에 이용가능 합니다!");
+        location.href = "/user/login";
+    }
+</script>
 </html>

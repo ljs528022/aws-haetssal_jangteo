@@ -43,6 +43,7 @@ public class UserController {
         return "join/join";
     }
     //    리다이렉트 안하면 새로고침할때마다 인서트되버림
+
     @PostMapping("join")
     public RedirectView join(UserDTO userDTO){
         userService.haetssalJoin(userDTO);
@@ -56,7 +57,7 @@ public class UserController {
                                 Model model){
         model.addAttribute("remember", remember);
         model.addAttribute("rememberUserEmail", rememberUserEmail);
-        return "login/login";
+        return "/login/login";
     }
 
     @PostMapping("login")
@@ -86,25 +87,25 @@ public class UserController {
 
     @GetMapping("kakao/join")
     public String goToKakaoJoinForm(){
-        return "join/social-join";
+        return "/join/social-join";
     }
 
 //    리다이렉트 안하면 새로고침할때마다 인서트되버림
     @PostMapping("kakao/join")
     public RedirectView kakaoJoin(UserDTO userDTO){
         userService.kakaoJoin(userDTO);
-        return new RedirectView("user/login");
+        return new RedirectView("/user/login");
     }
 
     @GetMapping("seller-join")
     public String goToSellerJoinForm(){
-        return "join/seller-join";
+        return "/join/seller-join";
     }
 
     //    리다이렉트 안하면 새로고침할때마다 인서트되버림
     @PostMapping("seller-join")
     public RedirectView sellerJoin(UserDTO userDTO, SellerDTO sellerDTO){
         userService.haetssalSellerJoin(userDTO, sellerDTO);
-        return new RedirectView("user/login");
+        return new RedirectView("/user/login");
     }
 }

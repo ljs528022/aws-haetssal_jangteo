@@ -24,7 +24,7 @@ public class StoreController {
 
     @GetMapping("write")
     public String goToWriteForm() {
-        return "store/store-write";
+        return "/store/store-write";
     }
 
     @PostMapping("write")
@@ -38,19 +38,19 @@ public class StoreController {
 
     @GetMapping("/list")
     public String list() {
-        return "store/store-list";
+        return "/store/store-list";
     }
 
     @GetMapping("/detail")
     public String goToDetail(Long id, Model model) {
         model.addAttribute("storeDetail", storeService.detail(id));
-        return "store/store-detail";
+        return "/store/store-detail";
     }
 
     @GetMapping("/update")
     public String goToUpdate(String id, Model model) {
         model.addAttribute("store", storeService.detail(Long.valueOf(id)));
-        return "store/store-update";
+        return "/store/store-update";
     }
 
     @PostMapping("/update")

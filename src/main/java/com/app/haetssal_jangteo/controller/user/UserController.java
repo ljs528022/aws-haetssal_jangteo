@@ -46,7 +46,7 @@ public class UserController {
     @PostMapping("join")
     public RedirectView join(UserDTO userDTO){
         userService.haetssalJoin(userDTO);
-        return new RedirectView("user/login");
+        return new RedirectView("/user/login");
     }
 
     @GetMapping("login")

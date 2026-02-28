@@ -57,7 +57,7 @@ public class UserController {
                                 Model model){
         model.addAttribute("remember", remember);
         model.addAttribute("rememberUserEmail", rememberUserEmail);
-        return "/login/login";
+        return "login/login";
     }
 
     @PostMapping("login")
@@ -99,7 +99,7 @@ public class UserController {
 
     @GetMapping("seller-join")
     public String goToSellerJoinForm(){
-        return "/join/seller-join";
+        return "join/seller-join";
     }
 
     //    리다이렉트 안하면 새로고침할때마다 인서트되버림

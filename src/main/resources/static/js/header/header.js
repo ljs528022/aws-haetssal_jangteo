@@ -46,11 +46,10 @@ userMenuBar.addEventListener("click", (e) => {
     const userMenus = userMenuBar.querySelectorAll(".MenuList-Content");
 
     userMenus.forEach((menu) => {
-        if(menu.classList.contains("mypage")) location.href = "/mypage/userpage";
-        if(menu.classList.contains("likeItems")) {
-            alert("추후 업데이트 예정입니다");
-            return;
-        }
-        if(menu.classList.contains("editInfo")) location.href = "/profile/modify";
+        if(menu.classList.contains("mypage")) return location.href = "/mypage/userpage";
+
+        if(menu.classList.contains("likeItems")) return alert("추후 업데이트 예정입니다");
+
+        if(menu.classList.contains("editInfo")) return location.href = "/profile/modify";
     })
 })

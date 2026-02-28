@@ -4,8 +4,9 @@ const loginBtnContent = loginButton.firstElementChild;
 const loginBtnArrow = document.querySelector(
     "div.UserProfile-Button-Wrapper svg",
 );
+
+// 찜 버튼
 const likeBtn = document.querySelector(`div[aria-label="찜한 상품"]`);
-const alertBtn = document.querySelector(`div[aria-label="알림"]`);
 
 // 유저 메뉴바 부분
 const userMenu = document.querySelector("div.UserProfile-Menu-Wrapper");
@@ -31,3 +32,10 @@ loginButton.addEventListener("click", (e) => {
     }
     isClicked = !isClicked;
 });
+
+likeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    alert("추후 업데이트 예정입니다");
+    return;
+})

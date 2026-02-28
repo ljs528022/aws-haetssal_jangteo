@@ -14,13 +14,7 @@
                 <div class="UpperContent-LeftContent">
                     <!-- 나중에 경로 변경 -->
                     <div class="LeftContent-logo">
-                        <img src="/images/haetsal-jangteo-logo.svg" alt="햇살장터 로고">
-                    </div>
-                    <div class="LeftContent-searchbar-container">
-                        <input id="keyword" placeholder="검색할 상품을 입력해주세요" class="LeftContent-searchbar-input">
-                        <div class="searchbar-iconwrap">
-                            <svg class="LeftContent-searchbar-icon" width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="icon_etc"><path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M51.0342 53.8224C46.7715 56.9358 41.4329 58.6738 35.7196 58.4076C22.5649 57.7946 12.4051 46.7891 13.0271 33.8261C13.6491 20.863 24.8173 10.8513 37.972 11.4642C51.1267 12.0771 61.2865 23.0826 60.6645 36.0457C60.3992 41.5749 58.2152 46.5672 54.7768 50.427L66.125 62.7573L62.3569 66.125L51.0342 53.8224ZM55.2656 35.7941C54.7846 45.8189 46.1478 53.5613 35.9749 53.0873C25.8019 52.6133 17.945 44.1024 18.426 34.0776C18.907 24.0529 27.5438 16.3105 37.7168 16.7845C47.8897 17.2585 55.7466 25.7694 55.2656 35.7941Z" fill="black"></path></g></svg>
-                        </div>
+                        <img th:href="@{/store/list}" src="/images/haetsal-jangteo-logo.svg" alt="햇살장터 로고">
                     </div>
                 </div>
                 <div class="UpperContent-RightContent">
@@ -33,6 +27,7 @@
                         <div aria-label="찜한 상품" class="UpperContent-items-icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.4988 6.81131L10.8016 5.27789C9.10432 3.74471 6.284 4.08858 4.73976 5.78906C2.80019 7.83319 2.80009 11.2928 4.8524 13.4559L12.499 20.9404L20.1452 13.4559C22.1975 11.2928 22.1976 7.83355 20.2578 5.78906C18.7136 4.08858 15.8934 3.74477 14.1961 5.27789L12.4988 6.81131ZM19.0031 12.3349C20.4713 10.7663 20.4252 8.29008 19.0971 6.89031L19.0851 6.87764L19.0733 6.86471C18.0257 5.71106 16.21 5.61505 15.2687 6.46513L12.4988 8.9676L9.72908 6.4652C8.78787 5.61512 6.97191 5.71104 5.92423 6.86471L5.91247 6.87766L5.90042 6.89036C4.5726 8.28976 4.52629 10.7663 5.99449 12.3349L12.499 18.7015L19.0031 12.3349Z" fill="#0D0D0D"></path></svg>
                         </div>
+
                         <!-- 로그인 시, class에 onlogin 달아줘야 함 -->
                         <div class="UserProfile-Button-Wrapper onlogin">
                             <div class="UserProfile-Button-Container">
@@ -44,17 +39,21 @@
                             <div class="UserProfile-Menu-Wrapper">
                                 <div class="UserProfile-MenuList">
                                     <div class="MenuList-UserProfile">
-                                        <img src="" alt="" class="MenuList-UserProfile-img">
+                                        <img th:src="@{/api/files/display(filePath=${session.user.fileSavedPath}, fileName=${session.user.fileName})}" alt="" class="MenuList-UserProfile-img">
                                         <div class="MenuList-UserProfile-name">
-                                            <p class="MenuList-UserProfile-p"></p>
+                                            <p class="MenuList-UserProfile-p" th:text="*{userName}"></p>
                                         </div>
                                     </div>
                                     <div class="MenuList-DividerBar"></div>
-                                    <div class="MenuList-Content mypage">프로필</div>
+                                    <div class="MenuList-Content mypage">
+                                        <a th:href="@{/mypage/userpage}">프로필</a>
+                                    </div>
                                     <div class="MenuList-DividerBar"></div>
-                                    <div class="MenuList-Content alert">알림</div>
                                     <div class="MenuList-Content likeItems">내 찜 목록</div>
-                                    <div class="MenuList-Content editInfo">내 정보 수정</div>
+                                    <div class="MenuList-Content editInfo">
+                                        <a th:href="@{/profile/modify}">내 정보 수정</a>
+
+                                    </div>
                                     <div class="MenuList-DividerBar"></div>
                                     <div class="MenuList-Content logout">로그아웃</div>
                                 </div>
@@ -64,7 +63,7 @@
                     <th:block th:unless="${session.user != null}">
                         <div class="UserProfile-Button-Wrapper">
                             <div class="UserProfile-Button-Container">
-                              로그인 / 회원가입
+                              <a th:href="@{/user/login}">로그인 / 회원가입</a>
                             </div>
                         </div>
                     </th:block>

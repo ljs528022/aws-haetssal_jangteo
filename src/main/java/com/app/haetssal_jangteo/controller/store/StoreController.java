@@ -24,7 +24,7 @@ public class StoreController {
 
     @GetMapping("write")
     public String goToWriteForm() {
-        return "/store/store-write";
+        return "store/store-write";
     }
 
     @PostMapping("write")
@@ -38,7 +38,7 @@ public class StoreController {
 
     @GetMapping("/list")
     public String list() {
-        return "/store/store-list";
+        return "store/store-list";
     }
 
     @GetMapping("/detail")

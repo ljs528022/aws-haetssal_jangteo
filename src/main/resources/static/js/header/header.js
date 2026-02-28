@@ -58,7 +58,7 @@ userMenus.forEach((menu) => {
                 location.href = "/profile/modify";
                 break;
             case "logout":
-                handleLogout();
+                location.href = "/user/logout";
                 break;
         }
     });
@@ -68,9 +68,3 @@ cartBtn.addEventListener("click", (e) => {
    const userId = cartBtn.id;
    location.href = `/cart/list?id=${userId}`;
 });
-
-
-const handleLogout = () => {
-    const user = sessionStorage.getItem("");
-    console.log(user);
-}

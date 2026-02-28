@@ -109,4 +109,11 @@ public class UserController {
         userService.haetssalSellerJoin(userDTO, sellerDTO);
         return new RedirectView("/user/login");
     }
+
+    // 로그아웃
+    @GetMapping("logout")
+    public String logout(){
+        session.invalidate();
+        return "login/login";
+    }
 }

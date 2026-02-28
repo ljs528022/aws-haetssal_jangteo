@@ -50,8 +50,8 @@
                                     <div class="MenuList-Content likeItems">내 찜 목록</div>
                                     <div class="MenuList-Content editInfo">내 정보 수정</div>
                                     <div class="MenuList-DividerBar"></div>
-                                    <a class="MenuList-Content logout" th:if="${session.user.authProvider.value == 'kakao'}" href="https://kauth.kakao.com/oauth/logout?client_id=9ffffff5782a2590a40ff8f0f6d03bda&redirect_uri=http://3.36.65.137/user/login">로그아웃</a>
-                                    <a class="MenuList-Content logout" th:unless="${session.user.authProvider.value == 'kakao'}" href="/member/logout">로그아웃</a>
+                                    <a class="MenuList-Content logout" th:if="${session.user.authProvider.value == 'SOCIAL'}" href="https://kauth.kakao.com/oauth/logout?client_id=9ffffff5782a2590a40ff8f0f6d03bda&redirect_uri=http://3.36.65.137/user/login">로그아웃</a>
+                                    <a class="MenuList-Content logout" th:unless="${session.user.authProvider.value == 'SOCIAL'}" href="/user/logout">로그아웃</a>
                                 </div>
                             </div>
                         </div>

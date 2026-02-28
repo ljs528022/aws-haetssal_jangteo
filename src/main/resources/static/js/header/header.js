@@ -45,7 +45,19 @@ likeBtn.addEventListener("click", (e) => {
 
 userMenus.forEach((menu) => {
     menu.addEventListener("click", (e) => {
+        e.preventDefault();
+
         const contentName = menu.classList[1];
-        console.log(contentName);
+        switch (contentName) {
+            case "mypage":
+                location.href = "/mypage/userPage";
+                break;
+            case "likeItems":
+                alert("추후 업데이트 예정입니다.");
+                break;
+            case "editInfo":
+                location.href = "/profile/modify";
+                break;
+        }
     });
 });

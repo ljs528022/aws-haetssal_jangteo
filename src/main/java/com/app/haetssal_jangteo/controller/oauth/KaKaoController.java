@@ -26,10 +26,10 @@ public class KaKaoController {
 
         if(userDTO.getId() == null){
             redirectAttributes.addFlashAttribute("kakao", userDTO);
-            path = "user/kakao/join";
+            path = "/user/kakao/join";
         }else {
             session.setAttribute("user", userDTO);
-            path = "main/home";
+            path = "/main/home";
         }
 
         return new RedirectView(path);

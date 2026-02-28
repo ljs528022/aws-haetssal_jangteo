@@ -32,7 +32,7 @@ loginButton.addEventListener("click", (e) => {
     }
     isClicked = !isClicked;
 
-    userMenu.classList.toggle("off", !isClicked);
+    userMenuBar.classList.toggle("off", !isClicked);
 });
 
 likeBtn.addEventListener("click", (e) => {

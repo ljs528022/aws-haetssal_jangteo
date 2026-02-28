@@ -8,6 +8,7 @@
 <body>
     <!-- 카테고리 hover 되었을 때 box-shadow 없애야함 -->
     <header class="Header-Layout">
+        <th:block th:object="${session.user}">
         <div class="Header-Container">
             <div class="Header-UpperContent">
                 <div class="UpperContent-LeftContent">
@@ -37,9 +38,11 @@
                     </div>
 
                     <!-- 로그인 시, class에 onlogin 달아줘야 함 -->
-                    <div class="UserProfile-Button-Wrapper">
+                    <div th:class="${session.user != null ? 'UserProfile-Button-Wrapper onlogin' : 'UserProfile-Button-Wrapper'}">
                         <div class="UserProfile-Button-Container">
-                            <!-- 로그인시, 여기에 유저 프로필 이미지로 변경 -->
+                            <th:block th:if="${session.user != null}">
+                                <img th:src="@{/api/files/display(filePath=${session.user.fileSavedPath}, fileName=${session.user.fileName})}" alt="profile-img">
+                            </th:block>
                             로그인/회원가입
                         </div>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.99967 11.3335L2.66634 6.33353L3.73306 5.33349L7.99967 9.33342L12.2663 5.3335L13.333 6.33353L7.99967 11.3335Z" fill="#6D6D6D"></path></svg>
@@ -73,152 +76,9 @@
                         <a th:href="@{/store/list}" class="Category-Section-Category">장터 선택</a>
                     </nav>
                 </div>
-                <!-- 세부 카테고리 부분 -->
-                <div class="Header-BottomExtended-Region">
-                    <div class="BottomExtended-Region-Container">
-                        <div class="BottomExtended-Region-Wrapper">
-                            <!-- 뿌려야 하면 이 단위로 -->
-                            <!------------------------>
-                            <div class="BottomExtended-Region-Group">
-                                <!-- ---- -->
-                                <!-- 한 Item 당 4개 -->
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/Korea_Map.svg.png" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">전체</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/seoul.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">서울</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/gyeonggi.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">경기</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/incheon.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">인천</div>
-                                </div>
-                            </div>
-                            <!------------------->
-                            <!------------------------>
-                            <div class="BottomExtended-Region-Group">
-                                <!-- ---- -->
-                                <!-- 한 Item 당 4개 -->
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/gangwon.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">강원</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/chungbuk.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">충북</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/chungnam.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">충남</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/daejeon.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">대전</div>
-                                </div>
-                            </div>
-                            <!------------------->
-                            <!------------------------>
-                            <div class="BottomExtended-Region-Group">
-                                <!-- ---- -->
-                                <!-- 한 Item 당 4개 -->
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/gyeongbuk.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">경북</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/gyeongnam.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">경남</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/busan.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">부산</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/ulsan.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">울산</div>
-                                </div>
-                            </div>
-                            <!------------------->
-                            <!------------------------>
-                            <div class="BottomExtended-Region-Group">
-                                <!-- ---- -->
-                                <!-- 한 Item 당 4개 -->
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/daegu.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">대구</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/jeonbuk.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">전북</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/jeonnam.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">전남</div>
-                                </div>
-                                <div class="BottomExtended-Region-Item">
-                                    <div class="BottomExtended-Region-ItemIcon">
-                                        <!-- 이미지 넣어야함 -->
-                                        <img src="/images/region/gwangju.svg" alt="로고">
-                                    </div>
-                                    <div class="BottomExtended-Region-ItemText">광주</div>
-                                </div>
-                            </div>
-                            <!------------------->
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+        </th:block>
     </header>
 </body>
 <script src="/js/header/header.js"></script>

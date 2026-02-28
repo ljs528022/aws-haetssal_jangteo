@@ -19,10 +19,10 @@ public class CartController {
     private final CartService cartService;
 
     @GetMapping("/list")
-    public String goToCart(Long userId, Model model) {
-        log.info("받아온 userId >> {}", userId);
-        model.addAttribute("cartId", cartService.getCartIdByUserId(userId));
-        model.addAttribute("cartItems", cartService.getCartItems(userId));
+    public String goToCart(Long id, Model model) {
+        log.info("받아온 userId >> {}", id);
+        model.addAttribute("cartId", cartService.getCartIdByUserId(id));
+        model.addAttribute("cartItems", cartService.getCartItems(id));
         return "payment/itemCart";
     }
 

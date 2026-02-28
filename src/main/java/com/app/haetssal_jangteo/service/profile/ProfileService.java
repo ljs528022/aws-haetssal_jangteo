@@ -50,7 +50,7 @@ public class ProfileService {
     }
 
     public void saveProfileImage(FileUserDTO fileUserDTO, MultipartFile file) {
-        String rootPath = "C:/file/";
+        String rootPath = "/home/ubuntu/upload/";
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 

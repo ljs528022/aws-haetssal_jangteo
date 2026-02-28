@@ -41,7 +41,7 @@ public class ReviewService {
 
 //    리뷰쓰기
     public void writeReview(ReviewDTO reviewDTO, List<MultipartFile> files) {
-        String rootPath = "C:/file/";
+        String rootPath = "/home/ubuntu/upload/";
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 

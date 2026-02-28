@@ -52,7 +52,7 @@ public class AdminService {
 
     // 상품 수정
     public void update(ItemDTO itemDTO, List<MultipartFile> multipartFiles) {
-        String rootPath = "C:/file/";
+        String rootPath = "/home/ubuntu/upload/";
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 

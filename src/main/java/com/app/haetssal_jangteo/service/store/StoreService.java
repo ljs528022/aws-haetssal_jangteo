@@ -39,7 +39,7 @@ public class StoreService {
 
     // 가게 등록
     public void save(StoreDTO storeDTO, MultipartFile multipartFile) {
-        String rootPath = "C:/file/";
+        String rootPath = "/home/ubuntu/upload/";
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 
@@ -76,7 +76,7 @@ public class StoreService {
 
     // 가게 정보 수정
     public void update(StoreDTO storeDTO, MultipartFile multipartFile) {
-        String rootPath = "C:/file/";
+        String rootPath = "/home/ubuntu/upload/";
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 

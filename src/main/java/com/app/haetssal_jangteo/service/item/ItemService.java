@@ -40,7 +40,7 @@ public class   ItemService {
                      ArrayList<MultipartFile> itemSellerImages,
                      ArrayList<MultipartFile> itemRefundImages) {
         // 이미지 저장용 경로 지정
-        String rootPath = "C:/file/";
+        String rootPath = "/home/ubuntu/upload/";
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 
@@ -188,7 +188,7 @@ public class   ItemService {
                        ArrayList<MultipartFile> itemDescImages,
                        ArrayList<MultipartFile> itemSellerImages,
                        ArrayList<MultipartFile> itemRefundImages) {
-        String rootPath = "C:/file/";
+        String rootPath = "/home/ubuntu/upload/";
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 
@@ -249,7 +249,7 @@ public class   ItemService {
         itemDAO.deleteOptionByItemId(id);
         // 실제 파일 삭제
         fileItemDAO.findImagesById(id).forEach(fileItemDTO -> {
-            File file = new File("C:/file/" + fileItemDTO.getFileSavedPath(), fileItemDTO.getFileName());
+            File file = new File("/home/ubuntu/upload/" + fileItemDTO.getFileSavedPath(), fileItemDTO.getFileName());
             if(file.exists()) {
                 file.delete();
             }

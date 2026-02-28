@@ -31,7 +31,7 @@
                         <!-- 로그인 시, class에 onlogin 달아줘야 함 -->
                         <div class="UserProfile-Button-Wrapper onlogin">
                             <div class="UserProfile-Button-Container">
-                                <img th:src="@{/api/files/display(filePath=${session.user.fileSavedPath}, fileName=${session.user.fileName})}" alt="profile-img">
+                                <img th:src="@{/api/files/display(filePath=*{fileSavedPath}, fileName=*{fileName})}" alt="profile-img">
                             </div>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.99967 11.3335L2.66634 6.33353L3.73306 5.33349L7.99967 9.33342L12.2663 5.3335L13.333 6.33353L7.99967 11.3335Z" fill="#6D6D6D"></path></svg>
 
@@ -39,7 +39,7 @@
                             <div class="UserProfile-Menu-Wrapper off">
                                 <div class="UserProfile-MenuList">
                                     <div class="MenuList-UserProfile">
-                                        <img th:src="@{/api/files/display(filePath=${session.user.fileSavedPath}, fileName=${session.user.fileName})}" alt="" class="MenuList-UserProfile-img">
+                                        <img th:src="@{/api/files/display(filePath=*{fileSavedPath}, fileName=*{fileName})}" alt="" class="MenuList-UserProfile-img">
                                         <div class="MenuList-UserProfile-name">
                                             <p class="MenuList-UserProfile-p" th:text="*{userName}"></p>
                                         </div>

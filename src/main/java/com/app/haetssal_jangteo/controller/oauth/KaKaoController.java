@@ -28,6 +28,7 @@ public class KaKaoController {
             redirectAttributes.addFlashAttribute("kakao", userDTO);
             path = "/user/kakao/join";
         }else {
+            log.info("받아온 user : {}", userDTO);
             session.setAttribute("user", userDTO);
             path = "/store/list";
         }

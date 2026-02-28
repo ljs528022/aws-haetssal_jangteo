@@ -216,7 +216,7 @@ input[type=submit] {
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 16px 0px, rgba(0, 0, 0, 0.06) 0px 5px 20px 0px;
     padding: 8px 0px;
-    height: fit-content;
+    height: auto;
 }
 
 .UserProfile-MenuList {

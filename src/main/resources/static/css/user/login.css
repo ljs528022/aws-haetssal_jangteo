@@ -165,6 +165,19 @@
 
 }
 
+.LoginPage-SellerButton {
+    width: 414px;
+    padding: 10px 0px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(120, 120, 120);
+    background-color: #fff;
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform .15s cubic-bezier(.68, -.55, .265, 1.55);
+}
+
 .LoginPage-PassVisible {
     position: absolute;
     display: flex;

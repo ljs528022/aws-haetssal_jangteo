@@ -13,41 +13,25 @@
         <div class="styled__LoginWrap">
             <div class="styled__LoginWrapInner">
                 <div class="styled__Title">
-                    <p class="SignIn__KakaoLoginSubTitle">간편하게 로그인하고</p>
-                    <p class="styled__KakaoLoginTitle">시장 골목마다 숨겨진  <br>보물 같은 상품을 만나보세요</p>
+                    <p class="SignIn__KakaoLoginSubTitle">회원가입 하고</p>
+                    <p class="styled__KakaoLoginTitle">시장 골목마다 숨겨진  <br>보물 같은 상품을 만나거나 제공해보세요</p>
                 </div>
-                <!-- 햇살 로그인 -->
-                <button class="styled__EmailButton" data-state="closed">
-                    <div class="emailIcon Icon__SVGICON">
-                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="14.875" fill="#D0D0D0"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M24.5557 10.8608H9.44458V12.0886H24.5557V10.8608ZM24.5557 12.0887L17.0001 17.8183L9.44458 12.0887H24.5557Z" fill="white"></path><path d="M20.1483 16.9997L24.5557 20.2737L24.5557 13.7256L20.1483 16.9997Z" fill="white"></path><path d="M13.852 16.9997L9.44458 20.2737L9.44458 13.7256L13.852 16.9997Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M17.0001 19.4554L19.1589 17.8184L24.5557 21.9109L24.5557 23.1387H9.44458V21.9109L14.8414 17.8184L17.0001 19.4554Z" fill="white"></path></svg>
-                    </div>
-                    일반 로그인
-                </button>
-                <!-- Kakao API -->
-                <button class="styled__KakaoButton" data-state="closed">
-                    <div class="kakaoIcon Icon__SVGICON">
-                        <svg><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3.25C6.99238 3.25 2.16663 6.99718 2.16663 11.5825C2.3636 14.7381 4.33329 17.4498 7.18935 18.6332L6.15526 22.3803C6.10602 22.4789 6.15526 22.6269 6.25375 22.6757C6.35223 22.7748 6.5492 22.7748 6.64769 22.6757L11.0303 19.7672C11.6704 19.8658 12.3106 19.9151 13 19.9151C18.9583 19.9151 23.8333 16.1679 23.8333 11.5825C23.8333 6.99718 19.0075 3.25 13 3.25" fill="black" fill-opacity="0.9"></path></svg>
-                    </div>
-                    카카오로 로그인
-                </button>
-                <!-- Business page -->
-                <button class="styled__BusinessButton" data-state="closed">
-                    <div class="BusinessIcon Icon__SVGICON">
-                        <img src="../static/images/햇살장터 간단 로고.png" alt="">
-                    </div>
-                    판매자 로그인
-                </button>
-
-                <div class="SignIn__MenuContainer">
-                    <!-- 계정찾기, 회원가입 page -->
-                    <div class="AccountSwitchPrompt__Wrapper">
-                        <span class="PlainNavLink__Wrapper"><a>계정찾기</a></span>
-                        <div class="AccountSwitchPrompt__MenuDivider"></div>
-                        <span class="PlainNavLink__Wrapper"><a>회원가입</a></span>
-                        <!-- <div class="AccountSwitchPrompt__MenuDivider"></div>
-                        <span class="PlainNavLink__Wrapper"><a>카카오로 회원가입</a></span> -->
-                    </div>
-                </div>
+                <a href="/user/join">
+                    <button class="styled__EmailButton" data-state="closed">
+                        <div class="emailIcon Icon__SVGICON">
+                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="14.875" fill="#D0D0D0"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M24.5557 10.8608H9.44458V12.0886H24.5557V10.8608ZM24.5557 12.0887L17.0001 17.8183L9.44458 12.0887H24.5557Z" fill="white"></path><path d="M20.1483 16.9997L24.5557 20.2737L24.5557 13.7256L20.1483 16.9997Z" fill="white"></path><path d="M13.852 16.9997L9.44458 20.2737L9.44458 13.7256L13.852 16.9997Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M17.0001 19.4554L19.1589 17.8184L24.5557 21.9109L24.5557 23.1387H9.44458V21.9109L14.8414 17.8184L17.0001 19.4554Z" fill="white"></path></svg>
+                        </div>
+                        일반 회원가입
+                    </button>
+                </a>
+                <a href="/user/seller-join">
+                    <button class="styled__BusinessButton" data-state="closed">
+                        <div class="BusinessIcon Icon__SVGICON">
+                            <img src="../static/images/햇살장터 간단 로고.png" alt="">
+                        </div>
+                        판매자 회원가입
+                    </button>
+                </a>
             </div>
         </div>
         <div class="styled__BgWrap">
@@ -55,8 +39,5 @@
         </div>
     </div>
 </div>
-</div>
-<!--ctrl + / -->
-
 </body>
 </html>

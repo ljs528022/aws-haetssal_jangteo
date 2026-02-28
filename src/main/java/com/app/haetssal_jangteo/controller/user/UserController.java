@@ -38,6 +38,9 @@ public class UserController {
         return userService.checkEmail(userEmail);
     }
 
+    @GetMapping("join-select")
+    public String goToJoinSelect() { return "join/seller-join"; }
+
     @GetMapping("join")
     public String goToJoinForm(){
         return "join/join";

@@ -202,7 +202,7 @@ input[type=submit] {
     inset: 0px;
     z-index: 700;
     background: white;
-    display: none;
+    display: flex;
     flex-direction: column;
     transition: 0.3s ease-in-out;
     top: 50px;
@@ -472,4 +472,8 @@ input[type=submit] {
     line-height: 18px;
     justify-content: flex-start;
     margin-top: 4px;
+}
+
+.off {
+    display: none;
 }

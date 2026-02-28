@@ -31,6 +31,8 @@ loginButton.addEventListener("click", (e) => {
         loginBtnArrow.style.transition = `transform 0.5s`;
     }
     isClicked = !isClicked;
+
+    userMenu.classList.toggle("off", isClicked);
 });
 
 likeBtn.addEventListener("click", (e) => {

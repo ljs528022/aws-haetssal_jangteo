@@ -50,7 +50,7 @@ userMenus.forEach((menu) => {
         const contentName = menu.classList[1];
         switch (contentName) {
             case "mypage":
-                location.href = "/mypage/userPage";
+                location.href = "/mypage/userpage";
                 break;
             case "likeItems":
                 alert("추후 업데이트 예정입니다.");

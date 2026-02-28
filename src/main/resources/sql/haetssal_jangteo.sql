@@ -246,45 +246,45 @@ create table tbl_report (
 # -----------------------------------
 # 첨부파일 관련 table
 create table tbl_file_market (
-                                 file_id bigint unsigned NOT NULL,
+                                 id bigint unsigned NOT NULL,
                                  market_id bigint unsigned NOT NULL,
-                                 constraint fk_file_market foreign key (file_id)
+                                 constraint fk_file_market foreign key (id)
                                      references tbl_file(id),
                                  constraint fk_target_market foreign key (market_id)
                                      references tbl_market(id)
 );
 
 create table tbl_file_item (
-                               file_id bigint unsigned NOT NULL,
+                               id bigint unsigned NOT NULL,
                                item_id bigint unsigned NOT NULL,
-                               constraint fk_file_item foreign key (file_id)
+                               constraint fk_file_item foreign key (id)
                                    references tbl_file(id),
                                constraint fk_target_item foreign key (item_id)
                                    references tbl_item(id)
 );
 
 create table tbl_file_user (
-                               file_id bigint unsigned NOT NULL,
+                               id bigint unsigned NOT NULL,
                                user_id bigint unsigned NOT NULL,
-                               constraint fk_file_user foreign key (file_id)
+                               constraint fk_file_user foreign key (id)
                                    references tbl_file(id),
                                constraint fk_target_user foreign key (user_id)
                                    references tbl_user(id)
 );
 
 create table tbl_file_report (
-                                 file_id bigint unsigned NOT NULL,
+                                 id bigint unsigned NOT NULL,
                                  report_id bigint unsigned NOT NULL,
-                                 constraint fk_file_report foreign key (file_id)
+                                 constraint fk_file_report foreign key (id)
                                      references tbl_file(id),
                                  constraint fk_target_report foreign key (report_id)
                                      references tbl_report(id)
 );
 
 create table tbl_file_review (
-                                 file_id bigint unsigned NOT NULL,
+                                 id bigint unsigned NOT NULL,
                                  review_id bigint unsigned NOT NULL,
-                                 constraint fk_file_review foreign key (file_id)
+                                 constraint fk_file_review foreign key (id)
                                      references tbl_file(id),
                                  constraint fk_target_review foreign key (review_id)
                                      references tbl_review(id)

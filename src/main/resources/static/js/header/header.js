@@ -9,7 +9,7 @@ const loginBtnArrow = document.querySelector(
 const likeBtn = document.querySelector(`div[aria-label="찜한 상품"]`);
 
 // 유저 메뉴바 부분
-const userMenu = document.querySelector("div.UserProfile-Menu-Wrapper");
+const userMenuBar = document.querySelector("div.UserProfile-Menu-Wrapper");
 
 // 카테고리 부분
 const headerLayout = document.querySelector(".Header-Layout");
@@ -32,7 +32,7 @@ loginButton.addEventListener("click", (e) => {
     }
     isClicked = !isClicked;
 
-    userMenu.classList.toggle("off", isClicked);
+    userMenu.classList.toggle("off", !isClicked);
 });
 
 likeBtn.addEventListener("click", (e) => {
@@ -40,4 +40,17 @@ likeBtn.addEventListener("click", (e) => {
 
     alert("추후 업데이트 예정입니다");
     return;
+});
+
+userMenuBar.addEventListener("click", (e) => {
+    const userMenus = userMenuBar.querySelectorAll(".MenuList-Content");
+
+    userMenus.forEach((menu) => {
+        if(menu.classList.contains("mypage")) location.href = "/mypage/userpage";
+        if(menu.classList.contains("likeItems")) {
+            alert("추후 업데이트 예정입니다");
+            return;
+        }
+        if(menu.classList.contains("editInfo")) location.href = "/profile/modify";
+    })
 })

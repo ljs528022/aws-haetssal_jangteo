@@ -45,19 +45,7 @@ likeBtn.addEventListener("click", (e) => {
 
 userMenus.forEach((menu) => {
     menu.addEventListener("click", (e) => {
-        if(menu.classList.contains("mypage")) {
-            location.href = "/mypage/userpage";
-            return;
-        }
-
-        if(menu.classList.contains("likeItems")) {
-            alert("추후 업데이트 예정입니다");
-            return;
-        };
-
-        if(menu.classList.contains("editInfo")) {
-            location.href = "/profile/modify";
-            return;
-        };
+        const contentName = menu.classList[1];
+        console.log(contentName);
     });
 });

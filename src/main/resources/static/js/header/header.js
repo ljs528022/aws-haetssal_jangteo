@@ -58,7 +58,7 @@ userMenus.forEach((menu) => {
                 location.href = "/profile/modify";
                 break;
             case "logout":
-
+                headerService.logoutHandler();
                 break;
         }
     });

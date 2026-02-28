@@ -13,6 +13,6 @@ import java.io.IOException;
 public class FileController {
     @GetMapping("display")
     public byte[] display(String filePath, String fileName) throws IOException {
-        return FileCopyUtils.copyToByteArray(new File("/home/ubuntu/upload" + filePath, fileName));
+        return FileCopyUtils.copyToByteArray(new File("/home/ubuntu/upload/" + filePath, fileName));
     }
 }

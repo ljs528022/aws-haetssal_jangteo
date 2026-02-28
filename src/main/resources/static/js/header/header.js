@@ -15,9 +15,6 @@ const likeBtn = document.querySelector(`div[aria-label="찜한 상품"]`);
 const userMenuBar = document.querySelector("div.UserProfile-Menu-Wrapper");
 const userMenus = document.querySelectorAll(".MenuList-Content");
 
-// 카테고리 부분
-const headerLayout = document.querySelector(".Header-Layout");
-
 // 로그인 버튼 클릭 여부
 let isClicked = false;
 
@@ -59,6 +56,9 @@ userMenus.forEach((menu) => {
                 break;
             case "editInfo":
                 location.href = "/profile/modify";
+                break;
+            case "logout":
+
                 break;
         }
     });

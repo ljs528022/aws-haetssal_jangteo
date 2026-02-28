@@ -29,7 +29,7 @@ public class KaKaoController {
             path = "/user/kakao/join";
         }else {
             session.setAttribute("user", userDTO);
-            path = "/main/home";
+            path = "/store/list";
         }
 
         return new RedirectView(path);

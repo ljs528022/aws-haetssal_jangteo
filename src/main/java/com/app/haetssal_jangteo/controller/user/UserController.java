@@ -82,7 +82,7 @@ public class UserController {
         response.addCookie(rememberUserEmailCookie);
         response.addCookie(rememberCookie);
 
-        return new RedirectView("main/home");
+        return new RedirectView("/store/list");
     }
 
     @GetMapping("kakao/join")

@@ -10,6 +10,7 @@ const likeBtn = document.querySelector(`div[aria-label="찜한 상품"]`);
 
 // 유저 메뉴바 부분
 const userMenuBar = document.querySelector("div.UserProfile-Menu-Wrapper");
+const userMenus = document.querySelectorAll(".MenuList-Content");
 
 // 카테고리 부분
 const headerLayout = document.querySelector(".Header-Layout");
@@ -42,10 +43,8 @@ likeBtn.addEventListener("click", (e) => {
     return;
 });
 
-userMenuBar.addEventListener("click", (e) => {
-    const userMenus = userMenuBar.querySelectorAll(".MenuList-Content");
-
-    userMenus.forEach((menu) => {
+userMenus.forEach((menu) => {
+    menu.addEventListener("click", (e) => {
         if(menu.classList.contains("mypage")) {
             location.href = "/mypage/userpage";
             return;
@@ -60,5 +59,5 @@ userMenuBar.addEventListener("click", (e) => {
             location.href = "/profile/modify";
             return;
         };
-    })
-})
+    });
+});

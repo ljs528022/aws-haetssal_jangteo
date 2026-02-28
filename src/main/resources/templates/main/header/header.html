@@ -19,7 +19,7 @@
                 </div>
                 <div class="UpperContent-RightContent">
                     <th:block th:if="${session.user != null}">
-                        <button type="button" class="UpperContent-items-button">장바구니</button>
+                        <button th:id="${session.user.id}" type="button" class="UpperContent-items-button">장바구니</button>
                         <!-- 분리용 svg -->
                         <svg width="1" height="16" viewBox="0 0 1 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="16" fill="#E4E4E4"></rect></svg>
 

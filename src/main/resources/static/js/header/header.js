@@ -5,6 +5,9 @@ const loginBtnArrow = document.querySelector(
     "div.UserProfile-Button-Wrapper svg",
 );
 
+// 장바구니 버튼
+const cartBtn = document.querySelector(".UpperContent-items-button");
+
 // 찜 버튼
 const likeBtn = document.querySelector(`div[aria-label="찜한 상품"]`);
 
@@ -40,7 +43,6 @@ likeBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     alert("추후 업데이트 예정입니다");
-    return;
 });
 
 userMenus.forEach((menu) => {
@@ -60,4 +62,9 @@ userMenus.forEach((menu) => {
                 break;
         }
     });
+});
+
+cartBtn.addEventListener("click", (e) => {
+   const userId = cartBtn.id;
+   location.href = `/cart/list?id=${userId}`;
 });

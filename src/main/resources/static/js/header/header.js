@@ -71,6 +71,6 @@ cartBtn.addEventListener("click", (e) => {
 
 
 const handleLogout = () => {
-    const user = sessionStorage.getItem("user");
+    const user = sessionStorage.getItem("");
     console.log(user);
 }

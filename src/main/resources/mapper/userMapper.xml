@@ -25,9 +25,12 @@
         select
             u.id, user_email, user_password, user_phone, user_type,
             user_name, user_intro, user_visit_count, user_latest_login,
-            user_state, created_datetime, updated_datetime, a.auth_provider
-        from tbl_user u join tbl_auth a
-        on u.id = a.id
+            user_state, u.created_datetime, updated_datetime, a.auth_provider,
+            f.file_name, f.file_saved_path
+        from tbl_user u
+        join tbl_auth a on u.id = a.id
+        left join tbl_file_user fu on fu.user_id = u.id
+        left join tbl_file f on f.id = fu.id
         where user_email = #{userEmail} and user_password = #{userPassword}
     </select>
 

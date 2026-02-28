@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping("join-select")
-    public String goToJoinSelect() { return "join/seller-join"; }
+    public String goToJoinSelect() { return "login/login-select"; }
 
     @GetMapping("join")
     public String goToJoinForm(){

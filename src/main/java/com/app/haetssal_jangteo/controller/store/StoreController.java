@@ -44,13 +44,13 @@ public class StoreController {
     @GetMapping("/detail")
     public String goToDetail(Long id, Model model) {
         model.addAttribute("storeDetail", storeService.detail(id));
-        return "/store/store-detail";
+        return "store/store-detail";
     }
 
     @GetMapping("/update")
     public String goToUpdate(String id, Model model) {
         model.addAttribute("store", storeService.detail(Long.valueOf(id)));
-        return "/store/store-update";
+        return "store/store-update";
     }
 
     @PostMapping("/update")

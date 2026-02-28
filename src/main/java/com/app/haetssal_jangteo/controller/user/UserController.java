@@ -82,12 +82,12 @@ public class UserController {
         response.addCookie(rememberUserEmailCookie);
         response.addCookie(rememberCookie);
 
-        return new RedirectView("/main/home");
+        return new RedirectView("main/home");
     }
 
     @GetMapping("kakao/join")
     public String goToKakaoJoinForm(){
-        return "/join/social-join";
+        return "join/social-join";
     }
 
 //    리다이렉트 안하면 새로고침할때마다 인서트되버림

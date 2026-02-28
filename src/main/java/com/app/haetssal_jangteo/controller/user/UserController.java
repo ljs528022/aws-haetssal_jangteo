@@ -62,6 +62,7 @@ public class UserController {
 
     @PostMapping("login")
     public RedirectView login(UserDTO userDTO, Model model, HttpServletResponse response){
+        log.info("받아온 user : {}", userService.login(userDTO));
         session.setAttribute("user", userService.login(userDTO));
 
         Cookie rememberUserEmailCookie = new Cookie("remember-user-email", userDTO.getUserEmail());

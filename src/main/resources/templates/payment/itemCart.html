@@ -28,7 +28,12 @@
                                 <div class="ItemList-ItemContainer">
                                     <!-- 상품 이미지 부분 -->
                                     <div class="ItemCart-ItemImage">
-                                        <img th:src="@{/api/files/display(filePath=${cartItem.fileSavedPath}, fileName=${cartItem.fileName})}" alt="">
+                                        <th:block th:if="${cartItem.fileName}">
+                                            <img th:src="@{/api/files/display(filePath=${cartItem.fileSavedPath}, fileName=${cartItem.fileName})}" alt="">
+                                        </th:block>
+                                        <th:block th:unless="${cartItem.fileName}">
+                                            <img src="/images/TempItem-Image.png" alt="">
+                                        </th:block>
                                     </div>
 
                                     <!-- 상품 정보 부분 -->

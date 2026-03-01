@@ -502,7 +502,7 @@
                                 <div class="banner-container">
                                     <div class="banner-wrapper">
 
-                                        <div th:if="${sameCategoryItems.size() > 0}" class="similar-slide-banner">
+                                        <div th:if="${!sameCategoryItems.isEmpty()}" class="similar-slide-banner">
                                             <div class="each-card-wrapper">
                                                 <div th:each="sameCategoryItem: ${sameCategoryItems}" class="each-card">
                                                     <a th:href="@{/item/detail(id=${sameCategoryItem.id})}" class="card-link-wrapper">
@@ -531,7 +531,7 @@
                                             </div>
                                         </div>
 
-                                        <div th:if="${sameCategoryItems.isEmpty()}" class="similar-slide-banner">
+                                        <div th:unless="${!sameCategoryItems.isEmpty()}" class="similar-slide-banner">
                                             <div class="empty-box">
                                                 <div class="empty-box-wrapper">
                                                     <div class="empty-box-container">

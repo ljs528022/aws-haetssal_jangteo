@@ -69,6 +69,13 @@
     color: rgb(13, 13, 13);
 }
 
+.LoginPage-HeaderSub {
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(13, 13, 13);
+}
+
 .LoginPage-BodyWrapper {
     display: flex;
     flex-direction: column;

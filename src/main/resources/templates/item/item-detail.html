@@ -517,8 +517,8 @@
                                     <div class="banner-wrapper">
 
                                         <div th:if="${!sameCategoryItems.isEmpty()}" class="similar-slide-banner">
-                                            <div class="each-card-wrapper">
-                                                <div th:each="sameCategoryItem: ${sameCategoryItems}" class="each-card">
+                                            <div th:each="sameCategoryItem: ${sameCategoryItems}" class="each-card-wrapper">
+                                                <div class="each-card">
                                                     <a th:href="@{/item/detail(id=${sameCategoryItem.id})}" class="card-link-wrapper">
                                                         <div class="image-box">
                                                             <img class="card-image" th:if="${not #lists.isEmpty(sameCategoryItem.itemFiles)}"

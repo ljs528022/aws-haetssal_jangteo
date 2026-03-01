@@ -1234,7 +1234,6 @@ img {
 }
 
 .sticker-container.scrolled-down {
-    z-index: 1;
     position: fixed;
     width: 354px;
     overflow: hidden auto;

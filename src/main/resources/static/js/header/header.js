@@ -42,7 +42,7 @@ likeBtn?.addEventListener("click", (e) => {
     alert("추후 업데이트 예정입니다");
 });
 
-cartBtn.addEventListener("click", (e) => {
+cartBtn?.addEventListener("click", (e) => {
    const userId = cartBtn.id;
    location.href = `/cart/list?id=${userId}`;
 });

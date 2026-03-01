@@ -145,19 +145,19 @@
                                             <div class="buy-btn-container">
                                                 <div class="cta-container">
                                                     <div class="cta-btn-container">
-                                                    <th:block th:if="${session.user == null || session.user.id != item.storeOwnerId}">
-                                                        <button type="button" class="buy-btn">
-                                                            구매하기
-                                                        </button>
-                                                    </th:block>
-                                                    <th:block th:if="${session.user != null and session.user.id != item.storeOwnerId}">
-                                                        <a th:href="@{/item/update(id=${item.id})}" class="cart-btn">
-                                                            수정하기
-                                                        </a>
-                                                        <a th:href="@{/item/delete(id=${item.id})}" class="buy-btn">
-                                                            삭제하기
-                                                        </a>
-                                                    </th:block>
+                                                        <th:block th:if="${session.user == null || session.user.id != item.storeOwnerId}">
+                                                            <button type="button" class="buy-btn">
+                                                                구매하기
+                                                            </button>
+                                                        </th:block>
+                                                        <th:block th:if="${session.user != null and session.user.id == item.storeOwnerId}">
+                                                            <a th:href="@{/item/update(id=${item.id})}" class="cart-btn">
+                                                                수정하기
+                                                            </a>
+                                                            <a th:href="@{/item/delete(id=${item.id})}" class="buy-btn">
+                                                                삭제하기
+                                                            </a>
+                                                        </th:block>
                                                     </div>
                                                 </div>
                                             </div>

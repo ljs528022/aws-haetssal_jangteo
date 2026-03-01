@@ -5,6 +5,7 @@ import com.app.haetssal_jangteo.dto.ReviewDTO;
 import com.app.haetssal_jangteo.dto.UserDTO;
 import com.app.haetssal_jangteo.service.profile.ProfileService;
 import com.app.haetssal_jangteo.service.review.ReviewService;
+import com.app.haetssal_jangteo.service.store.StoreService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,12 +24,14 @@ public class MypageController {
     private final ReviewService reviewService;
     private final ProfileService profileService;
     private final HttpSession session;
+    private final StoreService storeService;
 
     @GetMapping("userpage")
     public String goToMypage(Long id, Model model){
         model.addAttribute("profileImage", profileService.getProfileImage(id));
 //        요건 옵셔널 -> 통으로 갖고와서 소개랑 이름이랑 방문수 등등...페이지 헤더부분
         model.addAttribute("userInfo", profileService.getUserProfile(id).orElse(null));
+        model.addAttribute("storeId", storeService.findByUserId(id));
         model.addAttribute("reviewCount", reviewService.getReivewCountByUserId(id));
         model.addAttribute("reviewList", reviewService.getReviewListByUserId(id));
 

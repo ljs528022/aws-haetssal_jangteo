@@ -73,8 +73,8 @@
                         <div class="UserInfo-ModifyBtn">
                             <th:block th:if="${session.user.id == userInfo.id}">
                                 <a href="/profile/modify" class="ModifyBtn-Button">프로필 편집</a>
-                                <th:block th:if="${userInfo.userType == 'seller'}">
-                                    <a th:href="@{/store/detail(id=${userInfo.id})}" class="ModifyBtn-Button">가게 관리</a>
+                                <th:block th:if="${userInfo.userType.value == 'seller'}">
+                                    <a th:href="@{/store/detail(id=${storeId})}" class="ModifyBtn-Button">가게 관리</a>
                                 </th:block>
                             </th:block>
                         </div>
@@ -864,8 +864,4 @@
 <script src="/js/user/mypage/service.js"></script>
 <script src="/js/user/mypage/layout.js"></script>
 <script src="/js/user/mypage/mypage.js"></script>
-<script>
-    const user = "[[${userInfo}]]";
-    console.log(user);
-</script>
 </html>

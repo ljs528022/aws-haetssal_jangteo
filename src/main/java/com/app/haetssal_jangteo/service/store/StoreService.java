@@ -185,6 +185,12 @@ public class StoreService {
         storeDAO.changeIsConfirmed(id);
     }
 
+    // 유저 id로 가게 조회
+    public Long findByUserId(Long id) {
+        StoreVO storeVO = storeDAO.findByStoreOwnerId(id).orElseThrow(StoreNotFoundException::new);
+        return storeVO.getId();
+    }
+
     // 검색으로 가게 조회
     public StoreWithPagingDTO findBySearch(int page, StoreSearch storeSearch) {
         StoreWithPagingDTO storeWithPagingDTO = new StoreWithPagingDTO();

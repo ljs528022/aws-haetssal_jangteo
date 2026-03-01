@@ -52,7 +52,7 @@
                                     <a class="MenuList-Content likeItems" onclick="alert('추후 업데이트 예정입니다.');">내 찜 목록</a>
                                     <a href="/profile/modify" class="MenuList-Content editInfo">내 정보 수정</a>
                                     <div class="MenuList-DividerBar"></div>
-                                    <a class="MenuList-Content logout" th:if="${session.user.authProvider.value == 'social'}" href="https://kauth.kakao.com/oauth/logout?client_id=9ffffff5782a2590a40ff8f0f6d03bda&redirect_uri=http://3.36.65.137/user/login">로그아웃</a>
+                                    <a class="MenuList-Content logout" th:if="${session.user.authProvider.value == 'social'}" href="https://kauth.kakao.com/oauth/logout?client_id=9ffffff5782a2590a40ff8f0f6d03bda&redirect_uri=http://3.36.65.137/kakao/login">로그아웃</a>
                                     <a class="MenuList-Content logout" th:unless="${session.user.authProvider.value == 'social'}" href="/user/logout">로그아웃</a>
                                 </div>
                             </div>

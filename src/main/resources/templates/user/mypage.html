@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/search.css">
 </head>
 <body>
-    <main class="MainLayout-Wrapper">
+    <main th:object="${userInfo}" class="MainLayout-Wrapper">
         <div class="Mypage-PageComponent">
             <!-- 헤더 -->
             <div class="ProfileInfo-Wrapper">
@@ -16,18 +16,18 @@
                 <div class="ProfileInfo-InnerWrapper">
                     <div class="ProfileInfo-Container">
                         <div class="UserInfo-Wrapper">
-                            <img class="UserInfo-UserAvatarImage" src="/images/haetsal-jangteo-logo.svg" >
+                            <img class="UserInfo-UserAvatarImage" th:src="@{/api/files/display(filePath=${profileImage.fileSavedPath}, fileName=${profileImage.fileName})}" >
                             <div class="UserInfo-Content">
                                 <div class="UserInfo-Name">
                                     <!-- js로 유저 이름 넣어주기 -->
-                                    <div class="UserInfo-username">홍길동</div>
+                                    <div class="UserInfo-username" th:text="*{userName}"></div>
                                 </div>
                                 <div class="UserInfo-OtherWrapper">
                                     <div class="InfoItem-Wrapper">
                                         <div class="InfoItem-Container">
                                             <!-- js에서 받아오기 없으면 "-" -->
                                             <div class="InfoItem-Title">방문 수</div>
-                                            <div class="InfoItem-Value">-</div>
+                                            <div class="InfoItem-Value" th:text="*{userVisitCount}">-</div>
                                         </div>
                                         <!-- 누르면 작성한 후기 상품 보여주기 -->
                                         <div class="InfoItem-Container clickable">
@@ -71,7 +71,10 @@
                         </div>
                         <!-- 누르면 수정 페이지로 이동 -->
                         <div class="UserInfo-ModifyBtn">
-                            <button class="ModifyBtn-Button">프로필 편집</button>
+                            <a href="/profile/modify" class="ModifyBtn-Button">프로필 편집</a>
+                            <th:block th:if="${userInfo.userType == 'seller'}">
+                                <a th:href="@{/store/detail(id=${userInfo.id})}" class="ModifyBtn-Button">가게 관리</a>
+                            </th:block>
                         </div>
                     </div>
                 </div>

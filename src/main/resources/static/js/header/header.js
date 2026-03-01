@@ -42,19 +42,6 @@ likeBtn.addEventListener("click", (e) => {
     alert("추후 업데이트 예정입니다");
 });
 
-userMenus.forEach((menu) => {
-    menu.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        const contentName = menu.classList[1];
-        switch (contentName) {
-            case "likeItems":
-                alert("추후 업데이트 예정입니다.");
-                break;
-        }
-    });
-});
-
 cartBtn.addEventListener("click", (e) => {
    const userId = cartBtn.id;
    location.href = `/cart/list?id=${userId}`;

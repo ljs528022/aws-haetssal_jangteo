@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="/css/store/store-detail-dashboard.css">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
 </head>
+<header th:replace="~{main/header/header.html::header}"></header>
 <body>
-<!-- 나중에 헤더받고 복붇 -->
     <!-- 전체화면 -->
     <div class="full-view">
         <main class="main-layout">
@@ -522,6 +522,7 @@
     </div>
 </body>
 <footer th:replace="~{main/footer.html::footer}"></footer>
+<script src="/js/header/header.js"></script>
 <script src="/js/store/event/store-detail.js"></script>
 <script src="/js/store/event/store-detail-banner.js"></script>
 <script src="/js/store/service/storeService.js"></script>

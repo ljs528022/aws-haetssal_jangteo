@@ -25,15 +25,12 @@ public class MypageController {
     private final HttpSession session;
 
     @GetMapping("userpage")
-    public String goToMypage(Model model){
-        UserDTO loggedinUser = (UserDTO) session.getAttribute("user");
-        Long userId = loggedinUser.getId();
-
-        model.addAttribute("profileImage", profileService.getProfileImage(userId));
+    public String goToMypage(Long id, Model model){
+        model.addAttribute("profileImage", profileService.getProfileImage(id));
 //        요건 옵셔널 -> 통으로 갖고와서 소개랑 이름이랑 방문수 등등...페이지 헤더부분
-        model.addAttribute("userInfo", profileService.getUserProfile(userId).orElse(null));
-        model.addAttribute("reviewCount", reviewService.getReivewCountByUserId(userId));
-        model.addAttribute("reviewList", reviewService.getReviewListByUserId(userId));
+        model.addAttribute("userInfo", profileService.getUserProfile(id).orElse(null));
+        model.addAttribute("reviewCount", reviewService.getReivewCountByUserId(id));
+        model.addAttribute("reviewList", reviewService.getReviewListByUserId(id));
 
         return "user/mypage";
     }

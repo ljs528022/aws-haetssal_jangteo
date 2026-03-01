@@ -48,17 +48,8 @@ userMenus.forEach((menu) => {
 
         const contentName = menu.classList[1];
         switch (contentName) {
-            case "mypage":
-                location.href = "/mypage/userpage";
-                break;
             case "likeItems":
                 alert("추후 업데이트 예정입니다.");
-                break;
-            case "editInfo":
-                location.href = "/profile/modify";
-                break;
-            case "logout":
-                location.href = "/user/logout";
                 break;
         }
     });

@@ -164,7 +164,7 @@ public class StoreService {
             dto.setItemCount(items.size());
 
             // 후기 중 4개 정도만 가져오기
-            dto.setStoreReviews(reviews.subList(0, Math.min(items.size(), 4)));
+            dto.setStoreReviews(reviews.subList(0, Math.min(reviews.size(), 4)));
 
             // 후기 개수
             dto.setReviewCount(reviews.size());

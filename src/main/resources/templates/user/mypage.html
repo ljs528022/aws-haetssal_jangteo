@@ -71,9 +71,11 @@
                         </div>
                         <!-- 누르면 수정 페이지로 이동 -->
                         <div class="UserInfo-ModifyBtn">
-                            <a href="/profile/modify" class="ModifyBtn-Button">프로필 편집</a>
-                            <th:block th:if="${userInfo.userType == 'seller'}">
-                                <a th:href="@{/store/detail(id=${userInfo.id})}" class="ModifyBtn-Button">가게 관리</a>
+                            <th:block th:if="${session.user.id == userInfo.id}">
+                                <a href="/profile/modify" class="ModifyBtn-Button">프로필 편집</a>
+                                <th:block th:if="${userInfo.userType == 'seller'}">
+                                    <a th:href="@{/store/detail(id=${userInfo.id})}" class="ModifyBtn-Button">가게 관리</a>
+                                </th:block>
                             </th:block>
                         </div>
                     </div>
@@ -120,10 +122,7 @@
                 <!-- 각 요소들을 off class 추가로 비활성화 -->
 
                 <!-- 메인 프로필 -->
-                <div id="profile" class="ProfileIntro-Wrapper">
-                    <!-- 소개문이 있으면 한 줄씩 span br로 출력하기 -->
-                    등록된 소개가 없습니다.
-                </div>
+                <div id="profile" class="ProfileIntro-Wrapper" th:text="*{userIntro}"></div>
 
                 <!-- 후기가 있을 경우 프로필에 같이 표기 -->
                 <!-- 작성한 후기 -->
@@ -210,183 +209,6 @@
                             </div>
                         </div>
                         <!--  -->
-                        <!--  -->
-                        <div class="MyReviews-ItemInner">
-                            <div>
-                                <!-- 후기 작성내용 부분 -->
-                                <div class="ReviewItem-BodyContainer">
-                                    <!-- 상품 리뷰 부분 -->
-                                    <div class="ReviewItem-KeyWordContainer">
-                                        <div class="ReviewItem-KeyWordItem">
-                                            <p class="ReviewItem-KeyWord">품질</p>
-                                            <p class="ReviewItem-OptionValue">만족해요</p>
-                                        </div>
-                                        <div class="ReviewItem-KeyWordItem">
-                                            <p class="ReviewItem-KeyWord">주문/배송</p>
-                                            <p class="ReviewItem-OptionValue">빨랐어요</p>
-                                        </div>
-                                        <div class="ReviewItem-KeyWordItem">
-                                            <p class="ReviewItem-KeyWord">친절</p>
-                                            <p class="ReviewItem-OptionValue">친절했어요</p>
-                                        </div>
-                                    </div>
-                                    <!-- 상품 리뷰 상세 부분 -->
-                                    <div class="ReviewItem-Paragraph">
-                                        여기에 리뷰에 대한 상세한 내용이 들어갑니다.
-                                    </div>
-                                </div>
-
-                                <!-- 후기 이미지 부분 -->
-                                <div class="ReviewItem-ImageContainer">
-                                    <div class="ReviewItem-ImageList">
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 후기를 남긴 상품 링크 -->
-                                <div class="ReviewItem-FooterContainer">
-                                    <a href="" class="ReviewItem-ItemLink">
-                                        <img alt="상품 요약 이미지" src="/images/haetsal-jangteo-logo.svg" class="ReviewItem-ItemThumnail">
-                                        <div class="ReviewItem-ItemTitle">상품 이름이 표시됩니다.</div>
-                                    </a>
-                                </div>
-
-                                <!-- 후기 작성 시간 부분 -->
-                                <div class="ReviewItem-ThumsUpContainer">
-                                    <div class="ThumsUp-Wrapper">
-                                        <div class="ThumsUp-Left">
-                                            <!-- 작성된 시간 표시하기 -->
-                                            <span>2026.01.14</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
-                        <!--  -->
-                        <div class="MyReviews-ItemInner">
-                            <div>
-                                <!-- 후기 작성내용 부분 -->
-                                <div class="ReviewItem-BodyContainer">
-                                    <!-- 상품 리뷰 부분 -->
-                                    <div class="ReviewItem-KeyWordContainer">
-                                        <div class="ReviewItem-KeyWordItem">
-                                            <p class="ReviewItem-KeyWord">품질</p>
-                                            <p class="ReviewItem-OptionValue">만족해요</p>
-                                        </div>
-                                        <div class="ReviewItem-KeyWordItem">
-                                            <p class="ReviewItem-KeyWord">주문/배송</p>
-                                            <p class="ReviewItem-OptionValue">빨랐어요</p>
-                                        </div>
-                                        <div class="ReviewItem-KeyWordItem">
-                                            <p class="ReviewItem-KeyWord">친절</p>
-                                            <p class="ReviewItem-OptionValue">친절했어요</p>
-                                        </div>
-                                    </div>
-                                    <!-- 상품 리뷰 상세 부분 -->
-                                    <div class="ReviewItem-Paragraph">
-                                        여기에 리뷰에 대한 상세한 내용이 들어갑니다.
-                                    </div>
-                                </div>
-
-                                <!-- 후기 이미지 부분 -->
-                                <div class="ReviewItem-ImageContainer">
-                                    <div class="ReviewItem-ImageList">
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                        <div>
-                                            <img alt="review-img" src="/images/TempItem-Image.png" class="ReviewItem-Image">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 후기를 남긴 상품 링크 -->
-                                <div class="ReviewItem-FooterContainer">
-                                    <a href="" class="ReviewItem-ItemLink">
-                                        <img alt="상품 요약 이미지" src="/images/haetsal-jangteo-logo.svg" class="ReviewItem-ItemThumnail">
-                                        <div class="ReviewItem-ItemTitle">상품 이름이 표시됩니다.</div>
-                                    </a>
-                                </div>
-
-                                <!-- 후기 작성 시간 부분 -->
-                                <div class="ReviewItem-ThumsUpContainer">
-                                    <div class="ThumsUp-Wrapper">
-                                        <div class="ThumsUp-Left">
-                                            <!-- 작성된 시간 표시하기 -->
-                                            <span>2026.01.14</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
-                        
-
-                        <!-- 후기 목록 페이지네이션 -->
-                        <!-- 후기 목록에서 활성화 -->
-                        <div class="ReviewItem-Pagination off">
-                            <div class="Pagination-Wrapper">
-                                <ul class="Pagination-Container">
-                                    <!-- 페이지네이션 버튼 -->
-                                    <li title="prevPage" class="Pagination-Button disabled">
-                                        <div class="Pagination-Btn Prev">
-                                            <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M32.8912 45.3014L12 23.913L32.8912 2.52471C33.5866 1.8251 34.7804 1.8251 35.4777 2.52471C36.1741 3.22333 36.1741 4.42368 35.4777 5.22224L17.1731 23.913L35.4777 42.7018C36.1741 43.4024 36.1741 44.6018 35.4777 45.4013C35.0788 45.8011 34.6819 46 34.1845 46C33.7855 45.9011 33.2881 45.7002 32.8912 45.3014Z"></path></svg>
-                                        </div>
-                                    </li>
-                                    <!-- 페이지가 있는 만큼 li 만들어서 뿌려야 함 -->
-                                    <li title="currentPage" class="Pagination-Current active">
-                                        <a rel="nofollow">1</a>
-                                    </li>
-                                    <li title="currentPage" class="Pagination-Current">
-                                        <a rel="nofollow">2</a>
-                                    </li>
-                                    <li title="currentPage" class="Pagination-Current">
-                                        <a rel="nofollow">3</a>
-                                    </li>
-                                    <li title="nextPage" class="Pagination-Button">
-                                        <div class="Pagination-Btn Next">
-                                            <svg viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.9071 46C13.4118 46 12.9164 45.8001 12.6192 45.4003C11.9257 44.7007 11.9257 43.5014 12.6192 42.7019L30.8493 24.0125L12.5201 5.22317C11.8266 4.52357 11.8266 3.32425 12.5201 2.5247C13.2136 1.8251 14.3034 1.8251 15.096 2.5247L36 24.0125L15.195 45.4003C14.7988 45.8001 14.3034 46 13.9071 46Z"></path></svg>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
                         <!-- 후기 목록 페이지 이동 -->
                         <!-- 프로필에서 활성화 -->

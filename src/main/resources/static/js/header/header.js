@@ -36,7 +36,7 @@ loginButton.addEventListener("click", (e) => {
     userMenuBar.classList.toggle("off", !isClicked);
 });
 
-likeBtn.addEventListener("click", (e) => {
+likeBtn?.addEventListener("click", (e) => {
     e.preventDefault();
 
     alert("추후 업데이트 예정입니다");

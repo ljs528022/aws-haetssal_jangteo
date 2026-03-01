@@ -2078,6 +2078,7 @@ img {
     margin-right: 15px;
     height: 100%;
     position: relative;
+    display: flex;
     box-sizing: border-box;
 }
 

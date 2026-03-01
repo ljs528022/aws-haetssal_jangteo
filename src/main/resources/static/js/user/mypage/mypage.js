@@ -21,9 +21,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     );
 
     // 후기 페이지 관련
-    const reviewPagination = document.querySelector(".ReviewItem-Pagination");
     const reviewLinkButton = document.querySelector(".ReviewItem-LinkWrapper");
-    const reviewCurrentPage = document.querySelectorAll(".Pagination-Current");
 
     const allSection = [
         profileDiv,
@@ -159,20 +157,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
             menu.classList.add("current");
 
             moveUnderBar(menu);
-        });
-    });
-
-    const prevBtn = reviewPagination.firstElementChild;
-    const nextBtn = reviewPagination.lastElementChild;
-
-    // --------------------------------------------------------------------------
-    // 페이지 버튼을 누르면 해당 페이지로 스타일 변경
-    reviewCurrentPage.forEach((current) => {
-        current.addEventListener("click", (e) => {
-            e.preventDefault();
-
-            reviewCurrentPage.forEach((r) => r.classList.remove("active"));
-            current.classList.add("active");
         });
     });
 
@@ -383,7 +367,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     // 리뷰 등록 버튼
     reviewWriteSubmit.addEventListener("click", (e) => {
-
         // 리뷰 등록하는 로직 작성해야함.
         const formData = new FormData(document.getElementById("reviewForm"));
 
@@ -418,13 +401,3 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // 로딩되면 프로필을 기본적으로 활성화
     document.querySelector('.Navigation-Span[name="profile"]')?.click();
 });
-
-// 리뷰 가져와서 뿌리기
-const fetchReivews = (reviews) => {};
-
-// 유저 정보 가져오기
-const getUser = async () => {};
-
-// 해당 유저 리뷰들 가져오기
-const getReivew = async () => {};
-

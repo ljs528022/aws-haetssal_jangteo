@@ -1,8 +1,10 @@
 package com.app.haetssal_jangteo.controller.store;
 
 import com.app.haetssal_jangteo.dto.StoreDTO;
+import com.app.haetssal_jangteo.dto.UserDTO;
 import com.app.haetssal_jangteo.service.item.ItemService;
 import com.app.haetssal_jangteo.service.store.StoreService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

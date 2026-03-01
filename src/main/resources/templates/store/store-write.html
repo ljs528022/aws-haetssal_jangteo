@@ -47,9 +47,7 @@
                             <form action="/store/write" method="post" enctype="multipart/form-data" class="main-wrap">
 
                                 <!-- 상품 소유주 id input -->
-                                <!-- 로그인 완성되면 변경 -->
-                                <!-- <input type="hidden" name="storeOwnerId" th:value="${session.user.id}"> -->
-                                <input type="hidden" name="storeOwnerId" value="2">
+                                <input type="hidden" name="storeOwnerId" th:value="${session.user.id}">
 
                                 <div id="marketNameContainer" class="each-content-container">
                                     <div class="each-left-container">

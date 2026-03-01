@@ -140,6 +140,7 @@ audio, canvas, embed, iframe, img, object, svg, video {
     flex-direction: column;
     min-width: 200px;
     margin-left: auto;
+    gap: 10px;
 }
 
 .ModifyBtn-Button {

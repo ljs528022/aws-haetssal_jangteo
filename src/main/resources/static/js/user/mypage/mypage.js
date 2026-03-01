@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // 빈 컨탠츠 div
     const emptyContentDiv = document.getElementById("empty");
 
+    const storeBtn = document.querySelector(".ModifyBtn-Button.store");
+
     // 상단 클릭 가능 화살표 부분
     const upperClickContents = document.querySelectorAll(
         ".InfoItem-Container.clickable",
@@ -400,6 +402,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
         reviewWriteModal.classList.add("off");
     });
 
+    // 가게 관리 버튼 이벤트
+    storeBtn.addEventListener("click", (e) => {
+        const storeId = storeBtn.dataset.id;
+        if(storeId) {
+           location.href = `/store/detail?id=${storeId}`;
+        } else {
+            let result = confirm("아직 가게를 등록하시지 않았습니다. \n가게 등록 페이지로 이동하시겠습니까?");
+            if(result) {
+                location.href = "/store/write"
+            }
+        }
+    })
+
     // 로딩되면 프로필을 기본적으로 활성화
     document.querySelector('.Navigation-Span[name="profile"]')?.click();
 });
@@ -413,6 +428,3 @@ const getUser = async () => {};
 // 해당 유저 리뷰들 가져오기
 const getReivew = async () => {};
 
-// 프로필 편집 버튼 누르면 페이지 이동
-const modifyBtn = document.querySelector(".ModifyBtn-Button");
-modifyBtn.addEventListener("click", (e) => {});

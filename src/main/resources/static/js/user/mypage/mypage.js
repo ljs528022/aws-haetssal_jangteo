@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     ];
 
     // 모든 페이지 일단 비활성화
-    allSection.forEach((section) => section.classList.add("off"));
+    allSection.forEach((section) => section?.classList.add("off"));
 
     // 받아온 리뷰 값
     // 받아왔을 때 boolean 값 대신 null 넣고 불러오는 메소드에서 값 넣어주기

@@ -45,7 +45,7 @@ public class ItemController {
         model.addAttribute("item", itemService.detail(id));
         model.addAttribute("sameCategoryItems", itemService.getSameCategoryItems(id));
         // 추후에 다른 상품도 받아오기
-        return "/item/item-detail";
+        return "item/item-detail";
     }
 
     @GetMapping("/update")
@@ -73,6 +73,6 @@ public class ItemController {
     @GetMapping("delete")
     public RedirectView delete(Long id) {
         itemService.delete(id);
-        return new RedirectView("/home");
+        return new RedirectView("/store/list");
     }
 }

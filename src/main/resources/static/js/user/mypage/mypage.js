@@ -29,13 +29,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
         likeItemDiv,
         pendingItemDiv,
         completeItemDiv,
-        reviewPagination,
-        reviewLinkButton,
         emptyContentDiv,
     ];
 
     // 모든 페이지 일단 비활성화
-    allSection.forEach((section) => section?.classList.add("off"));
+    allSection.forEach((section) => section.classList.add("off"));
 
     // 받아온 리뷰 값
     // 받아왔을 때 boolean 값 대신 null 넣고 불러오는 메소드에서 값 넣어주기
@@ -112,7 +110,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // --------------------------------------------------------------------------
     // 메뉴를 누를 시, 해당 페이지를 표시.
     menus.forEach((menu, i) => {
-        menu.addEventListener("click", (e) => {
+        menu.addEventListener("click", async (e) => {
             e.preventDefault();
 
             // 각 페이지 누를 때마다 표시되는 div 변경
@@ -128,7 +126,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 case "review":
                     if (reviews) {
                         reviewDiv.classList.remove("off");
-                        reviewPagination.classList.remove("off");
                     } else {
                         emptyContentDiv.classList.remove("off");
                     }
@@ -149,7 +146,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     break;
                 case "complete":
                     completeItemDiv.classList.remove("off");
-                    mypageService.goFifthTabAndCompleteItems(mypageLayout.showCompleteItems);  // 데이터 가져와서 그리기
+                    await mypageService.goFifthTabAndCompleteItems(mypageLayout.showCompleteItems);  // 데이터 가져와서 그리기
                     break;
             }
 

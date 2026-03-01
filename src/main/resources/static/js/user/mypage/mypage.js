@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         if(storeId) {
            location.href = `/store/detail?id=${storeId}`;
         } else {
-            let result = confirm("아직 가게를 등록하시지 않았습니다. \n가게 등록 페이지로 이동하시겠습니까?");
+            let result = confirm("등록된 가게가 없습니다. \n가게 등록 페이지로 이동하시겠습니까?");
             if(result) {
                 location.href = "/store/write"
             }

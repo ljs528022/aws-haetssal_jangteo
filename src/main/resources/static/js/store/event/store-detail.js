@@ -112,7 +112,7 @@ portals.forEach((portal, i) => {
 });
 
 // 1-2. 프로필 대시보드(기본화면) 맨 아래에서 후기전체보기 버튼 눌렀을때 이벤트
-showAllReview.addEventListener("click", async (e) => {
+showAllReview?.addEventListener("click", async (e) => {
 
     mainContents[0].classList.remove("on");
     portals[0].classList.remove("selected");

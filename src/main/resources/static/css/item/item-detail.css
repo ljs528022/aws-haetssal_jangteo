@@ -2012,6 +2012,7 @@ img {
     position: relative;
     z-index: 2;
     padding-bottom: 76px;
+    background: white;
 }
 
 .similar-products-container, .bought-with-container {

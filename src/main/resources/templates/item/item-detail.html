@@ -14,7 +14,7 @@
     <div th:object="${item}" class="full-view">
         <!-- 해당 상품 id input -->
         <input type="hidden" id="itemId" th:value="${item.id}">
-        <input tpye="hidden" id="loginUserId" th:value="${session.user?.id}">
+        <input type="hidden" id="loginUserId" th:value="${session.user?.id}">
 
         <main class="main-layout">
             <!-- 화면을 맨위로 올리는 버튼 -->

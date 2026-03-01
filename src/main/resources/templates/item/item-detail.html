@@ -50,7 +50,7 @@
 
                         <!-- 소개왼쪽 사진들 -->
                         <div class="cover-image-section">
-                            <div class="cover-image-list" th:if="*{itemThumbnails != null and !itemThumbnails.isEmpty()}">
+                            <div class="cover-image-list" th:if="*{!itemThumbnails.isEmpty()}">
 
                                 <!-- 커버 이미지 (큰이미지) -->
                                 <div class="main-image-container">
@@ -64,7 +64,22 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="cover-image-list" th:unless="*{!itemThumbnails.isEmpty()}">
+
+                                <!-- 커버 이미지 (큰이미지) -->
+                                <div class="main-image-container">
+                                    <img class="main-image" src="/images/TempItem-Image.png" alt="상품 커버이미지">
+                                </div>
+
+                                <!-- 아래에 작게 썸네일 이미지 -->
+                                <div class="thumbnail-container">
+                                    <div class="thumbnail-item">
+                                        <img src="/images/TempItem-Image.png" alt="preview" class="thumbnail-img">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
 
                         <!-- 오른쪽 소개칸 -->
                         <div class="product-info-section">

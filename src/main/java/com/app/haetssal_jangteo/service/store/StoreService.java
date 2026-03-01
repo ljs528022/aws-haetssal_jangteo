@@ -187,8 +187,12 @@ public class StoreService {
 
     // 유저 id로 가게 조회
     public Long findByUserId(Long id) {
-        StoreVO storeVO = storeDAO.findByStoreOwnerId(id).orElse(null);
-        return storeVO.getId();
+        Optional<StoreVO> storeVO = storeDAO.findByStoreOwnerId(id);
+        if(storeVO.isPresent()) {
+            return storeVO.get().getId();
+        } else {
+            return null;
+        }
     }
 
     // 검색으로 가게 조회

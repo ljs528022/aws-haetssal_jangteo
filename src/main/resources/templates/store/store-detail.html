@@ -350,7 +350,7 @@
                                                 <!-- 리뷰 사진들 -->
                                                 <div class="review-image-wrap">
                                                     <div class="image-list">
-                                                        <div th:each="image : ${review.reviewFiles}">
+                                                        <div th:each="image : ${review.reviewImages}">
                                                             <img class="review-image" th:src="@{/api/files/display(filePath=${image.fileSavedPath}, fileName=${image.fileName})}">
                                                         </div>
                                                     </div>

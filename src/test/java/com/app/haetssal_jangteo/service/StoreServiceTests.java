@@ -127,7 +127,7 @@
 ////                    .map(reviewDTO -> {
 ////                        List<FileReviewDTO> reviewImages = reviewDAO.findImagesInReview(reviewDTO.getId());
 ////                        if(!reviewImages.isEmpty()) {
-////                            reviewDTO.setReviewFiles(reviewImages);
+////                            reviewDTO.setReviewImages(reviewImages);
 ////                        }
 ////                    });
 //

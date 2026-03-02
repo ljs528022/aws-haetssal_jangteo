@@ -247,8 +247,8 @@ const storeLayout = (() => {
          reviews.forEach(review => {
             // 리뷰 이미지
             let imageHtml = ``;
-            if (review.reviewFiles && review.reviewFiles.length > 0) {
-               review.reviewFiles.forEach(file => {
+            if (review.reviewImages && review.reviewImages.length > 0) {
+               review.reviewImages.forEach(file => {
                   imageHtml += `
                     <div>
                         <img class="review-image" src="/api/files/display?filePath=${encodeURIComponent(file.fileSavedPath)}&fileName=${encodeURIComponent(file.fileName)}">

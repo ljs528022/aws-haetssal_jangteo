@@ -7,11 +7,14 @@ const mypageLayout = (() => {
     const showCompleteItems = (items) => {
         let text = ``;
 
+        console.log(items);
+
         if (items.length === 0) {
             text = `<div class="EmptyContent-Wrapper">거래완료된 상품이 없습니다.</div>`;
             completeItemList.innerHTML = text;
             return;
         }
+
 
         items.forEach((item) => {
             text += `

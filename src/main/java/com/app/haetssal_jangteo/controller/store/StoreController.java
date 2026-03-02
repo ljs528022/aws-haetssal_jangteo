@@ -25,7 +25,8 @@ public class StoreController {
     private final ItemService itemService;
 
     @GetMapping("write")
-    public String goToWriteForm() {
+    public String goToWriteForm(Long id, Model model) {
+        model.addAttribute("storeId", id);
         return "store/store-write";
     }
 

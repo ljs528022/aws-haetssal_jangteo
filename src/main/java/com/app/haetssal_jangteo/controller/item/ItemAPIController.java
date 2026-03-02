@@ -1,10 +1,9 @@
 package com.app.haetssal_jangteo.controller.item;
 
 import ch.qos.logback.core.model.Model;
-import com.app.haetssal_jangteo.dto.FileItemDTO;
-import com.app.haetssal_jangteo.dto.ItemDescImageDTO;
-import com.app.haetssal_jangteo.dto.ItemReviewDTO;
+import com.app.haetssal_jangteo.dto.*;
 import com.app.haetssal_jangteo.mapper.ItemMapper;
+import com.app.haetssal_jangteo.service.category.CategoryService;
 import com.app.haetssal_jangteo.service.item.ItemService;
 import com.app.haetssal_jangteo.service.review.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/item/**")
 @RequiredArgsConstructor
@@ -21,6 +22,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemAPIController {
     private final ItemService itemService;
     private final ReviewService reviewService;
+    private final CategoryService categoryService;
+
+    @GetMapping("/category")
+    public List<CategoryDTO> getCategories() {
+        return categoryService.findAll();
+    }
+
+    @GetMapping("/category/${id}")
+    public List<SubCategoryDTO> getSubCategories(@PathVariable Long id) {
+        return categoryService.findSubAllById(id);
+    }
 
     @GetMapping("/images/{id}")
     public ItemDescImageDTO getDescImages(@PathVariable Long id) {

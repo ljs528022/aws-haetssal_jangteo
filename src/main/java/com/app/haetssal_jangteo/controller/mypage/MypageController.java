@@ -39,7 +39,7 @@ public class MypageController {
     }
 
     //    5번탭으로 이동
-    @GetMapping("complete-items")
+    @GetMapping("/complete-items")
     public List<PaymentDTO> completeItems() {
         UserDTO loggedinUser = (UserDTO) session.getAttribute("user");
         Long userId = loggedinUser.getId();

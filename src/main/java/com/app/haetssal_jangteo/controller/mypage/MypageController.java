@@ -32,7 +32,7 @@ public class MypageController {
 
     @GetMapping("userpage")
     public String goToMypage(Long id, Model model) {
-        UserDTO loggedinUser = (UserDTO) session.getAttribute("user");
+        UserDTO loggedinUser = mypageService.getUserProfile(id).orElseThrow(null);
         Long userId = loggedinUser.getId();
 
         model.addAttribute("profileImage", profileService.getProfileImage(userId));

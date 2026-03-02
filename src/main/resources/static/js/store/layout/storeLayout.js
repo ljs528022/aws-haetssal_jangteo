@@ -72,7 +72,7 @@ const storeLayout = (() => {
       let text = ``;
       if(stores) {
          count = `
-         <span>${total}</span>개의 상점이 있습니다.
+         <span>${total}</span>개의 가게가 있습니다.
          `;
 
          stores.forEach(store => {

@@ -383,7 +383,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
 
     // 가게 관리 버튼 이벤트
-    storeBtn.addEventListener("click", (e) => {
+    storeBtn?.addEventListener("click", (e) => {
         const storeId = storeBtn.dataset.id;
         if(storeId) {
            location.href = `/store/detail?id=${storeId}`;

@@ -181,6 +181,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     reviewLinkButton.addEventListener("click", (e) => {
         e.preventDefault();
+
+
+
         document.querySelector('.Navigation-Span[name="review"]')?.click();
         window.scrollTo({
             top: 0,

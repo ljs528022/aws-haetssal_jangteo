@@ -11,58 +11,63 @@
                r.review_state, r.review_score_quality, r.review_score_delivery,
                r.review_score_kind, r.review_content, r.created_datetime
         from tbl_review r join tbl_item i
-        on r.review_item_id = i.id
+                               on r.review_item_id = i.id
         where r.review_user_id = #{userId}
+          and r.review_state = 'active'
         order by r.created_datetime desc
     </select>
+
+    <select id="selectAllReviewBySellerId">
+        select r.id, r.review_item_id, r.review_user_id, i.item_name,
+               r.review_state, r.review_score_quality, r.review_score_delivery,
+               r.review_score_kind, r.review_content, r.created_datetime,
+               u.user_name
+        from tbl_review r
+                 join tbl_item i on r.review_item_id = i.id
+                 join tbl_store s on i.item_store_id = s.id
+                 join tbl_user u on r.review_user_id = u.id
+        where s.store_owner_id = #{userId}
+          and r.review_state = 'active'
+        order by r.created_datetime desc
+    </select>
+
+    <update id="update">
+        update tbl_review
+        set review_score_quality = #{reviewScoreQuality},
+            review_score_delivery = #{reviewScoreDelivery},
+            review_score_kind = #{reviewScoreKind},
+            review_content = #{reviewContent}
+        where id = #{id}
+    </update>
+
+    <update id="deleteByReviewId">
+        update tbl_review
+        set review_state = 'inactive'
+        where id = #{id}
+    </update>
 
     <select id="selectReviewCountByUserId">
         select count(*)
         from tbl_review
         where review_user_id = #{userId}
+          and review_state = 'active'
     </select>
 
     <select id="selectByStoreId">
         select
-            id, reviewItemId, reviewUserId,
-            reviewScoreQuality, reviewScoreDelivery, reviewScoreKind,
-            reviewContent, reviewState, createdDatetime, updatedDatetime,
-            itemName, itemPrice,
-            storeName,
-            userName
-        from vw_store_review
-        where storeId = #{storeId}
-        order by createdDatetime desc
-        <if test="criteria != null">
-            limit #{criteria.count} offset #{criteria.offset}
-        </if>
-    </select>
-
-    <select id="selectCountByStoreId">
-        select count(*)
-        from vw_store_review
-        where storeId = #{storeId}
-    </select>
-
-    <select id="selectByItemId">
-        select
-            id, reviewItemId, reviewUserId,
-            reviewScoreQuality, reviewScoreDelivery, reviewScoreKind,
-            reviewContent, reviewState, createdDatetime, updatedDatetime,
-            itemName, itemPrice,
-            storeName,
-            userName
-        from vw_store_review
-        where reviewItemId = #{itemId}
-        order by createdDatetime desc
-        <if test="criteria != null">
-            limit #{criteria.count} offset #{criteria.offset}
-        </if>
-    </select>
-
-    <select id="selectCountByItemId">
-        select count(*)
-        from vw_store_review
-        where reviewItemId = #{itemId}
+            r.id as review_id,
+            i.id as item_id,
+            i.item_name,
+            u.user_name as reviewer_name,
+            r.review_score_quality,
+            r.review_score_delivery,
+            r.review_score_kind,
+            r.review_content,
+            r.review_state,
+            r.created_datetime
+        from tbl_review r
+                 join tbl_item i on r.review_item_id = i.id
+                 join tbl_user u on r.review_user_id = u.id
+        where i.item_store_id = #{storeId}
     </select>
 </mapper>

@@ -1,20 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.haetssal_jangteo.mapper.PaymentMapper">
+
+    <sql id="orderBy">
+        <choose>
+            <when test="search.orderValue == 'maxPrice'">order by i.item_price desc</when>
+            <when test="search.orderValue == 'minPrice'">order by i.item_price asc</when>
+            <when test="search.orderValue == 'acs'">order by i.item_name asc</when>
+            <when test="search.orderValue == 'decs'">order by i.item_name desc</when>
+            <otherwise>
+                order by p.created_datetime desc
+            </otherwise>
+        </choose>
+    </sql>
+
     <select id="selectCompleteItemsByUserId">
-        select p.id, user_id, item_id, payment_state, item_name,
-               item_content, item_price, store_name, market_name
+        select p.id, p.user_id, p.item_id, p.payment_state, i.item_name,
+        i.item_content, i.item_price, s.store_name, m.market_name,
+        p.created_datetime
         from tbl_payment p
-        join tbl_item i
-        on p.item_id = i.id
-        join tbl_store s
-        on i.item_store_id = s.id
-        join tbl_market m
-        on s.store_market_id = m.id
+        join tbl_item i on p.item_id = i.id
+        join tbl_store s on i.item_store_id = s.id
+        join tbl_market m on s.store_market_id = m.id
         where p.user_id = #{userId} and p.payment_state = 'complete'
+        <include refid="orderBy"/>
+        limit #{criteria.count} offset #{criteria.offset}
     </select>
 
-<!--    <select id="findPendingsByUserId">-->
-<!--        -->
-<!--    </select>-->
+    <select id="selectPendingByUserId">
+        select p.id, p.user_id, p.item_id, p.payment_state, i.item_name,
+        i.item_content, i.item_price, s.store_name, m.market_name,
+        p.created_datetime
+        from tbl_payment p
+        join tbl_item i on p.item_id = i.id
+        join tbl_store s on i.item_store_id = s.id
+        join tbl_market m on s.store_market_id = m.id
+        where p.user_id = #{userId} and p.payment_state = 'pending'
+        <include refid="orderBy"/>
+        limit #{criteria.count} offset #{criteria.offset}
+    </select>
+
+    <select id="selectCompleteCountByUserId">
+        select count(*) from tbl_payment
+        where user_id = #{userId} and payment_state = 'complete'
+    </select>
+
+    <select id="selectPendingCountByUserId">
+        select count(*) from tbl_payment
+        where user_id = #{userId} and payment_state = 'pending'
+    </select>
+
+    <select id="selectOrdersById">
+        select p.id, p.user_id, p.item_id, p.payment_state,
+               i.item_name, i.item_price,
+               p.created_datetime
+        from tbl_payment p
+                 join tbl_item i
+                      on p.item_id = i.id
+                 join tbl_store s
+                      on i.item_store_id = s.id
+        where s.store_owner_id = #{userId}
+        order by p.created_datetime desc
+    </select>
+
+    <select id="selectPaymentById">
+        select p.id, p.user_id, p.item_id, p.payment_state,
+               p.created_datetime,
+               i.item_name, i.item_content, i.item_price, i.item_delivery_fee,
+               s.store_name, m.market_name,
+               u.user_name, u.user_phone, u.user_email
+        from tbl_payment p
+                 join tbl_item i on p.item_id = i.id
+                 join tbl_store s on i.item_store_id = s.id
+                 join tbl_market m on s.store_market_id = m.id
+                 join tbl_user u on p.user_id = u.id
+        where p.id = #{id}
+    </select>
+
+    <update id="updatePaymentStateCancelled">
+        update tbl_payment
+        set payment_state = 'cancelled'
+        where id = #{id}
+    </update>
 </mapper>

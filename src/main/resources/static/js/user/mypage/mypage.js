@@ -182,8 +182,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     reviewLinkButton.addEventListener("click", (e) => {
         e.preventDefault();
 
-
-
         document.querySelector('.Navigation-Span[name="review"]')?.click();
         window.scrollTo({
             top: 0,
@@ -388,6 +386,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // 가게 관리 버튼 이벤트
     storeBtn?.addEventListener("click", (e) => {
         const storeId = storeBtn.dataset.id;
+        console.log(storeId);
         if(storeId) {
            location.href = `/store/detail?id=${storeId}`;
         } else {

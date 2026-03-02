@@ -8,6 +8,7 @@ import com.app.haetssal_jangteo.dto.UserDTO;
 import com.app.haetssal_jangteo.service.mypage.MypageService;
 import com.app.haetssal_jangteo.service.profile.ProfileService;
 import com.app.haetssal_jangteo.service.review.ReviewService;
+import com.app.haetssal_jangteo.service.store.StoreService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,7 @@ public class MypageController {
     private final ProfileService profileService;
     private final MypageService mypageService;
     private final HttpSession session;
+    private final StoreService storeService;
 
     @GetMapping("userpage")
     public String goToMypage(Long id, Model model) {
@@ -37,6 +39,7 @@ public class MypageController {
         model.addAttribute("userInfo", profileService.getUserProfile(userId).orElse(null));
         model.addAttribute("reviewCount", mypageService.getReivewCountByUserId(userId));
         model.addAttribute("reviewList", mypageService.getReviewListByUserId(userId));
+        model.addAttribute("storeId", storeService.findByUserId(id));
 
         return "user/mypage";
     }

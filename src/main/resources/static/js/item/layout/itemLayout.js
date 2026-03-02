@@ -15,13 +15,13 @@ const itemLayout = (() => {
     }
 
     const showSubCategories = (subCategories) => {
-        const categoryBox = document.querySelector(".category-select-dropdown.category-a");
+        const categoryBox = document.querySelector(".category-select-dropdown.category-b");
 
         let text = ``;
         if(subCategories) {
             subCategories.forEach(subCategory => {
                 text += `
-                <li class="each-category-item item-a" value="${subCategory.id}">${subCategory.categoryName}</li>
+                <li class="each-category-item item-b" value="${subCategory.id}">${subCategory.categoryName}</li>
                 `
             });
         }

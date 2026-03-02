@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/mypage.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
+<header th:replace="~{main/header/header.html::header}"></header>
 <body>
     <main th:object="${userInfo}" class="MainLayout-Wrapper">
         <div class="Mypage-PageComponent">
@@ -861,6 +864,8 @@
         </div>
     </main>
 </body>
+<footer th:replace="~{main/footer.html::footer}"></footer>
+<script src="/js/header/header.js"></script>
 <script src="/js/user/mypage/service.js"></script>
 <script src="/js/user/mypage/layout.js"></script>
 <script src="/js/user/mypage/mypage.js"></script>

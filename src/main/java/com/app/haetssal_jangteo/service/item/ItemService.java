@@ -257,6 +257,7 @@ public class   ItemService {
             fileDAO.delete(fileId);
         });
 
+        itemDAO.delete(id);
     }
 
     // 오늘자 경로 생성

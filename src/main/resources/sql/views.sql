@@ -60,6 +60,7 @@ select
     sc.category_name as itemSubCategoryName,
 
     s.id as storeId,
+    s.store_owner_id as storeOwnerId,
     s.store_name,
     s.store_score,
 

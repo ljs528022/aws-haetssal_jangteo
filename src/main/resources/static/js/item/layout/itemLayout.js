@@ -1,6 +1,7 @@
 const itemLayout = (() => {
     const showCategories = (categories) => {
         const categoryBox = document.querySelector(".category-select-dropdown.category-a");
+        const ul = document.createElement("ul");
 
         let text = ``;
         if(categories) {
@@ -9,13 +10,15 @@ const itemLayout = (() => {
                 <li class="each-category-item item-a" value="${category.id}">${category.categoryName}</li>
                 `
             });
+            ul.innerHTML = text;
         }
 
-        categoryBox.innerHTML = text;
+        categoryBox.appendChild(ul);
     }
 
     const showSubCategories = (subCategories) => {
         const categoryBox = document.querySelector(".category-select-dropdown.category-b");
+        const ul = document.createElement("ul");
 
         let text = ``;
         if(subCategories) {
@@ -24,9 +27,10 @@ const itemLayout = (() => {
                 <li class="each-category-item item-b" value="${subCategory.id}">${subCategory.categoryName}</li>
                 `
             });
+            ul.innerHTML = text;
         }
 
-        categoryBox.innerHTML = text;
+        categoryBox.appendChild(ul);
     }
 
 

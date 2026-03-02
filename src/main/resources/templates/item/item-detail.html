@@ -605,4 +605,10 @@
 <script src="/js/item/layout/itemLayout.js"></script>
 <script src="https://js.bootpay.co.kr/bootpay-5.2.8.min.js" type="application/javascript"></script>
 <script src="/js/util/paymentService.js"></script>
+<script>
+    const item = "[[${item}]]";
+    const user = "[[${session.user}]]";
+    console.log(item);
+    console.log(user);
+</script>
 </html>

@@ -70,7 +70,7 @@
                                 <th:block th:if="${session.user != null && session.user.id == storeDetail.storeOwnerId}">
                                     <div class="share-btn-wrap">
                                         <a th:href="@{/store/update(id=*{id})}" class="edit-button">수정</a>
-                                        <a onlick="alert('추후 업데이트 예정 입니다.');" class="share-button">상품 관리</a>
+                                        <div class="share-button" onclick="alert('추후 업데이트 예정');">상품 관리</div>
                                         <a th:href="@{/item/write(id=*{id})}" class="share-button">상품 등록</a>
                                     </div>
                                 </th:block>

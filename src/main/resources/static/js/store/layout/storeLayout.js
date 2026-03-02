@@ -113,7 +113,7 @@ const storeLayout = (() => {
                         </a>
                     </div>
                 </div>
-               `
+               `;
          })
       } else {
          // 가게가 없다는 카드 출력

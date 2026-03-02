@@ -116,6 +116,7 @@
         left join tbl_sub_category sc on i.item_subcategory_id = sc.id
         join tbl_store s on i.item_store_id = s.id
         where i.item_store_id = #{storeId}
+        and i.item_state = 'active'
         <if test="criteria != null">
             limit #{criteria.count} offset #{criteria.offset}
         </if>

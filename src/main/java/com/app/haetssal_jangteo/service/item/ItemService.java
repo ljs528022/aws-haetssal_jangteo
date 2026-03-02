@@ -44,9 +44,6 @@ public class   ItemService {
         String todayPath = getTodayPath();
         String path = rootPath + todayPath;
 
-        // 임시로 상품 가게 id 등록
-        itemDTO.setItemStoreId(2L);
-
         itemDAO.save(itemDTO);
 
         // 옵션이 있다면, 저장

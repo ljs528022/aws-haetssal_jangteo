@@ -84,7 +84,7 @@ itemCategory.addEventListener("click", async (e) => {
         return;
     }
 
-    await itemService.getCategories(itemLayout.showCategories());
+    await itemService.getCategories(itemLayout.showCategories);
 
     const categoryList = categoryA.querySelectorAll(
         ".each-category-item.item-a",

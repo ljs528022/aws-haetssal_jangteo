@@ -1,4 +1,35 @@
 const itemLayout = (() => {
+    const showCategories = (categories) => {
+        const categoryBox = document.querySelector(".category-select-dropdown.category-a");
+
+        let text = ``;
+        if(categories) {
+            categories.forEach(category => {
+                text += `
+                <li class="each-category-item item-a" value="${category.id}">${category.categoryName}</li>
+                `
+            });
+        }
+
+        categoryBox.innerHTML = text;
+    }
+
+    const showSubCategories = (subCategories) => {
+        const categoryBox = document.querySelector(".category-select-dropdown.category-a");
+
+        let text = ``;
+        if(subCategories) {
+            subCategories.forEach(subCategory => {
+                text += `
+                <li class="each-category-item item-a" value="${subCategory.id}">${subCategory.categoryName}</li>
+                `
+            });
+        }
+
+        categoryBox.innerHTML = text;
+    }
+
+
     const showItemDescImages = (itemImages) => {
         // 상품 설명 이미지 div
         const allInfoImageDiv = document.querySelector(".story-card-inner");
@@ -192,6 +223,8 @@ const itemLayout = (() => {
     }
 
     return {
+        showCategories: showCategories,
+        showSubCategories: showSubCategories,
         showItemDescImages: showItemDescImages,
         showItemReviews: showItemReviews
     };

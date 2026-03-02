@@ -84,6 +84,8 @@ regionBoxes.forEach((regionBox) => {
             state.value = "";
             orderValue.value = "";
 
+
+
             searchParamText.innerHTML = "전체 검색"
 
             // 전체 가게 조회

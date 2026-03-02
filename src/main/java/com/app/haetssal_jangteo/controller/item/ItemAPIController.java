@@ -29,7 +29,7 @@ public class ItemAPIController {
         return categoryService.findAll();
     }
 
-    @GetMapping("/category/${id}")
+    @GetMapping("/category/{id}")
     public List<SubCategoryDTO> getSubCategories(@PathVariable Long id) {
         return categoryService.findSubAllById(id);
     }

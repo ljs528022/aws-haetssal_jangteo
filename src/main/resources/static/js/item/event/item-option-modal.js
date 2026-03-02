@@ -37,10 +37,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     existingOptions.forEach((optionGroup, index) => {
         const optionId = optionGroup.querySelector(".option-delete-button")?.id;
-        const optionName = optionGroup.querySelector(".option-name").value;
-        const optionDetail = optionGroup.querySelector(".option-detail").value;
-        const optionPrice = optionGroup.querySelector(".option-price").value;
-        const optionStock = optionGroup.querySelector(".option-stock").value;
+        const optionName = optionGroup.querySelector(".option-name")?.value;
+        const optionDetail = optionGroup.querySelector(".option-detail")?.value;
+        const optionPrice = optionGroup.querySelector(".option-price")?.value;
+        const optionStock = optionGroup.querySelector(".option-stock")?.value;
 
         optionValues.push({
             id: optionId,

@@ -55,10 +55,11 @@
 
     <select id="selectByStoreId">
         select
-            r.id as review_id,
-            i.id as item_id,
-            i.item_name,
-            u.user_name as reviewer_name,
+            r.id,
+            i.id as reviewItemId,
+            i.item_name as itemName,
+            u.id as reviewUserId,
+            u.user_name as userName,
             r.review_score_quality,
             r.review_score_delivery,
             r.review_score_kind,
@@ -66,8 +67,8 @@
             r.review_state,
             r.created_datetime
         from tbl_review r
-                 join tbl_item i on r.review_item_id = i.id
-                 join tbl_user u on r.review_user_id = u.id
+        join tbl_item i on r.review_item_id = i.id
+        join tbl_user u on r.review_user_id = u.id
         where i.item_store_id = #{storeId}
     </select>
 

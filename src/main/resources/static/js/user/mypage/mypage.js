@@ -363,11 +363,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // --------------------------------------
 
     // 리뷰 등록 버튼
-    reviewWriteSubmit.addEventListener("click", (e) => {
+    reviewWriteSubmit.addEventListener("click", async (e) => {
         // 리뷰 등록하는 로직 작성해야함.
         const formData = new FormData(document.getElementById("reviewForm"));
 
-        mypageService.writeReview(formData, (result) => {
+        await mypageService.writeReview(formData, (result) => {
             if (result === "success") {
                 alert("리뷰가 등록되었습니다.");
                 reviewWriteModal.classList.add("off");

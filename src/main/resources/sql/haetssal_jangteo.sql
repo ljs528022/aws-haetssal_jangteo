@@ -293,8 +293,8 @@ create table tbl_item_option
     option_item_id bigint unsigned not null,
     option_name    varchar(255)    not null,
     option_detail  longtext        not null,
-    option_price   int default 0   null,
-    option_stock   int default 0   null,
+    option_price   int default 0   ,
+    option_stock   int default 0   ,
     constraint fk_option_item
         foreign key (option_item_id) references tbl_item (id)
 );
@@ -314,11 +314,11 @@ create table tbl_like_item
 
 create table tbl_payment
 (
-    id            bigint unsigned                                                         not null
-        primary key,
+    id            bigint unsigned auto_increment primary key,
     user_id       bigint unsigned                                                         not null,
     item_id       bigint unsigned                                                         not null,
     payment_state enum ('pending', 'shipping', 'complete', 'cancelled') default 'pending' null,
+    created_datetime datetime default CURRENT_TIMESTAMP null,
     constraint fk_pay_item
         foreign key (item_id) references tbl_item (id),
     constraint fk_pay_user

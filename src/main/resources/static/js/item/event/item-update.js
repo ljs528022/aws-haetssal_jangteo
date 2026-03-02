@@ -159,20 +159,29 @@ itemNameInput.addEventListener("input", (e) => {
 });
 
 // 상품 카테고리 Event
-itemCategory.addEventListener("click", (e) => {
+itemCategory.addEventListener("click", async (e) => {
+    if(e.target.closest(".category-select-dropdown")) {
+        e.stopPropagation();
+        return;
+    }
+
+    await itemService.getCategories(itemLayout.showCategories);
+
     const categoryList = categoryA.querySelectorAll(".each-category-item.item-a");
 
     itemCategory.nextElementSibling.classList.toggle("clicked");
     categoryA.classList.toggle("off");
 
     categoryList.forEach((category) => {
-        category.addEventListener("click", (e) => {
+        category.addEventListener("click", async (e) => {
             itemCategory.parentElement.classList.add("selected");
             itemCategory.value = category.innerHTML;
 
             // 값 저장
             itemCategoryIdInput.value = category.value;
             itemInfo.itemCategoryId = category.value;
+
+            await itemService.getSubCategories(itemLayout.showSubCategories);
 
             categoryA.classList.add("off");
             itemSubCategory
@@ -183,7 +192,8 @@ itemCategory.addEventListener("click", (e) => {
 });
 
 // 상세 카테고리 Event
-itemSubCategory.addEventListener("click", (e) => {
+itemSubCategory.addEventListener("click", async (e) => {
+
     const categoryList = categoryB.querySelectorAll(".each-category-item.item-b");
 
     itemSubCategory.nextElementSibling.classList.toggle("clicked");

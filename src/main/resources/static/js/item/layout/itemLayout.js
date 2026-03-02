@@ -12,8 +12,7 @@ const itemLayout = (() => {
             });
             ul.innerHTML = text;
         }
-
-        categoryBox.appendChild(ul);
+        categoryBox.replaceChildren(ul);
     }
 
     const showSubCategories = (subCategories) => {
@@ -29,8 +28,7 @@ const itemLayout = (() => {
             });
             ul.innerHTML = text;
         }
-
-        categoryBox.appendChild(ul);
+        categoryBox.replaceChildren(ul);
     }
 
 

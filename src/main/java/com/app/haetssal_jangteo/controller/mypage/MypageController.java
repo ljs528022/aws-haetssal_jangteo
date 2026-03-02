@@ -7,7 +7,7 @@ import com.app.haetssal_jangteo.dto.ReviewDTO;
 import com.app.haetssal_jangteo.dto.UserDTO;
 import com.app.haetssal_jangteo.service.mypage.MypageService;
 import com.app.haetssal_jangteo.service.profile.ProfileService;
-import com.app.haetssal_jangteo.service.mypage.ReviewService;
+import com.app.haetssal_jangteo.service.review.ReviewService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

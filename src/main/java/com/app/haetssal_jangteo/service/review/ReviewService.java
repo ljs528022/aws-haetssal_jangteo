@@ -2,6 +2,7 @@ package com.app.haetssal_jangteo.service.review;
 
 import com.app.haetssal_jangteo.common.enumeration.Filetype;
 import com.app.haetssal_jangteo.common.pagination.Criteria;
+import com.app.haetssal_jangteo.common.search.PaymentSearch;
 import com.app.haetssal_jangteo.dto.*;
 import com.app.haetssal_jangteo.repository.*;
 import com.app.haetssal_jangteo.util.DateUtils;
@@ -35,8 +36,8 @@ public class ReviewService {
     }
 
 //    5번탭에 거래완료된 애들 뿌리기 - 얘네 각각카드에 리뷰작성 버튼으로 리뷰쓰는거라 가져와야함
-    public List<PaymentDTO> getCompletesListByUserId(Long userId) {
-        return paymentDAO.findCompletesByUserId(userId);
+    public List<PaymentDTO> getCompletesListByUserId(Long userId, Criteria criteria, PaymentSearch paymentSearch) {
+        return paymentDAO.findCompletesByUserId(userId, criteria, paymentSearch);
     }
 
 //    리뷰쓰기
@@ -103,7 +104,7 @@ public class ReviewService {
                 .map(reviewDTO -> {
                     List<FileReviewDTO> reviewImages = reviewDAO.findImagesInReview(reviewDTO.getId());
                     if(!reviewImages.isEmpty()) {
-                        reviewDTO.setReviewFiles(reviewImages);
+                        reviewDTO.setReviewImages(reviewImages);
                     }
                     return reviewDTO;
                 }).collect(Collectors.toList());
@@ -136,7 +137,7 @@ public class ReviewService {
                 .map(reviewDTO -> {
                     List<FileReviewDTO> reviewImages = reviewDAO.findImagesInReview(reviewDTO.getId());
                     if(!reviewImages.isEmpty()) {
-                        reviewDTO.setReviewFiles(reviewImages);
+                        reviewDTO.setReviewImages(reviewImages);
                     }
                     return reviewDTO;
                 }).collect(Collectors.toList());
@@ -156,7 +157,16 @@ public class ReviewService {
         return itemReviewDTO;
     }
 
-//
+    //    리뷰 삭제
+    public void deleteReview(Long reviewId) {
+        reviewDAO.deleteReview(reviewId);
+    }
+
+    //    리뷰 수정
+    public void updateReview(ReviewDTO reviewDTO) {
+        reviewDAO.updateReview(reviewDTO);
+    }
+
     public String getTodayPath(){
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }

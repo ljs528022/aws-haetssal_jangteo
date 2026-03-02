@@ -147,7 +147,7 @@ public class StoreService {
                     .map(reviewDTO -> {
                         List<FileReviewDTO> reviewImages = reviewDAO.findImagesInReview(reviewDTO.getId());
                         if(!reviewImages.isEmpty()) {
-                            reviewDTO.setReviewFiles(reviewImages);
+                            reviewDTO.setReviewImages(reviewImages);
                         }
                         reviewDTO.setCreatedDatetime(DateUtils.toRelativeTime(reviewDTO.getCreatedDatetime()));
                         return reviewDTO;

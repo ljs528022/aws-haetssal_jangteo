@@ -7,7 +7,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter @ToString
+@Getter @Setter
+@ToString
 @EqualsAndHashCode(of="id")
 @NoArgsConstructor
 public class ReviewDTO {

@@ -16,7 +16,7 @@ public class PaymentDTO {
     private Long itemId;
     private PaymentState paymentState;
     private String createdDatetime;
-    //    상품이랑 가게랑 장터-목록뿔ㄹ때
+    //    상품이랑 가게랑 장터-목록뿌릴때
     private String itemName;
     private String itemPrice;
     private String itemContent;

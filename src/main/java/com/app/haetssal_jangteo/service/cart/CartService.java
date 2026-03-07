@@ -70,7 +70,6 @@ public class CartService {
         cartDAO.removeAll(cartId);
     }
 
-
     // 장바구니가 있으면 가져오고, 없으면 새로 생성
     private CartVO getOrCreateCart(Long userId) {
         return cartDAO.findByUserId(userId).orElseGet(() -> {

@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Mapper
 public interface PaymentMapper {
+
     // 거래완료인 애들 목록 (페이지네이션 + 정렬)
     public List<PaymentDTO> selectCompleteItemsByUserId(@Param("userId") Long userId,
                                                         @Param("criteria") Criteria criteria,
